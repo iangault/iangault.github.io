@@ -1,2 +1,4 @@
 .quarto
 /.quarto/
+**/*.quarto_ipynb
+.DS_Store
