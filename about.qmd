@@ -1,0 +1,9 @@
+---
+title: "About"
+---
+
+About this site
+
+My name is Ian Gault.
+
+So is this automatic?
