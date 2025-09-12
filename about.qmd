@@ -1,9 +1,13 @@
 ---
 title: "About"
+# reference from https://ucsb-meds.github.io/creating-quarto-websites/
+about:
+    template: jolla
+    image: media/109_IanG_2024.jpg
+    image-shape: round
+    image-width: 25em
 ---
 
-About this site
+Hi, my name is Ian Gault!
 
-My name is Ian Gault.
-
-So is this automatic?
+I'm a certified Professional Biologist specializing in Analytical Chemistry & Toxicology, with six years of consulting experience and a demonstrated aptitude for Data Science. Skilled in processing and reporting on high-resolution and high-dimensional data while implementing efficient database management and workflow. Seeking to advance career and foster industrial innovation by learning to apply data science and machine learning concepts to solve problems.

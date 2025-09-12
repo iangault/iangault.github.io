@@ -4,6 +4,8 @@ title: "MDS Quarto Site"
 
 This is a Quarto website.
 
-This is an additional typing - hello!
+Please go to the about section to see my bio!
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Initial set up before learning more about how to make a website.
+
+Will use the info here to support <https://quarto.org/docs/websites>.

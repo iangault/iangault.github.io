@@ -4,13 +4,13 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\nMy name is Ian Gault.\nSo is this automatic?"
+    "text": "Hi, my name is Ian Gault!\nI’m a certified Professional Biologist specializing in Analytical Chemistry & Toxicology, with six years of consulting experience and a demonstrated aptitude for Data Science. Skilled in processing and reporting on high-resolution and high-dimensional data while implementing efficient database management and workflow. Seeking to advance career and foster industrial innovation by learning to apply data science and machine learning concepts to solve problems."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "MDS Quarto Site",
     "section": "",
-    "text": "This is a Quarto website.\nThis is an additional typing - hello!\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "This is a Quarto website.\nPlease go to the about section to see my bio!\nInitial set up before learning more about how to make a website.\nWill use the info here to support https://quarto.org/docs/websites."
   }
 ]
