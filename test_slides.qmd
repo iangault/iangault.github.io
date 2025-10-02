@@ -1,0 +1,44 @@
+---
+title: "test_slides"
+author: "Ian Gault"
+format:
+  revealjs:
+    embed-resources: true
+editor: visual
+---
+
+``` r
+```
+
+# In the morning
+
+## Getting up
+
+-   Turn off alarm
+-   Get out of bed
+
+## Breakfast
+
+-   Eat eggs
+-   Drink coffee
+
+```{r}
+#| echo: true
+#| message: false
+
+x <- rnorm(100, mean = 5)
+mean(x)
+plot(x)
+```
+
+# In the evening
+
+## Dinner
+
+-   Eat spaghetti
+-   Drink wine
+
+## Going to sleep
+
+-   Get in bed
+-   Count sheep

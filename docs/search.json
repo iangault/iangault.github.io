@@ -12,5 +12,33 @@
     "title": "MDS Quarto Site",
     "section": "",
     "text": "This is a Quarto website.\nPlease go to the about section to see my bio!\nInitial set up before learning more about how to make a website.\nWill use the info here to support https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "test_slides.html#getting-up",
+    "href": "test_slides.html#getting-up",
+    "title": "test_slides",
+    "section": "Getting up",
+    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
+  },
+  {
+    "objectID": "test_slides.html#breakfast",
+    "href": "test_slides.html#breakfast",
+    "title": "test_slides",
+    "section": "Breakfast",
+    "text": "Breakfast\n\nEat eggs\nDrink coffee\n\n\nx &lt;- rnorm(100, mean = 5)\nmean(x)\n\n[1] 4.855753\n\nplot(x)"
+  },
+  {
+    "objectID": "test_slides.html#dinner",
+    "href": "test_slides.html#dinner",
+    "title": "test_slides",
+    "section": "Dinner",
+    "text": "Dinner\n\nEat spaghetti\nDrink wine"
+  },
+  {
+    "objectID": "test_slides.html#going-to-sleep",
+    "href": "test_slides.html#going-to-sleep",
+    "title": "test_slides",
+    "section": "Going to sleep",
+    "text": "Going to sleep\n\nGet in bed\nCount sheep"
   }
 ]
