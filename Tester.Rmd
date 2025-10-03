@@ -1,0 +1,44 @@
+---
+title: "Tester"
+output: github_document
+date: "2025-10-02"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+```
+
+## R Markdown
+
+This is equal to *`r 2 + 2`*
+will this be a new line?
+but this one won't?<br/>
+maybe because of br.
+
+two enters works?  
+
+two enters and 2 spaces above
+
+```{r}
+getwd()
+here()
+here("data", "fake_file.txt")
+text <- readLines(here("data", "fake_file.txt"))
+text
+```
+
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
