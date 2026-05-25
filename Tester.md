@@ -4,8 +4,9 @@ Tester
 
 ## R Markdown
 
-This is equal to *4* will this be a new line? but this one won’t?<br/>
-maybe because of br.
+This is equal to *4*
+
+will this be a new line? but this one won’t?<br/> maybe because of br.
 
 two enters works?
 
@@ -47,6 +48,12 @@ summary(cars)
     ##  Mean   :15.4   Mean   : 42.98  
     ##  3rd Qu.:19.0   3rd Qu.: 56.00  
     ##  Max.   :25.0   Max.   :120.00
+
+``` r
+x = 54
+```
+
+`x` and x and 54 whats this show?
 
 ## Including Plots
 

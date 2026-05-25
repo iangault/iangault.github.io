@@ -25,7 +25,7 @@
     "href": "test_slides.html#breakfast",
     "title": "test_slides",
     "section": "Breakfast",
-    "text": "Breakfast\n\nEat eggs\nDrink coffee\n\n\nx &lt;- rnorm(100, mean = 5)\nmean(x)\n\n[1] 4.855753\n\nplot(x)"
+    "text": "Breakfast\n\nEat eggs\nDrink coffee\n\n\nx &lt;- rnorm(100, mean = 5)\nmean(x)\n\n[1] 4.884603\n\nplot(x)"
   },
   {
     "objectID": "test_slides.html#dinner",
@@ -40,5 +40,54 @@
     "title": "test_slides",
     "section": "Going to sleep",
     "text": "Going to sleep\n\nGet in bed\nCount sheep"
+  },
+  {
+    "objectID": "Tester.html",
+    "href": "Tester.html",
+    "title": "Tester",
+    "section": "",
+    "text": "This is equal to 4 will this be a new line? but this one won’t? maybe because of br.\ntwo enters works?\ntwo enters and 2 spaces above\n\ngetwd()\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io\"\n\nhere()\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io\"\n\nhere(\"data\", \"fake_file.txt\")\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io/data/fake_file.txt\"\n\ntext &lt;- readLines(here(\"data\", \"fake_file.txt\"))\ntext\n\n[1] \"Hello World\"\n\n\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
+  },
+  {
+    "objectID": "Tester.html#r-markdown",
+    "href": "Tester.html#r-markdown",
+    "title": "Tester",
+    "section": "",
+    "text": "This is equal to 4 will this be a new line? but this one won’t? maybe because of br.\ntwo enters works?\ntwo enters and 2 spaces above\n\ngetwd()\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io\"\n\nhere()\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io\"\n\nhere(\"data\", \"fake_file.txt\")\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io/data/fake_file.txt\"\n\ntext &lt;- readLines(here(\"data\", \"fake_file.txt\"))\ntext\n\n[1] \"Hello World\"\n\n\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
+  },
+  {
+    "objectID": "Tester.html#including-plots",
+    "href": "Tester.html#including-plots",
+    "title": "Tester",
+    "section": "Including Plots",
+    "text": "Including Plots\nYou can also embed plots, for example:\n\n\n\n\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot."
+  },
+  {
+    "objectID": "first-notebook.html",
+    "href": "first-notebook.html",
+    "title": "R Notebook",
+    "section": "",
+    "text": "This is an R Markdown Notebook. When you execute code within the notebook, the results appear beneath the code.\nTry executing this chunk by clicking the Run button within the chunk or by placing your cursor inside it and pressing Cmd+Shift+Enter.\n\nplot(cars)\n\n\n\n\n\n\n\n\nAdd a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.\nWhen you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).\n\nplot(cars)\n\n\n\n\n\n\n\n\nThe preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike Knit, Preview does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed."
+  },
+  {
+    "objectID": "Tester-to-slides.html#r-markdown",
+    "href": "Tester-to-slides.html#r-markdown",
+    "title": "Tester",
+    "section": "R Markdown",
+    "text": "R Markdown\nThis is equal to 4\nwill this be a new line? but this one won’t? maybe because of br.\ntwo enters works?\ntwo enters and 2 spaces above."
+  },
+  {
+    "objectID": "Tester-to-slides.html#x-and-x-and-54-whats-this-show",
+    "href": "Tester-to-slides.html#x-and-x-and-54-whats-this-show",
+    "title": "Tester",
+    "section": "x and x and 54 whats this show?",
+    "text": "x and x and 54 whats this show?"
+  },
+  {
+    "objectID": "Tester-to-slides.html#including-plots",
+    "href": "Tester-to-slides.html#including-plots",
+    "title": "Tester",
+    "section": "Including Plots",
+    "text": "Including Plots\nYou can also embed plots, for example:\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot."
   }
 ]

@@ -1,6 +1,6 @@
 ---
 title: "Tester"
-output: github_document
+format: revealjs
 date: "2025-10-02"
 ---
 
@@ -21,7 +21,9 @@ maybe because of br.
 
 two enters works?  
 
-two enters and 2 spaces above
+two enters and 2 spaces above.
+
+---
 
 ```{r}
 getwd()
@@ -41,7 +43,7 @@ x = 54
 ```
 
 `x` and x and `r x` whats this show?
-
+---
 ## Including Plots
 
 You can also embed plots, for example:
