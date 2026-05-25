@@ -1,0 +1,32 @@
+---
+title: "Water Quality Data Harmonization Pipeline"
+description: "A production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean, analysis-ready datasets."
+author: "Ian Gault"
+date: "2025-01-01"
+categories: [R, ETL, water quality, environmental science]
+image: "field_work.jpg"
+---
+
+Environmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end.
+
+## What it does
+
+The pipeline ingests raw multi-lab water quality submissions and produces a clean, standardized dataset ready for analysis or reporting. Key steps include:
+
+- **Analyte name standardization** — resolves lab-specific submission codes to a common naming convention
+- **Fraction parsing** — extracts dissolved/total fractionation from analyte suffixes
+- **Classification** — groups analytes into analysis categories (Nutrients, Major Ions, Metals, etc.)
+- **Water type detection** — distinguishes freshwater from seawater samples to apply appropriate thresholds
+- **Unit conversion** — converts mixed units with correct scaling of associated detection limits
+- **Detection limit handling** — flags and substitutes values below detection using consistent conventions
+- **QAQC checks** — automated screening for field blanks, field duplicates, holding time exceedances, and metals ratio verification
+
+## Design
+
+The pipeline is organized into modular R functions (`harmonize.R`, `units.R`, `qaqc.R`, `database.R`, `utils.R`) and documented via an R Markdown vignette. Synthetic test data is included so the vignette runs standalone without proprietary lab submissions.
+
+All program names and site identifiers in the repository have been anonymized.
+
+## Links
+
+[View on GitHub](https://github.com/iangault/vignette-wq-harmonization){.btn .btn-outline-primary}

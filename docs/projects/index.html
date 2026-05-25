@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -220,7 +220,30 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-
+<div class="g-col-1" data-index="0" data-categories="UiUyQ0VUTCUyQ3dhdGVyJTIwcXVhbGl0eSUyQ2Vudmlyb25tZW50YWwlMjBzY2llbmNl" data-listing-date-sort="1735718400000" data-listing-file-modified-sort="1779749692870" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="197">
+<a href="../projects/wq-harmonization/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../projects/wq-harmonization/field_work.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Water Quality Data Harmonization Pipeline
+</h5>
+<div class="card-text listing-description delink">
+<p>A production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Ian Gault
+</div>
+<div class="listing-date">
+Jan 1, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->

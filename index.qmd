@@ -1,6 +1,6 @@
 ---
 title: "Ian Gault"
-subtitle: "Professional Biologist | Analytical Chemistry & Toxicology | Data Science"
+subtitle: "Data Scientist • Professional Biologist"
 about:
   template: trestles
   image: media/109_IanG_2024.jpg
@@ -17,33 +17,46 @@ about:
 
 ## About
 
-I'm a certified Professional Biologist specializing in Analytical Chemistry & Toxicology, with six years of consulting experience and a demonstrated aptitude for Data Science. Skilled in processing and reporting on high-resolution and high-dimensional data while implementing efficient database management and workflow. Seeking to advance my career by applying data science and machine learning concepts to solve real-world problems.
+Master of Data Science candidate (UBC, graduating Jun 2026) and Registered Professional Biologist with six years of experience designing reproducible data systems for biological and chemical datasets. Graduate research in wet-lab spans mass spectrometry, chemical extraction, cell cultures, and endocrine disruption & high-throughput cytotoxicity assays; subsequent work & training in end-to-end ML pipelines, ETL workflows, and data modelling. Expertise in identifying inefficiencies, building datasets from legacy sources, and translating between multi-disciplinary teams to support defensible, data-driven decisions.
 
 ## Education
 
-**Master of Data Science** *(in progress)*
-University of British Columbia
+**Master of Data Science** *(in progress, Jun 2026)*
+University of British Columbia, Vancouver, BC
 
-**B.Sc. [Your Degree]**
-[Your Institution]
+**Certificate — Applied Data Science: Leveraging AI for Decision-making** *(2023)*
+Massachusetts Institute of Technology, Cambridge, MA
+
+**Master of Science — Analytical & Environmental Toxicology** *(2015–2019)*
+University of Alberta, Edmonton, AB
+
+**Bachelor of Science — Biological Science & Science Psychology** *(with Distinction, 2015–2019)*
+University of Alberta, Edmonton, AB
 
 ## Experience
 
-**[Job Title]** | [Organization] | [Years]
-Brief description of role and key contributions.
+**Environmental Scientist** | WSP | Jul 2022 – Aug 2025
+Designed data science pipelines in R for environmental monitoring studies; ETL workflows, legacy data harmonization, and modelling. Lead data scientist, scientific communicator, and project coordinator for 10+ clients over three years.
 
-**[Job Title]** | [Organization] | [Years]
-Brief description of role and key contributions.
+**Environmental Specialist** | Hatfield Consultants | May 2019 – Jun 2022
+Led toxicological risk studies and coordinated large-scale field programs and end-to-end data pipelines — from field sample collection to R-based ETL outputs — for 10+ clients.
+
+**Graduate Research Assistant** | University of Alberta | 2015–2019
+Used cell cultures, molecular techniques (RTCA, YES/YAS), and Orbitrap mass spectrometry to perform toxicity testing and chemical characterization of oil sands process-affected water.
 
 ## Skills
 
-**Data & Programming:** R, Python, SQL, Quarto
+**Data & Programming:** R, Python, SQL, modular pipelines, ETL workflows
 
-**Analytical:** High-resolution mass spectrometry, toxicology, environmental chemistry
+**Machine Learning:** PCA, classification, regression, clustering, neural networks
 
-**Tools:** [Add your tools here]
+**Statistics:** Descriptive, inferential, Bayesian, causal; temporospatial analysis
 
-## Certifications
+**Wet Lab:** Mass spectrometry, cell cultures, molecular techniques, field sampling
 
-- Registered Professional Biologist (R.P.Bio.)
-- [Other certifications]
+**Tools:** Git, GitHub, Make, Bash, Docker, Quarto, R Markdown, Shiny, dashboarding
+
+## Certifications & Designations
+
+- **Registered Professional Biologist (RPBio)** — College of Applied Biologists, BC (2024–present)
+- **Certificate, Applied Data Science: Leveraging AI for Decision-making** — MIT (2023)

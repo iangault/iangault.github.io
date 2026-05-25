@@ -18,77 +18,105 @@
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "No matching items"
+    "text": "Water Quality Data Harmonization Pipeline\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nIan Gault\n\n\nJan 1, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "scientific-communication.html",
     "href": "scientific-communication.html",
     "title": "Scientific Communication",
     "section": "",
-    "text": "Add your peer-reviewed publications here."
+    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
   },
   {
     "objectID": "scientific-communication.html#publications",
     "href": "scientific-communication.html#publications",
     "title": "Scientific Communication",
     "section": "",
-    "text": "Add your peer-reviewed publications here."
+    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
   },
   {
     "objectID": "scientific-communication.html#conference-presentations",
     "href": "scientific-communication.html#conference-presentations",
     "title": "Scientific Communication",
     "section": "Conference Presentations",
-    "text": "Conference Presentations\nAdd your conference presentations here."
+    "text": "Conference Presentations\nSETAC North America — Sacramento, CA (Nov 2018) Oral: Endocrine Activity of Oil Sands Process-Affected Water: Evaluating Ageing as a Remediation Strategy.\nSETAC-Prairie Northern Chapter Conference — Edmonton, AB (Jun 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nCanadian Chemistry Conference — Edmonton, AB (May 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nCanadian Chemistry Conference — Toronto, ON (May 2017) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy."
   },
   {
     "objectID": "scientific-communication.html#presentation-awards",
     "href": "scientific-communication.html#presentation-awards",
     "title": "Scientific Communication",
     "section": "Presentation Awards",
-    "text": "Presentation Awards\nAdd any awards received for presentations here."
+    "text": "Presentation Awards\n\n\n\n\n\n\n\n\nYear\nConference\nAward\n\n\n\n\n2018\nSETAC North America\n3rd Place, Best Student Presentation (Masters category)\n\n\n2018\nSETAC-Prairie Northern Chapter\n1st Place, Best Student/PDF Oral Presentation\n\n\n2018\nCanadian Chemistry Conference\nOutstanding Graduate Oral Presentation\n\n\n2017\nCanadian Chemistry Conference\nBell McLeod Educational Fund Award; GSA Academic Travel Award"
+  },
+  {
+    "objectID": "projects/wq-harmonization/index.html",
+    "href": "projects/wq-harmonization/index.html",
+    "title": "Water Quality Data Harmonization Pipeline",
+    "section": "",
+    "text": "Environmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end."
+  },
+  {
+    "objectID": "projects/wq-harmonization/index.html#what-it-does",
+    "href": "projects/wq-harmonization/index.html#what-it-does",
+    "title": "Water Quality Data Harmonization Pipeline",
+    "section": "What it does",
+    "text": "What it does\nThe pipeline ingests raw multi-lab water quality submissions and produces a clean, standardized dataset ready for analysis or reporting. Key steps include:\n\nAnalyte name standardization — resolves lab-specific submission codes to a common naming convention\nFraction parsing — extracts dissolved/total fractionation from analyte suffixes\nClassification — groups analytes into analysis categories (Nutrients, Major Ions, Metals, etc.)\nWater type detection — distinguishes freshwater from seawater samples to apply appropriate thresholds\nUnit conversion — converts mixed units with correct scaling of associated detection limits\nDetection limit handling — flags and substitutes values below detection using consistent conventions\nQAQC checks — automated screening for field blanks, field duplicates, holding time exceedances, and metals ratio verification"
+  },
+  {
+    "objectID": "projects/wq-harmonization/index.html#design",
+    "href": "projects/wq-harmonization/index.html#design",
+    "title": "Water Quality Data Harmonization Pipeline",
+    "section": "Design",
+    "text": "Design\nThe pipeline is organized into modular R functions (harmonize.R, units.R, qaqc.R, database.R, utils.R) and documented via an R Markdown vignette. Synthetic test data is included so the vignette runs standalone without proprietary lab submissions.\nAll program names and site identifiers in the repository have been anonymized."
+  },
+  {
+    "objectID": "projects/wq-harmonization/index.html#links",
+    "href": "projects/wq-harmonization/index.html#links",
+    "title": "Water Quality Data Harmonization Pipeline",
+    "section": "Links",
+    "text": "Links\nView on GitHub"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Ian Gault",
     "section": "",
-    "text": "I’m a certified Professional Biologist specializing in Analytical Chemistry & Toxicology, with six years of consulting experience and a demonstrated aptitude for Data Science. Skilled in processing and reporting on high-resolution and high-dimensional data while implementing efficient database management and workflow. Seeking to advance my career by applying data science and machine learning concepts to solve real-world problems."
+    "text": "Master of Data Science candidate (UBC, graduating Jun 2026) and Registered Professional Biologist with six years of experience designing reproducible data systems for biological and chemical datasets. Graduate research in wet-lab spans mass spectrometry, chemical extraction, cell cultures, and endocrine disruption & high-throughput cytotoxicity assays; subsequent work & training in end-to-end ML pipelines, ETL workflows, and data modelling. Expertise in identifying inefficiencies, building datasets from legacy sources, and translating between multi-disciplinary teams to support defensible, data-driven decisions."
   },
   {
     "objectID": "index.html#about",
     "href": "index.html#about",
     "title": "Ian Gault",
     "section": "",
-    "text": "I’m a certified Professional Biologist specializing in Analytical Chemistry & Toxicology, with six years of consulting experience and a demonstrated aptitude for Data Science. Skilled in processing and reporting on high-resolution and high-dimensional data while implementing efficient database management and workflow. Seeking to advance my career by applying data science and machine learning concepts to solve real-world problems."
+    "text": "Master of Data Science candidate (UBC, graduating Jun 2026) and Registered Professional Biologist with six years of experience designing reproducible data systems for biological and chemical datasets. Graduate research in wet-lab spans mass spectrometry, chemical extraction, cell cultures, and endocrine disruption & high-throughput cytotoxicity assays; subsequent work & training in end-to-end ML pipelines, ETL workflows, and data modelling. Expertise in identifying inefficiencies, building datasets from legacy sources, and translating between multi-disciplinary teams to support defensible, data-driven decisions."
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Ian Gault",
     "section": "Education",
-    "text": "Education\nMaster of Data Science (in progress) University of British Columbia\nB.Sc. [Your Degree] [Your Institution]"
+    "text": "Education\nMaster of Data Science (in progress, Jun 2026) University of British Columbia, Vancouver, BC\nCertificate — Applied Data Science: Leveraging AI for Decision-making (2023) Massachusetts Institute of Technology, Cambridge, MA\nMaster of Science — Analytical & Environmental Toxicology (2015–2019) University of Alberta, Edmonton, AB\nBachelor of Science — Biological Science & Science Psychology (with Distinction, 2015–2019) University of Alberta, Edmonton, AB"
   },
   {
     "objectID": "index.html#experience",
     "href": "index.html#experience",
     "title": "Ian Gault",
     "section": "Experience",
-    "text": "Experience\n[Job Title] | [Organization] | [Years] Brief description of role and key contributions.\n[Job Title] | [Organization] | [Years] Brief description of role and key contributions."
+    "text": "Experience\nEnvironmental Scientist | WSP | Jul 2022 – Aug 2025 Designed data science pipelines in R for environmental monitoring studies; ETL workflows, legacy data harmonization, and modelling. Lead data scientist, scientific communicator, and project coordinator for 10+ clients over three years.\nEnvironmental Specialist | Hatfield Consultants | May 2019 – Jun 2022 Led toxicological risk studies and coordinated large-scale field programs and end-to-end data pipelines — from field sample collection to R-based ETL outputs — for 10+ clients.\nGraduate Research Assistant | University of Alberta | 2015–2019 Used cell cultures, molecular techniques (RTCA, YES/YAS), and Orbitrap mass spectrometry to perform toxicity testing and chemical characterization of oil sands process-affected water."
   },
   {
     "objectID": "index.html#skills",
     "href": "index.html#skills",
     "title": "Ian Gault",
     "section": "Skills",
-    "text": "Skills\nData & Programming: R, Python, SQL, Quarto\nAnalytical: High-resolution mass spectrometry, toxicology, environmental chemistry\nTools: [Add your tools here]"
+    "text": "Skills\nData & Programming: R, Python, SQL, modular pipelines, ETL workflows\nMachine Learning: PCA, classification, regression, clustering, neural networks\nStatistics: Descriptive, inferential, Bayesian, causal; temporospatial analysis\nWet Lab: Mass spectrometry, cell cultures, molecular techniques, field sampling\nTools: Git, GitHub, Make, Bash, Docker, Quarto, R Markdown, Shiny, dashboarding"
   },
   {
-    "objectID": "index.html#certifications",
-    "href": "index.html#certifications",
+    "objectID": "index.html#certifications-designations",
+    "href": "index.html#certifications-designations",
     "title": "Ian Gault",
-    "section": "Certifications",
-    "text": "Certifications\n\nRegistered Professional Biologist (R.P.Bio.)\n[Other certifications]"
+    "section": "Certifications & Designations",
+    "text": "Certifications & Designations\n\nRegistered Professional Biologist (RPBio) — College of Applied Biologists, BC (2024–present)\nCertificate, Applied Data Science: Leveraging AI for Decision-making — MIT (2023)"
   },
   {
     "objectID": "blog/posts/welcome.html",

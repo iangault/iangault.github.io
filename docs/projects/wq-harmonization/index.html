@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ian Gault">
+<meta name="dcterms.date" content="2025-01-01">
+<meta name="description" content="A production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean, analysis-ready datasets.">
 
-<title>Ian Gault</title>
+<title>Water Quality Data Harmonization Pipeline – Ian Gault</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5a8b59a38d6a242ba28d8f1073ace492.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5a8b59a38d6a242ba28d8f1073ace492.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -78,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ian Gault</span>
     </a>
   </div>
@@ -89,19 +93,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> 
+    <a class="nav-link" href="../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./scientific-communication.html"> 
+    <a class="nav-link" href="../../scientific-communication.html"> 
 <span class="menu-text">Scientific Communication</span></a>
   </li>  
 </ul>
@@ -130,80 +134,95 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
+   
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
-  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">Education</a></li>
-  <li><a href="#experience" id="toc-experience" class="nav-link" data-scroll-target="#experience">Experience</a></li>
-  <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a></li>
-  <li><a href="#certifications-designations" id="toc-certifications-designations" class="nav-link" data-scroll-target="#certifications-designations">Certifications &amp; Designations</a></li>
+  <li><a href="#what-it-does" id="toc-what-it-does" class="nav-link active" data-scroll-target="#what-it-does">What it does</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="media/109_IanG_2024.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Ian Gault</h1>
-<p class="subtitle lead">Data Scientist • Professional Biologist</p>
+<h1 class="title">Water Quality Data Harmonization Pipeline</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">ETL</div>
+    <div class="quarto-category">water quality</div>
+    <div class="quarto-category">environmental science</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean, analysis-ready datasets.
+  </div>
 </div>
+
+
 <div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ian Gault </p>
+          </div>
   </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 1, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://github.com/iangault" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="https://www.linkedin.com/in/iangault" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
 
-<section id="about" class="level2">
-<h2 data-anchor-id="about">About</h2>
-<p>Master of Data Science candidate (UBC, graduating Jun 2026) and Registered Professional Biologist with six years of experience designing reproducible data systems for biological and chemical datasets. Graduate research in wet-lab spans mass spectrometry, chemical extraction, cell cultures, and endocrine disruption &amp; high-throughput cytotoxicity assays; subsequent work &amp; training in end-to-end ML pipelines, ETL workflows, and data modelling. Expertise in identifying inefficiencies, building datasets from legacy sources, and translating between multi-disciplinary teams to support defensible, data-driven decisions.</p>
-</section>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<p><strong>Master of Data Science</strong> <em>(in progress, Jun 2026)</em> University of British Columbia, Vancouver, BC</p>
-<p><strong>Certificate — Applied Data Science: Leveraging AI for Decision-making</strong> <em>(2023)</em> Massachusetts Institute of Technology, Cambridge, MA</p>
-<p><strong>Master of Science — Analytical &amp; Environmental Toxicology</strong> <em>(2015–2019)</em> University of Alberta, Edmonton, AB</p>
-<p><strong>Bachelor of Science — Biological Science &amp; Science Psychology</strong> <em>(with Distinction, 2015–2019)</em> University of Alberta, Edmonton, AB</p>
-</section>
-<section id="experience" class="level2">
-<h2 data-anchor-id="experience">Experience</h2>
-<p><strong>Environmental Scientist</strong> | WSP | Jul 2022 – Aug 2025 Designed data science pipelines in R for environmental monitoring studies; ETL workflows, legacy data harmonization, and modelling. Lead data scientist, scientific communicator, and project coordinator for 10+ clients over three years.</p>
-<p><strong>Environmental Specialist</strong> | Hatfield Consultants | May 2019 – Jun 2022 Led toxicological risk studies and coordinated large-scale field programs and end-to-end data pipelines — from field sample collection to R-based ETL outputs — for 10+ clients.</p>
-<p><strong>Graduate Research Assistant</strong> | University of Alberta | 2015–2019 Used cell cultures, molecular techniques (RTCA, YES/YAS), and Orbitrap mass spectrometry to perform toxicity testing and chemical characterization of oil sands process-affected water.</p>
-</section>
-<section id="skills" class="level2">
-<h2 data-anchor-id="skills">Skills</h2>
-<p><strong>Data &amp; Programming:</strong> R, Python, SQL, modular pipelines, ETL workflows</p>
-<p><strong>Machine Learning:</strong> PCA, classification, regression, clustering, neural networks</p>
-<p><strong>Statistics:</strong> Descriptive, inferential, Bayesian, causal; temporospatial analysis</p>
-<p><strong>Wet Lab:</strong> Mass spectrometry, cell cultures, molecular techniques, field sampling</p>
-<p><strong>Tools:</strong> Git, GitHub, Make, Bash, Docker, Quarto, R Markdown, Shiny, dashboarding</p>
-</section>
-<section id="certifications-designations" class="level2">
-<h2 data-anchor-id="certifications-designations">Certifications &amp; Designations</h2>
+
+<p>Environmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end.</p>
+<section id="what-it-does" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-does">What it does</h2>
+<p>The pipeline ingests raw multi-lab water quality submissions and produces a clean, standardized dataset ready for analysis or reporting. Key steps include:</p>
 <ul>
-<li><strong>Registered Professional Biologist (RPBio)</strong> — College of Applied Biologists, BC (2024–present)</li>
-<li><strong>Certificate, Applied Data Science: Leveraging AI for Decision-making</strong> — MIT (2023)</li>
+<li><strong>Analyte name standardization</strong> — resolves lab-specific submission codes to a common naming convention</li>
+<li><strong>Fraction parsing</strong> — extracts dissolved/total fractionation from analyte suffixes</li>
+<li><strong>Classification</strong> — groups analytes into analysis categories (Nutrients, Major Ions, Metals, etc.)</li>
+<li><strong>Water type detection</strong> — distinguishes freshwater from seawater samples to apply appropriate thresholds</li>
+<li><strong>Unit conversion</strong> — converts mixed units with correct scaling of associated detection limits</li>
+<li><strong>Detection limit handling</strong> — flags and substitutes values below detection using consistent conventions</li>
+<li><strong>QAQC checks</strong> — automated screening for field blanks, field duplicates, holding time exceedances, and metals ratio verification</li>
 </ul>
+</section>
+<section id="design" class="level2">
+<h2 class="anchored" data-anchor-id="design">Design</h2>
+<p>The pipeline is organized into modular R functions (<code>harmonize.R</code>, <code>units.R</code>, <code>qaqc.R</code>, <code>database.R</code>, <code>utils.R</code>) and documented via an R Markdown vignette. Synthetic test data is included so the vignette runs standalone without proprietary lab submissions.</p>
+<p>All program names and site identifiers in the repository have been anonymized.</p>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<p><a href="https://github.com/iangault/vignette-wq-harmonization" class="btn btn-outline-primary">View on GitHub</a></p>
 
 
 </section>
-</main></div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

@@ -8,6 +8,8 @@
   },
   {
     "listing": "/projects/index.html",
-    "items": []
+    "items": [
+      "/projects/wq-harmonization/index.html"
+    ]
   }
 ]
