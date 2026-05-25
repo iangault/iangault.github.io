@@ -1,93 +1,100 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
     "section": "",
-    "text": "Hi, my name is Ian Gault!\nI’m a certified Professional Biologist specializing in Analytical Chemistry & Toxicology, with six years of consulting experience and a demonstrated aptitude for Data Science. Skilled in processing and reporting on high-resolution and high-dimensional data while implementing efficient database management and workflow. Seeking to advance career and foster industrial innovation by learning to apply data science and machine learning concepts to solve problems."
+    "text": "Welcome\n\n\n\ngeneral\n\n\n\n\n\n\n\n\n\nMay 25, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nNADA2: Accurate environmental monitoring starts with handling censured data\n\n\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 13, 2026\n\n\nIan Gault\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/posts/NADA2/index.html",
+    "href": "blog/posts/NADA2/index.html",
+    "title": "NADA2: Accurate environmental monitoring starts with handling censured data",
+    "section": "",
+    "text": "Image taken from: A global agreement to tame chemical pollution | United Nations. https://www.un.org/en/climatechange/global-agreement-tame-chemical-pollution. Accessed January 17, 2026.\nWith industrialization, humans have influenced the environment in which they live. We synthesize chemicals for specific uses and extract natural resources with chemical byproducts as waste. Exposure to chemical contaminants is unavoidable; even in environments that appear pristine and are free of human influence, such as regions of the Arctic, persistent synthetic chemicals can be detected by laboratory methods.1\nThe fields of analytical chemistry and toxicology converge to measure concentrations of chemical contaminants in the environment, in our food, water, and consumer products, and in our bodies, and to assess their associated health effects. With the backlog of chemical contaminants we are exposed to, many of whose toxicology is unknown, and the thousands of chemicals we encounter in our lives, methods in toxicology have been changing to keep up with the public health concern.2–4 However, at its root, effective chemical measurements through laboratory testing are needed to assess risk.\nEach method for measuring chemical concentrations has a lower limit, below which the instrument is not sensitive enough to detect true differences in concentrations. This inherent artifact of analytical instruments, though technology is continuously improving to get lower and lower detection limits of trace chemicals.\nEnvironmental chemistry typically follows a log-normal distribution,5 i.e., a right-skewed distribution, with fewer “hits” of hot spots with high-concentration observations relative to the majority of the dataset. Replacing the &lt;DL values with a constant cuts off the lower tail of the distribution, as shown in Figure 1. This is known as left-censored data.\n\nNote: Example figure was generated with ChatGPT5\nCommon practice in environmental monitoring is to impute observations below the detection limit (&lt;DL) to either 1 × DL or 1/2 × DL, because the data exists, but is not observable.6 This has traditionally been practical and was an accepted bias in summary statistics used in chemical evaluation. However, by doing so, you lose the data’s variability, which informs inferential techniques such as confidence intervals and hypothesis testing. And, depending on the distribution of the data and the substitution made, this can both overestimate and underestimate risk, collapsing a range of values into a single guess.\nAnother option–though, is arguably even worse!–would be to remove the censored data completely, removing that valuable information for when concentrations are low and artificially inflating the detected concentrations. Comparisons of contaminated environments that are of concern to surrounding life are usually done using summary statistics, such as upper bounds on chemical concentrations (or lower bounds for toxic effects), which can bias summary statistics used in chemical risk assessment.\nOverall, these two approaches do not incorporate modern methods for handling censored data based on probability and distributional data, and multiple options now exist to incorporate into your workflow, contributing to more accurate, measured downstream analyses.\nThree methods exist: parametric testing, which assumes a particular distribution for the data; non-parametric testing, which makes no distributional assumptions but ranks observations; or semi-parametric testing, which combines both, assuming a distribution while also ranking observations.7\nNADA2 is an R package that provides tools to handle censored data.8 It can incorporate the distribution of the data and provide a probabilistic representation of concentrations that are &lt;DL, thereby avoiding the fixed, direct substitution methods. It is aware of the censorship of the data, allowing for more explicit incorporation of uncertainty and unbiased summary statistics.\nMost commonly, a semi-parametric approach called Regression on Order Statistics (ROS) is used.8 Given that environmental chemistry data is often log-normal, ROS applies a log transformation and ranks observations with their expected normal quantiles. A regression is then used to estimate where censored observations would plausibly fall in the lower tail of the distribution. Here, the censored data is not replaced; instead, values are inferred from the distribution to avoid bias in how the data is used. In other words, the probability distribution is conditional on whether the data is censored or not, as described below:\n\\[\nX_i = \\begin{cases} x_i, & \\text{if detected} \\\\ &lt; DL_i, & \\text{if censored} \\end{cases}\n\\] For censored observations: \\[\nP(X \\le x \\mid X &lt; DL)\n\\] For detected observations: \\[\nP(X \\le x \\mid X \\ge DL_{\\min})\n\\] Note: Equations generated by ChatGPT5\nThis is what’s going on under the hood for the following example code:\n\n# Toy dataframe\ndf &lt;- data.frame(\n  concentration = c(0.2, 0.5, 1.0, 0.4, 2.0, 0.3),\n  censored = c(TRUE, TRUE, FALSE, TRUE, FALSE, TRUE)\n)\n# Created the log-normal estimated distribution\nestimated_distribution &lt;- NADA2::ros(df$concentration, df$censored)\n# Calculated unbiased summary statistics\nmean(estimated_distribution)\nmedian(estimated_distribution)\n# Test to evaluate guideline exceedances for an example contaminated site based on a censor-aware concentration point estimate\npoint_estimate &lt;- quantile(fit, 0.95)\nguideline &lt;- 0.35\nexceedance &lt;- point_estimate &gt; guideline\n\nThe semi-parametric ROS approach is best used when the distribution of data may not fully fit a log-normal distribution, which is often the case in real-world scenarios. It is also reasonably defensible for a high degree of censored data, with a frequency of 30%-50%.7 It is effective for summary statistics, trends, and guideline comparisons; however, it is not a predictive model.\nThe choice of approach depends on the assessment’s goal. If a predictive model is needed, such as estimating concentrations of chemicals in a lake based on the current outflow and concentrations, and a distribution assumption is defensible, then parametric testing would be needed. In this case, NADA provides parametric testing that assigns a distribution and uses Maximum Likelihood Estimates (MLE) to predict concentrations.7,8 An example of the code is below:\n\n# NOTE: this function is from the older package NADA\nparametric_distribution &lt;- NADA::cenmle(df$concentration, df$censored, dist = \"lognormal\")\n\nNon-parametric metrics, such as the Kaplan-Meier estimator, make minimal distributional assumptions; this can be suitable depending on how your data looks, allowing you to still extract valuable information. However, the representations of left-censored data are poorer compared to semi-parametric and parametric methods, with limited extrapolation from observed values and no smoothing.9 Therefore, it is less sensitive.\nThe incorporation of NADA2 or similar packages into an environmental data science workflow is not too much additional work, but does require a shift in perspective. There may be an initial learning curve to understand what’s happening, but the coding is minimal and defensible. Environmental scientists may be resistant to turning to a coding-based workflow and to changing their approach based on what has always been done or what has previously been accepted, but the benefits outweigh the initial discomfort.\nThis is needed because some chemical contaminants have very low recommended safe doses that are approaching the detection limit of our best laboratory methods. As a result, small biases in our imputed values, which may be minor when chemical concentrations are well above the detection limit, can have a much greater impact as measured concentrations approach the detection limit. As environmental scientists, we now have the tools to do better: to accurately represent the data in our studies, make inferences, and have measured remediation strategies and protections for the environment and the life within it.\n\nReferences\n\nPersistent Organic Pollutants: A Global Issue, A Global Response | US EPA. https://www.epa.gov/international-cooperation/persistent-organic-pollutants-global-issue-global-response. Accessed January 13, 2026.\nKrewski D, Westphal M, Andersen ME, et al. A framework for the next generation of risk science. Environ Health Perspect. 2014;122(8):796-805. doi:10.1289/ehp.1307260\nBell SM, Chang X, Wambaugh JF, et al. in vitro to in vivo extrapolation for high throughput prioritization and decision making. Toxicol Vitr. 2018;47(December 2017):213-227. doi:10.1016/j.tiv.2017.11.016\nTox21. Toxicology in the 21st Century. https://tox21.gov/overview/about-tox21/. Accessed January 8, 2025.\nAndersson A. Mechanisms for log normal concentration distributions in the environment. Sci Reports 2021 111. 2021;11(1):16418-. doi:10.1038/s41598-021-96010-6\nMihalache OA, Dall’Asta C. Left-censored data and where to find them: Current implications in mycotoxin-related risk assessment, legislative and economic impacts. Trends Food Sci Technol. 2023;136:112-119. doi:10.1016/J.TIFS.2023.04.011\nHolbert C. How to Calculate Summary Statistics for Left-Censored Data. https://www.cfholbert.com/blog/summary-statistics-censored-data/. Published 2022. Accessed January 17, 2026.\nNADA2 package - RDocumentation. https://www.rdocumentation.org/packages/NADA2/versions/2.0.1. Accessed January 8, 2026.\nWey A, Connett J, Rudser K. Combining parametric, semi-parametric, and non-parametric survival models with stacked survival models. Biostatistics. 2015;16(3):537. doi:10.1093/BIOSTATISTICS/KXV001"
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "scientific-communication.html",
+    "href": "scientific-communication.html",
+    "title": "Scientific Communication",
+    "section": "",
+    "text": "Add your peer-reviewed publications here."
+  },
+  {
+    "objectID": "scientific-communication.html#publications",
+    "href": "scientific-communication.html#publications",
+    "title": "Scientific Communication",
+    "section": "",
+    "text": "Add your peer-reviewed publications here."
+  },
+  {
+    "objectID": "scientific-communication.html#conference-presentations",
+    "href": "scientific-communication.html#conference-presentations",
+    "title": "Scientific Communication",
+    "section": "Conference Presentations",
+    "text": "Conference Presentations\nAdd your conference presentations here."
+  },
+  {
+    "objectID": "scientific-communication.html#presentation-awards",
+    "href": "scientific-communication.html#presentation-awards",
+    "title": "Scientific Communication",
+    "section": "Presentation Awards",
+    "text": "Presentation Awards\nAdd any awards received for presentations here."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "MDS Quarto Site",
+    "title": "Ian Gault",
     "section": "",
-    "text": "This is a Quarto website.\nPlease go to the about section to see my bio!\nInitial set up before learning more about how to make a website.\nWill use the info here to support https://quarto.org/docs/websites."
+    "text": "I’m a certified Professional Biologist specializing in Analytical Chemistry & Toxicology, with six years of consulting experience and a demonstrated aptitude for Data Science. Skilled in processing and reporting on high-resolution and high-dimensional data while implementing efficient database management and workflow. Seeking to advance my career by applying data science and machine learning concepts to solve real-world problems."
   },
   {
-    "objectID": "test_slides.html#getting-up",
-    "href": "test_slides.html#getting-up",
-    "title": "test_slides",
-    "section": "Getting up",
-    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
-  },
-  {
-    "objectID": "test_slides.html#breakfast",
-    "href": "test_slides.html#breakfast",
-    "title": "test_slides",
-    "section": "Breakfast",
-    "text": "Breakfast\n\nEat eggs\nDrink coffee\n\n\nx &lt;- rnorm(100, mean = 5)\nmean(x)\n\n[1] 4.884603\n\nplot(x)"
-  },
-  {
-    "objectID": "test_slides.html#dinner",
-    "href": "test_slides.html#dinner",
-    "title": "test_slides",
-    "section": "Dinner",
-    "text": "Dinner\n\nEat spaghetti\nDrink wine"
-  },
-  {
-    "objectID": "test_slides.html#going-to-sleep",
-    "href": "test_slides.html#going-to-sleep",
-    "title": "test_slides",
-    "section": "Going to sleep",
-    "text": "Going to sleep\n\nGet in bed\nCount sheep"
-  },
-  {
-    "objectID": "Tester.html",
-    "href": "Tester.html",
-    "title": "Tester",
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Ian Gault",
     "section": "",
-    "text": "This is equal to 4 will this be a new line? but this one won’t? maybe because of br.\ntwo enters works?\ntwo enters and 2 spaces above\n\ngetwd()\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io\"\n\nhere()\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io\"\n\nhere(\"data\", \"fake_file.txt\")\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io/data/fake_file.txt\"\n\ntext &lt;- readLines(here(\"data\", \"fake_file.txt\"))\ntext\n\n[1] \"Hello World\"\n\n\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
+    "text": "I’m a certified Professional Biologist specializing in Analytical Chemistry & Toxicology, with six years of consulting experience and a demonstrated aptitude for Data Science. Skilled in processing and reporting on high-resolution and high-dimensional data while implementing efficient database management and workflow. Seeking to advance my career by applying data science and machine learning concepts to solve real-world problems."
   },
   {
-    "objectID": "Tester.html#r-markdown",
-    "href": "Tester.html#r-markdown",
-    "title": "Tester",
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Ian Gault",
+    "section": "Education",
+    "text": "Education\nMaster of Data Science (in progress) University of British Columbia\nB.Sc. [Your Degree] [Your Institution]"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Ian Gault",
+    "section": "Experience",
+    "text": "Experience\n[Job Title] | [Organization] | [Years] Brief description of role and key contributions.\n[Job Title] | [Organization] | [Years] Brief description of role and key contributions."
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Ian Gault",
+    "section": "Skills",
+    "text": "Skills\nData & Programming: R, Python, SQL, Quarto\nAnalytical: High-resolution mass spectrometry, toxicology, environmental chemistry\nTools: [Add your tools here]"
+  },
+  {
+    "objectID": "index.html#certifications",
+    "href": "index.html#certifications",
+    "title": "Ian Gault",
+    "section": "Certifications",
+    "text": "Certifications\n\nRegistered Professional Biologist (R.P.Bio.)\n[Other certifications]"
+  },
+  {
+    "objectID": "blog/posts/welcome.html",
+    "href": "blog/posts/welcome.html",
+    "title": "Welcome",
     "section": "",
-    "text": "This is equal to 4 will this be a new line? but this one won’t? maybe because of br.\ntwo enters works?\ntwo enters and 2 spaces above\n\ngetwd()\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io\"\n\nhere()\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io\"\n\nhere(\"data\", \"fake_file.txt\")\n\n[1] \"/Users/iangault/git/MDS/iangault.github.io/data/fake_file.txt\"\n\ntext &lt;- readLines(here(\"data\", \"fake_file.txt\"))\ntext\n\n[1] \"Hello World\"\n\n\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
-  },
-  {
-    "objectID": "Tester.html#including-plots",
-    "href": "Tester.html#including-plots",
-    "title": "Tester",
-    "section": "Including Plots",
-    "text": "Including Plots\nYou can also embed plots, for example:\n\n\n\n\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot."
-  },
-  {
-    "objectID": "first-notebook.html",
-    "href": "first-notebook.html",
-    "title": "R Notebook",
-    "section": "",
-    "text": "This is an R Markdown Notebook. When you execute code within the notebook, the results appear beneath the code.\nTry executing this chunk by clicking the Run button within the chunk or by placing your cursor inside it and pressing Cmd+Shift+Enter.\n\nplot(cars)\n\n\n\n\n\n\n\n\nAdd a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.\nWhen you save the notebook, an HTML file containing the code and output will be saved alongside it (click the Preview button or press Cmd+Shift+K to preview the HTML file).\n\nplot(cars)\n\n\n\n\n\n\n\n\nThe preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike Knit, Preview does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed."
-  },
-  {
-    "objectID": "Tester-to-slides.html#r-markdown",
-    "href": "Tester-to-slides.html#r-markdown",
-    "title": "Tester",
-    "section": "R Markdown",
-    "text": "R Markdown\nThis is equal to 4\nwill this be a new line? but this one won’t? maybe because of br.\ntwo enters works?\ntwo enters and 2 spaces above."
-  },
-  {
-    "objectID": "Tester-to-slides.html#x-and-x-and-54-whats-this-show",
-    "href": "Tester-to-slides.html#x-and-x-and-54-whats-this-show",
-    "title": "Tester",
-    "section": "x and x and 54 whats this show?",
-    "text": "x and x and 54 whats this show?"
-  },
-  {
-    "objectID": "Tester-to-slides.html#including-plots",
-    "href": "Tester-to-slides.html#including-plots",
-    "title": "Tester",
-    "section": "Including Plots",
-    "text": "Including Plots\nYou can also embed plots, for example:\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot."
+    "text": "Welcome to my blog. I’ll be writing here about data science, environmental chemistry, and whatever else I’m working on."
   }
 ]

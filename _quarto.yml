@@ -3,27 +3,33 @@ project:
   output-dir: docs
 
 website:
-  title: "MDS Quarto Site"
+  title: "Ian Gault"
+  site-url: https://iangault.github.io
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-        text: About
-      - href: test_slides.qmd
-        text: Slides
+      - href: blog/index.qmd
+        text: Blog
+      - href: projects/index.qmd
+        text: Projects
+      - href: scientific-communication.qmd
+        text: Scientific Communication
+    right:
+      - icon: github
+        href: https://github.com/iangault
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/iangault
+        aria-label: LinkedIn
 
 format:
   html:
     theme:
       - flatly
       - darkly
-      #- brand
     css: styles.css
     toc: true
 
 editor:
   render-on-save: true
-
-
-

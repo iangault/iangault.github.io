@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ian Gault">
+<meta name="dcterms.date" content="2026-01-13">
 
-<title>Ian Gault</title>
+<title>NADA2: Accurate environmental monitoring starts with handling censured data – Ian Gault</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +22,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5a8b59a38d6a242ba28d8f1073ace492.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-5a8b59a38d6a242ba28d8f1073ace492.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +105,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -78,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Ian Gault</span>
     </a>
   </div>
@@ -89,19 +156,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> 
+    <a class="nav-link" href="../../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> 
+    <a class="nav-link" href="../../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./scientific-communication.html"> 
+    <a class="nav-link" href="../../../scientific-communication.html"> 
 <span class="menu-text">Scientific Communication</span></a>
   </li>  
 </ul>
@@ -130,75 +197,123 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
+   
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
-  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">Education</a></li>
-  <li><a href="#experience" id="toc-experience" class="nav-link" data-scroll-target="#experience">Experience</a></li>
-  <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a></li>
-  <li><a href="#certifications" id="toc-certifications" class="nav-link" data-scroll-target="#certifications">Certifications</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="media/109_IanG_2024.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Ian Gault</h1>
-<p class="subtitle lead">Professional Biologist | Analytical Chemistry &amp; Toxicology | Data Science</p>
-</div>
+<h1 class="title">NADA2: Accurate environmental monitoring starts with handling censured data</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
+
+
+
 <div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ian Gault </p>
+          </div>
   </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 13, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://github.com/iangault" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="https://www.linkedin.com/in/iangault" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
+
+
+<p><em>Image taken from: A global agreement to tame chemical pollution | United Nations. https://www.un.org/en/climatechange/global-agreement-tame-chemical-pollution. Accessed January 17, 2026.</em></p>
+<p>With industrialization, humans have influenced the environment in which they live. We synthesize chemicals for specific uses and extract natural resources with chemical byproducts as waste. Exposure to chemical contaminants is unavoidable; even in environments that appear pristine and are free of human influence, such as regions of the Arctic, persistent synthetic chemicals can be detected by laboratory methods.<sup>1</sup></p>
+<p>The fields of analytical chemistry and toxicology converge to measure concentrations of chemical contaminants in the environment, in our food, water, and consumer products, and in our bodies, and to assess their associated health effects. With the backlog of chemical contaminants we are exposed to, many of whose toxicology is unknown, and the thousands of chemicals we encounter in our lives, methods in toxicology have been changing to keep up with the public health concern.<sup>2–4</sup> However, at its root, effective chemical measurements through laboratory testing are needed to assess risk.</p>
+<p>Each method for measuring chemical concentrations has a lower limit, below which the instrument is not sensitive enough to detect true differences in concentrations. This inherent artifact of analytical instruments, though technology is continuously improving to get lower and lower detection limits of trace chemicals.</p>
+<p>Environmental chemistry typically follows a log-normal distribution,<sup>5</sup> i.e., a right-skewed distribution, with fewer “hits” of hot spots with high-concentration observations relative to the majority of the dataset. Replacing the &lt;DL values with a constant cuts off the lower tail of the distribution, as shown in Figure 1. This is known as left-censored data.</p>
+<p><img src="lognormal_left_censored.png" class="img-fluid" style="width:70.0%" alt="Figure 1: Left-censored data."><br>
+<em>Note: Example figure was generated with ChatGPT5</em></p>
+<p>Common practice in environmental monitoring is to impute observations below the detection limit (&lt;DL) to either 1 × DL or 1/2 × DL, because the data exists, but is not observable.<sup>6</sup> This has traditionally been practical and was an accepted bias in summary statistics used in chemical evaluation. However, by doing so, you lose the data’s variability, which informs inferential techniques such as confidence intervals and hypothesis testing. And, depending on the distribution of the data and the substitution made, this can both overestimate and underestimate risk, collapsing a range of values into a single guess.</p>
+<p>Another option–though, is arguably even worse!–would be to remove the censored data completely, removing that valuable information for when concentrations are low and artificially inflating the detected concentrations. Comparisons of contaminated environments that are of concern to surrounding life are usually done using summary statistics, such as upper bounds on chemical concentrations (or lower bounds for toxic effects), which can bias summary statistics used in chemical risk assessment.</p>
+<p>Overall, these two approaches do not incorporate modern methods for handling censored data based on probability and distributional data, and multiple options now exist to incorporate into your workflow, contributing to more accurate, measured downstream analyses.</p>
+<p>Three methods exist: parametric testing, which assumes a particular distribution for the data; non-parametric testing, which makes no distributional assumptions but ranks observations; or semi-parametric testing, which combines both, assuming a distribution while also ranking observations.<sup>7</sup></p>
+<p>NADA2 is an R package that provides tools to handle censored data.<sup>8</sup> It can incorporate the distribution of the data and provide a probabilistic representation of concentrations that are &lt;DL, thereby avoiding the fixed, direct substitution methods. It is aware of the censorship of the data, allowing for more explicit incorporation of uncertainty and unbiased summary statistics.</p>
+<p>Most commonly, a semi-parametric approach called Regression on Order Statistics (ROS) is used.<sup>8</sup> Given that environmental chemistry data is often log-normal, ROS applies a log transformation and ranks observations with their expected normal quantiles. A regression is then used to estimate where censored observations would plausibly fall in the lower tail of the distribution. Here, the censored data is not replaced; instead, values are inferred from the distribution to avoid bias in how the data is used. In other words, the probability distribution is conditional on whether the data is censored or not, as described below:</p>
+<p><span class="math display">\[
+X_i = \begin{cases} x_i, &amp; \text{if detected} \\ &lt; DL_i, &amp; \text{if censored} \end{cases}
+\]</span> For censored observations: <span class="math display">\[
+P(X \le x \mid X &lt; DL)
+\]</span> For detected observations: <span class="math display">\[
+P(X \le x \mid X \ge DL_{\min})
+\]</span> <em>Note: Equations generated by ChatGPT5</em></p>
+<p>This is what’s going on under the hood for the following example code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Toy dataframe</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">concentration =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">1.0</span>, <span class="fl">0.4</span>, <span class="fl">2.0</span>, <span class="fl">0.3</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">censored =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Created the log-normal estimated distribution</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>estimated_distribution <span class="ot">&lt;-</span> NADA2<span class="sc">::</span><span class="fu">ros</span>(df<span class="sc">$</span>concentration, df<span class="sc">$</span>censored)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculated unbiased summary statistics</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(estimated_distribution)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(estimated_distribution)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Test to evaluate guideline exceedances for an example contaminated site based on a censor-aware concentration point estimate</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>point_estimate <span class="ot">&lt;-</span> <span class="fu">quantile</span>(fit, <span class="fl">0.95</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>guideline <span class="ot">&lt;-</span> <span class="fl">0.35</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>exceedance <span class="ot">&lt;-</span> point_estimate <span class="sc">&gt;</span> guideline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-
-<section id="about" class="level2">
-<h2 data-anchor-id="about">About</h2>
-<p>I’m a certified Professional Biologist specializing in Analytical Chemistry &amp; Toxicology, with six years of consulting experience and a demonstrated aptitude for Data Science. Skilled in processing and reporting on high-resolution and high-dimensional data while implementing efficient database management and workflow. Seeking to advance my career by applying data science and machine learning concepts to solve real-world problems.</p>
-</section>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<p><strong>Master of Data Science</strong> <em>(in progress)</em> University of British Columbia</p>
-<p><strong>B.Sc. [Your Degree]</strong> [Your Institution]</p>
-</section>
-<section id="experience" class="level2">
-<h2 data-anchor-id="experience">Experience</h2>
-<p><strong>[Job Title]</strong> | [Organization] | [Years] Brief description of role and key contributions.</p>
-<p><strong>[Job Title]</strong> | [Organization] | [Years] Brief description of role and key contributions.</p>
-</section>
-<section id="skills" class="level2">
-<h2 data-anchor-id="skills">Skills</h2>
-<p><strong>Data &amp; Programming:</strong> R, Python, SQL, Quarto</p>
-<p><strong>Analytical:</strong> High-resolution mass spectrometry, toxicology, environmental chemistry</p>
-<p><strong>Tools:</strong> [Add your tools here]</p>
-</section>
-<section id="certifications" class="level2">
-<h2 data-anchor-id="certifications">Certifications</h2>
-<ul>
-<li>Registered Professional Biologist (R.P.Bio.)</li>
-<li>[Other certifications]</li>
-</ul>
-
-
-</section>
-</main></div>
+<p>The semi-parametric ROS approach is best used when the distribution of data may not fully fit a log-normal distribution, which is often the case in real-world scenarios. It is also reasonably defensible for a high degree of censored data, with a frequency of 30%-50%.<sup>7</sup> It is effective for summary statistics, trends, and guideline comparisons; however, it is not a predictive model.</p>
+<p>The choice of approach depends on the assessment’s goal. If a predictive model is needed, such as estimating concentrations of chemicals in a lake based on the current outflow and concentrations, and a distribution assumption is defensible, then parametric testing would be needed. In this case, NADA provides parametric testing that assigns a distribution and uses Maximum Likelihood Estimates (MLE) to predict concentrations.<sup>7,8</sup> An example of the code is below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: this function is from the older package NADA</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>parametric_distribution <span class="ot">&lt;-</span> NADA<span class="sc">::</span><span class="fu">cenmle</span>(df<span class="sc">$</span>concentration, df<span class="sc">$</span>censored, <span class="at">dist =</span> <span class="st">"lognormal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
- <!-- /main -->
+<p>Non-parametric metrics, such as the Kaplan-Meier estimator, make minimal distributional assumptions; this can be suitable depending on how your data looks, allowing you to still extract valuable information. However, the representations of left-censored data are poorer compared to semi-parametric and parametric methods, with limited extrapolation from observed values and no smoothing.<sup>9</sup> Therefore, it is less sensitive.</p>
+<p>The incorporation of NADA2 or similar packages into an environmental data science workflow is not too much additional work, but does require a shift in perspective. There may be an initial learning curve to understand what’s happening, but the coding is minimal and defensible. Environmental scientists may be resistant to turning to a coding-based workflow and to changing their approach based on what has always been done or what has previously been accepted, but the benefits outweigh the initial discomfort.</p>
+<p>This is needed because some chemical contaminants have very low recommended safe doses that are approaching the detection limit of our best laboratory methods. As a result, small biases in our imputed values, which may be minor when chemical concentrations are well above the detection limit, can have a much greater impact as measured concentrations approach the detection limit. As environmental scientists, we now have the tools to do better: to accurately represent the data in our studies, make inferences, and have measured remediation strategies and protections for the environment and the life within it.</p>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<ol type="1">
+<li>Persistent Organic Pollutants: A Global Issue, A Global Response | US EPA. https://www.epa.gov/international-cooperation/persistent-organic-pollutants-global-issue-global-response. Accessed January 13, 2026.</li>
+<li>Krewski D, Westphal M, Andersen ME, et al.&nbsp;A framework for the next generation of risk science. Environ Health Perspect. 2014;122(8):796-805. doi:10.1289/ehp.1307260</li>
+<li>Bell SM, Chang X, Wambaugh JF, et al.&nbsp;in vitro to in vivo extrapolation for high throughput prioritization and decision making. Toxicol Vitr. 2018;47(December 2017):213-227. doi:10.1016/j.tiv.2017.11.016</li>
+<li>Tox21. Toxicology in the 21st Century. https://tox21.gov/overview/about-tox21/. Accessed January 8, 2025.</li>
+<li>Andersson A. Mechanisms for log normal concentration distributions in the environment. Sci Reports 2021 111. 2021;11(1):16418-. doi:10.1038/s41598-021-96010-6</li>
+<li>Mihalache OA, Dall’Asta C. Left-censored data and where to find them: Current implications in mycotoxin-related risk assessment, legislative and economic impacts. Trends Food Sci Technol. 2023;136:112-119. doi:10.1016/J.TIFS.2023.04.011</li>
+<li>Holbert C. How to Calculate Summary Statistics for Left-Censored Data. https://www.cfholbert.com/blog/summary-statistics-censored-data/. Published 2022. Accessed January 17, 2026.</li>
+<li>NADA2 package - RDocumentation. https://www.rdocumentation.org/packages/NADA2/versions/2.0.1. Accessed January 8, 2026.</li>
+<li>Wey A, Connett J, Rudser K. Combining parametric, semi-parametric, and non-parametric survival models with stacked survival models. Biostatistics. 2015;16(3):537. doi:10.1093/BIOSTATISTICS/KXV001</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

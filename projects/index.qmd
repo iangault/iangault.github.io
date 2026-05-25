@@ -1,0 +1,11 @@
+---
+title: "Projects"
+listing:
+  contents: .
+  sort: "date desc"
+  type: grid
+  exclude:
+    filename: "index.qmd"
+page-layout: full
+title-block-banner: true
+---
