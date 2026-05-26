@@ -1,7 +1,0 @@
----
-title: "Welcome"
-date: "2026-05-25"
-categories: [general]
----
-
-Welcome to my blog. I'll be writing here about data science, environmental chemistry, and whatever else I'm working on.

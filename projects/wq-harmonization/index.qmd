@@ -4,8 +4,13 @@ description: "A production-grade R pipeline for standardizing multi-lab water qu
 author: "Ian Gault"
 date: "2025-01-01"
 categories: [R, ETL, water quality, environmental science]
-image: "field_work.jpg"
+image: "wq_harmonization_shot.png"
 ---
+
+<div style="margin-bottom: 1.5rem;">
+[View on GitHub](https://github.com/iangault/vignette-wq-harmonization){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
+[View Vignette](https://iangault.github.io/vignette-wq-harmonization/){.btn .btn-secondary style="font-size: 1rem;"}
+</div>
 
 Environmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end.
 
@@ -27,6 +32,3 @@ The pipeline is organized into modular R functions (`harmonize.R`, `units.R`, `q
 
 All program names and site identifiers in the repository have been anonymized.
 
-## Links
-
-[View on GitHub](https://github.com/iangault/vignette-wq-harmonization){.btn .btn-outline-primary}

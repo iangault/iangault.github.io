@@ -14,7 +14,7 @@ website:
       - href: projects/index.qmd
         text: Projects
       - href: scientific-communication.qmd
-        text: Scientific Communication
+        text: Publications
     right:
       - icon: github
         href: https://github.com/iangault

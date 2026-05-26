@@ -10,24 +10,7 @@
 <atom:link href="https://iangault.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.7.33</generator>
-<lastBuildDate>Mon, 25 May 2026 07:00:00 GMT</lastBuildDate>
-<item>
-  <title>Welcome</title>
-  <link>https://iangault.github.io/blog/posts/welcome.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>Welcome to my blog. I’ll be writing here about data science, environmental chemistry, and whatever else I’m working on.</p>
-
-
-
- ]]></description>
-  <category>general</category>
-  <guid>https://iangault.github.io/blog/posts/welcome.html</guid>
-  <pubDate>Mon, 25 May 2026 07:00:00 GMT</pubDate>
-</item>
+<lastBuildDate>Tue, 13 Jan 2026 08:00:00 GMT</lastBuildDate>
 <item>
   <title>NADA2: Accurate environmental monitoring starts with handling censured data</title>
   <dc:creator>Ian Gault</dc:creator>
