@@ -4,7 +4,8 @@ description: "A production-grade R pipeline for standardizing multi-lab water qu
 author: "Ian Gault"
 date: "2025-01-01"
 categories: [R, ETL, water quality, environmental science]
-image: "wq_harmonization_shot.png"
+image: "water_quality_thumbnail_b.svg"
+toc: true
 ---
 
 <div style="margin-bottom: 1.5rem;">

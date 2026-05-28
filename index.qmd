@@ -1,6 +1,8 @@
 ---
 title: "Ian Gault"
 subtitle: "Data Scientist • Professional Biologist"
+toc: true
+toc-title: "On this page"
 about:
   template: trestles
   image: media/109_IanG_2024.jpg
@@ -56,7 +58,6 @@ Used cell cultures, molecular techniques (RTCA, YES/YAS), and Orbitrap mass spec
 
 **Tools:** Git, GitHub, Make, Bash, Docker, Quarto, R Markdown, Shiny, dashboarding
 
-## Certifications & Designations
+## Designations
 
 - **Registered Professional Biologist (RPBio)** — College of Applied Biologists, BC (2024–present)
-- **Certificate, Applied Data Science: Leveraging AI for Decision-making** — MIT (2023)

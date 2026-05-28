@@ -25,11 +25,9 @@ website:
 
 format:
   html:
-    theme:
-      - flatly
-      - darkly
+    theme: litera
     css: styles.css
-    toc: true
+    toc: false
 
 editor:
   render-on-save: true

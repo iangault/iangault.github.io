@@ -1,1 +1,157 @@
-/* css styles */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+/* ── Palette: Slate + Sage + Terracotta ───────────────────── */
+:root {
+  --banner-bg:    #2e3d3d;   /* dark slate — navbar, banners */
+  --accent:       #7a9e8a;   /* sage green */
+  --highlight:    #b85c38;   /* terracotta */
+  --warm-paper:   #e8ddd0;   /* warm paper — section header bg */
+  --light-bg:     #f4f1ec;   /* off-white page background */
+  --deep-sage:    #4a7c6f;   /* deep sage — borders, hover */
+  --text-dark:    #2e3d3d;
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background-color: var(--light-bg);
+}
+
+/* ── Navbar ───────────────────────────────────────────────── */
+.navbar {
+  background-color: var(--banner-bg) !important;
+  border-bottom: 2px solid #1c2929;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.navbar-brand {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.navbar .nav-link,
+.navbar-brand,
+.navbar .navbar-nav .nav-link {
+  color: #f4f1ec !important;
+  opacity: 0.9;
+}
+
+.navbar .nav-link:hover {
+  opacity: 1;
+  color: var(--accent) !important;
+}
+
+/* ── Title block banners (Projects, Blog, etc.) ───────────── */
+.quarto-title-banner {
+  background-color: var(--banner-bg) !important;
+  color: var(--light-bg) !important;
+}
+
+.quarto-title-banner .title,
+.quarto-title-banner h1 {
+  color: var(--light-bg) !important;
+}
+
+/* ── About / trestles layout ──────────────────────────────── */
+.quarto-about-trestles {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quarto-about-trestles .about-contents {
+  padding-left: 2.5rem;
+}
+
+/* Sidebar name */
+.quarto-about-trestles h1.title {
+  color: var(--banner-bg);
+  font-weight: 600;
+}
+
+/* ── Section headers (## banners) ─────────────────────────── */
+.quarto-about-trestles .about-contents h2,
+main h2 {
+  background-color: var(--warm-paper);
+  border-left: 4px solid var(--highlight);
+  color: var(--text-dark);
+  padding: 0.35rem 0.75rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0 4px 4px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* ── Social / about links ─────────────────────────────────── */
+.about-links .about-link {
+  border: 1.5px solid var(--deep-sage) !important;
+  color: var(--deep-sage) !important;
+  border-radius: 6px;
+}
+
+.about-links .about-link:hover {
+  background-color: var(--deep-sage) !important;
+  color: #ffffff !important;
+}
+
+/* ── Projects listing grid ────────────────────────────────── */
+.quarto-listing {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+}
+
+.quarto-listing .listing-grid {
+  justify-content: flex-start;
+}
+
+/* Card accent */
+.quarto-listing .card {
+  border-top: 3px solid var(--highlight);
+}
+
+.quarto-listing .card:hover {
+  border-top-color: var(--deep-sage);
+  box-shadow: 0 4px 12px rgba(46, 61, 61, 0.12);
+}
+
+/* Thumbnail image rendering */
+.quarto-listing .card .card-img-top,
+.quarto-listing .card img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 200px;
+  background-color: var(--warm-paper);
+}
+
+/* ── Blog post figures ────────────────────────────────────── */
+.quarto-post figure,
+article figure,
+.post-content figure {
+  text-align: center;
+  margin: 1.5rem auto;
+  width: 100%;
+}
+
+.quarto-post figure img,
+article figure img,
+.post-content figure img {
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ── General content width ────────────────────────────────── */
+.quarto-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}

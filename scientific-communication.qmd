@@ -1,8 +1,11 @@
 ---
 title: "Publications"
+lightbox: true
 ---
 
 ## Publications
+
+Gault IGM. **Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry.** MSc Thesis, University of Alberta, 2019. [University of Alberta Scholaris](https://ualberta.scholaris.ca/items/702d7d4c-fc4d-46ee-9803-c47e67620c94)
 
 Gault IGM, Sun C, Martin JW. **Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake.** *ACS EST Water* 2023, 3(2), 366–376. DOI: [10.1021/acsestwater.2c00430](https://doi.org/10.1021/acsestwater.2c00430)
 
@@ -23,6 +26,11 @@ Oral: *Process-Affected Water in the Oil Sands Industry: Toxicity Attribution an
 
 **Canadian Chemistry Conference** — Toronto, ON (May 2017)
 Oral: *Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.*
+
+**DRIvE Days — Laboratory Medicine & Pathology Conference** — Edmonton, AB (2018)
+Poster: *Process-Affected Water in the Oil Sands: Attributing Toxicity within the Organic Chemical Mixture.*
+
+![DRIvE Days 2018 Poster](media/Drive Days Poster 2018 final Gault.pdf.png){width="320px" .lightbox style="border:1px solid #ccc; border-radius:4px; cursor:zoom-in;"}
 
 ---
 

@@ -4,9 +4,8 @@ author: "Ian Gault"
 date: "2026-01-13"
 categories: [code, analysis]
 image: "polluted_water.jpg"
+toc: true
 ---
-
-_Image taken from: A global agreement to tame chemical pollution | United Nations. https://www.un.org/en/climatechange/global-agreement-tame-chemical-pollution. Accessed January 17, 2026._
 
 With industrialization, humans have influenced the environment in which they live. We synthesize chemicals for specific uses and extract natural resources with chemical byproducts as waste. Exposure to chemical contaminants is unavoidable; even in environments that appear pristine and are free of human influence, such as regions of the Arctic, persistent synthetic chemicals can be detected by laboratory methods.^1^
 
@@ -16,7 +15,7 @@ Each method for measuring chemical concentrations has a lower limit, below which
 
 Environmental chemistry typically follows a log-normal distribution,^5^ i.e., a right-skewed distribution, with fewer "hits" of hot spots with high-concentration observations relative to the majority of the dataset. Replacing the \<DL values with a constant cuts off the lower tail of the distribution, as shown in Figure 1. This is known as left-censored data. 
 
-![Figure 1: Left-censored data.](lognormal_left_censored.png){width="70%"}  
+![Figure 1: Left-censored data.](lognormal_left_censored.png){width="90%" fig-align="center"}  
 _Note: Example figure was generated with ChatGPT5_
 
 Common practice in environmental monitoring is to impute observations below the detection limit (\<DL) to either 1 × DL or 1/2 × DL, because the data exists, but is not observable.^6^ This has traditionally been practical and was an accepted bias in summary statistics used in chemical evaluation. However, by doing so, you lose the data's variability, which informs inferential techniques such as confidence intervals and hypothesis testing. And, depending on the distribution of the data and the substitution made, this can both overestimate and underestimate risk, collapsing a range of values into a single guess. 
@@ -82,6 +81,8 @@ The incorporation of NADA2 or similar packages into an environmental data scienc
 This is needed because some chemical contaminants have very low recommended safe doses that are approaching the detection limit of our best laboratory methods. As a result, small biases in our imputed values, which may be minor when chemical concentrations are well above the detection limit, can have a much greater impact as measured concentrations approach the detection limit. As environmental scientists, we now have the tools to do better: to accurately represent the data in our studies, make inferences, and have measured remediation strategies and protections for the environment and the life within it.
 
 ### References
+
+_Image taken from: A global agreement to tame chemical pollution | United Nations. https://www.un.org/en/climatechange/global-agreement-tame-chemical-pollution. Accessed January 17, 2026._
 
 1. Persistent Organic Pollutants: A Global Issue, A Global Response | US EPA. https://www.epa.gov/international-cooperation/persistent-organic-pollutants-global-issue-global-response. Accessed January 13, 2026.
 2. Krewski D, Westphal M, Andersen ME, et al. A framework for the next generation of risk science. Environ Health Perspect. 2014;122(8):796-805. doi:10.1289/ehp.1307260
