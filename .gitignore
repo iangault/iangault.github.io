@@ -3,3 +3,5 @@
 **/*.quarto_ipynb
 .DS_Store
 .Rproj.user
+.Rhistory
+.claude/

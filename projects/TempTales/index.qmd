@@ -1,0 +1,46 @@
+---
+title: "TempTales: Global Temperature Explorer"
+description: "An interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an AI assistant powered by GPT-4.1-mini."
+author: "Ian Gault"
+date: "2026-05-01"
+categories: [Python, Shiny, DuckDB, Altair, Plotly, CI/CD, LLM, data visualization]
+toc: true
+image: temptales.png
+---
+
+<div style="margin-bottom: 1.5rem;">
+[Live Dashboard](https://iangault-dsci-532-2026-temptales.share.connect.posit.cloud/){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
+[View on GitHub](https://github.com/iangault/DSCI_532_2026_TempTales){.btn .btn-secondary style="font-size: 1rem;"}
+</div>
+
+TempTales is an interactive dashboard for exploring global and country-level temperature trends from 1860 to 2012. Users can select a country, compare two years side-by-side, view seasonal and monthly patterns, and see temperature shifts on a world heatmap. An AI assistant tab lets users query the data in natural language.
+
+This project started as a UBC MDS group project (DSCI 532, 2026). This fork is a solo rebuild and improvement focused on production-readiness: adding CI, fixing test infrastructure, improving code quality, improving visualizations, and preparing for cloud redeployment on Posit Connect.
+
+## Features
+
+- **Country explorer** — select any country and view its full temperature history with trend overlay
+- **Year comparison** — pick two years and compare monthly/seasonal temperature profiles side-by-side
+- **World heatmap** — Plotly choropleth showing global average temperatures by year
+- **AI assistant** — natural-language querying of the dataset via GitHub Models API (GPT-4.1-mini) using `chatlas` + `querychat`
+
+## Technical stack
+
+| Area | Tools |
+|---|---|
+| App framework | Python Shiny (reactive server/UI separation) |
+| Data backend | DuckDB + ibis lazy expressions |
+| Visualizations | Altair (time-series, comparison charts), Plotly (choropleth map) |
+| Testing | pytest (62 unit tests) + Playwright (6 end-to-end UI tests) |
+| CI/CD | GitHub Actions — unit tests → Playwright UI tests on every push/PR |
+| LLM integration | GitHub Models API (gpt-4.1-mini) via chatlas + querychat |
+| Deployment | Posit Connect Cloud via GitHub integration |
+
+## What I improved
+
+Starting from the group's original codebase, the solo rebuild focused on:
+
+- Wiring up a full GitHub Actions CI pipeline (unit + Playwright UI tests)
+- Fixing broken test infrastructure and expanding coverage to 62 unit + 6 UI tests
+- Refactoring server/UI separation for maintainability
+- Configuring cloud deployment on Posit Connect

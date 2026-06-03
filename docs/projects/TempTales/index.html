@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ian Gault">
+<meta name="dcterms.date" content="2026-05-01">
+<meta name="description" content="An interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an AI assistant powered by GPT-4.1-mini.">
 
-<title>Projects – Ian Gault</title>
+<title>TempTales: Global Temperature Explorer – Ian Gault</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,67 +70,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -139,7 +82,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ian Gault</span>
     </a>
   </div>
@@ -150,19 +93,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../projects/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../scientific-communication.html"> 
+    <a class="nav-link" href="../../scientific-communication.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
 </ul>
@@ -185,23 +128,60 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#features" id="toc-features" class="nav-link active" data-scroll-target="#features">Features</a></li>
+  <li><a href="#technical-stack" id="toc-technical-stack" class="nav-link" data-scroll-target="#technical-stack">Technical stack</a></li>
+  <li><a href="#what-i-improved" id="toc-what-i-improved" class="nav-link" data-scroll-target="#what-i-improved">What I improved</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projects</h1>
+<h1 class="title">TempTales: Global Temperature Explorer</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Shiny</div>
+    <div class="quarto-category">DuckDB</div>
+    <div class="quarto-category">Altair</div>
+    <div class="quarto-category">Plotly</div>
+    <div class="quarto-category">CI/CD</div>
+    <div class="quarto-category">LLM</div>
+    <div class="quarto-category">data visualization</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    An interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an AI assistant powered by GPT-4.1-mini.
+  </div>
 </div>
 
 
+<div class="quarto-title-meta">
 
-<div class="quarto-title-meta column-page">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ian Gault </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 1, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -211,87 +191,79 @@ window.Quarto = {
 </header>
 
 
+<div style="margin-bottom: 1.5rem;">
+<p><a href="https://iangault-dsci-532-2026-temptales.share.connect.posit.cloud/" class="btn btn-primary" style="margin-right: 0.5rem; font-size: 1rem;">Live Dashboard</a> <a href="https://github.com/iangault/DSCI_532_2026_TempTales" class="btn btn-secondary" style="font-size: 1rem;">View on GitHub</a></p>
+</div>
+<p>TempTales is an interactive dashboard for exploring global and country-level temperature trends from 1860 to 2012. Users can select a country, compare two years side-by-side, view seasonal and monthly patterns, and see temperature shifts on a world heatmap. An AI assistant tab lets users query the data in natural language.</p>
+<p>This project started as a UBC MDS group project (DSCI 532, 2026). This fork is a solo rebuild and improvement focused on production-readiness: adding CI, fixing test infrastructure, improving code quality, improving visualizations, and preparing for cloud redeployment on Posit Connect.</p>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
+<ul>
+<li><strong>Country explorer</strong> — select any country and view its full temperature history with trend overlay</li>
+<li><strong>Year comparison</strong> — pick two years and compare monthly/seasonal temperature profiles side-by-side</li>
+<li><strong>World heatmap</strong> — Plotly choropleth showing global average temperatures by year</li>
+<li><strong>AI assistant</strong> — natural-language querying of the dataset via GitHub Models API (GPT-4.1-mini) using <code>chatlas</code> + <code>querychat</code></li>
+</ul>
+</section>
+<section id="technical-stack" class="level2">
+<h2 class="anchored" data-anchor-id="technical-stack">Technical stack</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>App framework</td>
+<td>Python Shiny (reactive server/UI separation)</td>
+</tr>
+<tr class="even">
+<td>Data backend</td>
+<td>DuckDB + ibis lazy expressions</td>
+</tr>
+<tr class="odd">
+<td>Visualizations</td>
+<td>Altair (time-series, comparison charts), Plotly (choropleth map)</td>
+</tr>
+<tr class="even">
+<td>Testing</td>
+<td>pytest (62 unit tests) + Playwright (6 end-to-end UI tests)</td>
+</tr>
+<tr class="odd">
+<td>CI/CD</td>
+<td>GitHub Actions — unit tests → Playwright UI tests on every push/PR</td>
+</tr>
+<tr class="even">
+<td>LLM integration</td>
+<td>GitHub Models API (gpt-4.1-mini) via chatlas + querychat</td>
+</tr>
+<tr class="odd">
+<td>Deployment</td>
+<td>Posit Connect Cloud via GitHub integration</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-i-improved" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-improved">What I improved</h2>
+<p>Starting from the group’s original codebase, the solo rebuild focused on:</p>
+<ul>
+<li>Wiring up a full GitHub Actions CI pipeline (unit + Playwright UI tests)</li>
+<li>Fixing broken test infrastructure and expanding coverage to 62 unit + 6 UI tests</li>
+<li>Refactoring server/UI separation for maintainability</li>
+<li>Configuring cloud deployment on Posit Connect</li>
+</ul>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UHl0aG9uJTJDU2hpbnklMkNEdWNrREIlMkNBbHRhaXIlMkNQbG90bHklMkNDSSUyRkNEJTJDTExNJTJDZGF0YSUyMHZpc3VhbGl6YXRpb24=" data-listing-date-sort="1777618800000" data-listing-file-modified-sort="1780524544229" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="292">
-<a href="../projects/TempTales/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/TempTales/temptales.png" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-TempTales: Global Temperature Explorer
-</h5>
-<div class="card-text listing-description delink">
-<p>An interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an…</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ian Gault
-</div>
-<div class="listing-date">
-May 1, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="UiUyQ0VUTCUyQ3dhdGVyJTIwcXVhbGl0eSUyQ2Vudmlyb25tZW50YWwlMjBzY2llbmNl" data-listing-date-sort="1735718400000" data-listing-file-modified-sort="1779946600199" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="206">
-<a href="../projects/wq-harmonization/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/wq-harmonization/water_quality_thumbnail_b.svg" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Water Quality Data Harmonization Pipeline
-</h5>
-<div class="card-text listing-description delink">
-<p>A production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ian Gault
-</div>
-<div class="listing-date">
-Jan 1, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="ZGF0YSUyMHNjaWVuY2UlMkNtYWNoaW5lJTIwbGVhcm5pbmclMkNwcmVzZW50YXRpb24=" data-listing-date-sort="1701417600000" data-listing-file-modified-sort="1779945525405" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27">
-<a href="../projects/MIT_capstone/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../projects/MIT_capstone/market_segmentation.png" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-MIT Capstone: Applied Data Science — Leveraging AI for Decision-making
-</h5>
-<div class="card-text listing-description delink">
-<p>Capstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ian Gault
-</div>
-<div class="listing-date">
-Dec 1, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

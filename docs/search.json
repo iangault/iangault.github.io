@@ -53,7 +53,28 @@
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "Water Quality Data Harmonization Pipeline\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nIan Gault\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\nCapstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).\n\n\n\nIan Gault\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "TempTales: Global Temperature Explorer\n\n\nAn interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an…\n\n\n\nIan Gault\n\n\nMay 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nIan Gault\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\nCapstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).\n\n\n\nIan Gault\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/wq-harmonization/index.html",
+    "href": "projects/wq-harmonization/index.html",
+    "title": "Water Quality Data Harmonization Pipeline",
+    "section": "",
+    "text": "View on GitHub View Vignette\nEnvironmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end."
+  },
+  {
+    "objectID": "projects/wq-harmonization/index.html#what-it-does",
+    "href": "projects/wq-harmonization/index.html#what-it-does",
+    "title": "Water Quality Data Harmonization Pipeline",
+    "section": "What it does",
+    "text": "What it does\nThe pipeline ingests raw multi-lab water quality submissions and produces a clean, standardized dataset ready for analysis or reporting. Key steps include:\n\nAnalyte name standardization — resolves lab-specific submission codes to a common naming convention\nFraction parsing — extracts dissolved/total fractionation from analyte suffixes\nClassification — groups analytes into analysis categories (Nutrients, Major Ions, Metals, etc.)\nWater type detection — distinguishes freshwater from seawater samples to apply appropriate thresholds\nUnit conversion — converts mixed units with correct scaling of associated detection limits\nDetection limit handling — flags and substitutes values below detection using consistent conventions\nQAQC checks — automated screening for field blanks, field duplicates, holding time exceedances, and metals ratio verification"
+  },
+  {
+    "objectID": "projects/wq-harmonization/index.html#design",
+    "href": "projects/wq-harmonization/index.html#design",
+    "title": "Water Quality Data Harmonization Pipeline",
+    "section": "Design",
+    "text": "Design\nThe pipeline is organized into modular R functions (harmonize.R, units.R, qaqc.R, database.R, utils.R) and documented via an R Markdown vignette. Synthetic test data is included so the vignette runs standalone without proprietary lab submissions.\nAll program names and site identifiers in the repository have been anonymized."
   },
   {
     "objectID": "scientific-communication.html",
@@ -84,25 +105,32 @@
     "text": "Presentation Awards\n\n\n\n\n\n\n\n\nYear\nConference\nAward\n\n\n\n\n2018\nSETAC North America\n3rd Place, Best Student Presentation (Masters category)\n\n\n2018\nSETAC-Prairie Northern Chapter\n1st Place, Best Student/PDF Oral Presentation\n\n\n2018\nCanadian Chemistry Conference\nOutstanding Graduate Oral Presentation\n\n\n2017\nCanadian Chemistry Conference\nBell McLeod Educational Fund Award; GSA Academic Travel Award"
   },
   {
-    "objectID": "projects/wq-harmonization/index.html",
-    "href": "projects/wq-harmonization/index.html",
-    "title": "Water Quality Data Harmonization Pipeline",
+    "objectID": "projects/TempTales/index.html",
+    "href": "projects/TempTales/index.html",
+    "title": "TempTales: Global Temperature Explorer",
     "section": "",
-    "text": "View on GitHub View Vignette\nEnvironmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end."
+    "text": "Live Dashboard View on GitHub\nTempTales is an interactive dashboard for exploring global and country-level temperature trends from 1860 to 2012. Users can select a country, compare two years side-by-side, view seasonal and monthly patterns, and see temperature shifts on a world heatmap. An AI assistant tab lets users query the data in natural language.\nThis project started as a UBC MDS group project (DSCI 532, 2026). This fork is a solo rebuild and improvement focused on production-readiness: adding CI, fixing test infrastructure, improving code quality, improving visualizations, and preparing for cloud redeployment on Posit Connect."
   },
   {
-    "objectID": "projects/wq-harmonization/index.html#what-it-does",
-    "href": "projects/wq-harmonization/index.html#what-it-does",
-    "title": "Water Quality Data Harmonization Pipeline",
-    "section": "What it does",
-    "text": "What it does\nThe pipeline ingests raw multi-lab water quality submissions and produces a clean, standardized dataset ready for analysis or reporting. Key steps include:\n\nAnalyte name standardization — resolves lab-specific submission codes to a common naming convention\nFraction parsing — extracts dissolved/total fractionation from analyte suffixes\nClassification — groups analytes into analysis categories (Nutrients, Major Ions, Metals, etc.)\nWater type detection — distinguishes freshwater from seawater samples to apply appropriate thresholds\nUnit conversion — converts mixed units with correct scaling of associated detection limits\nDetection limit handling — flags and substitutes values below detection using consistent conventions\nQAQC checks — automated screening for field blanks, field duplicates, holding time exceedances, and metals ratio verification"
+    "objectID": "projects/TempTales/index.html#features",
+    "href": "projects/TempTales/index.html#features",
+    "title": "TempTales: Global Temperature Explorer",
+    "section": "Features",
+    "text": "Features\n\nCountry explorer — select any country and view its full temperature history with trend overlay\nYear comparison — pick two years and compare monthly/seasonal temperature profiles side-by-side\nWorld heatmap — Plotly choropleth showing global average temperatures by year\nAI assistant — natural-language querying of the dataset via GitHub Models API (GPT-4.1-mini) using chatlas + querychat"
   },
   {
-    "objectID": "projects/wq-harmonization/index.html#design",
-    "href": "projects/wq-harmonization/index.html#design",
-    "title": "Water Quality Data Harmonization Pipeline",
-    "section": "Design",
-    "text": "Design\nThe pipeline is organized into modular R functions (harmonize.R, units.R, qaqc.R, database.R, utils.R) and documented via an R Markdown vignette. Synthetic test data is included so the vignette runs standalone without proprietary lab submissions.\nAll program names and site identifiers in the repository have been anonymized."
+    "objectID": "projects/TempTales/index.html#technical-stack",
+    "href": "projects/TempTales/index.html#technical-stack",
+    "title": "TempTales: Global Temperature Explorer",
+    "section": "Technical stack",
+    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nApp framework\nPython Shiny (reactive server/UI separation)\n\n\nData backend\nDuckDB + ibis lazy expressions\n\n\nVisualizations\nAltair (time-series, comparison charts), Plotly (choropleth map)\n\n\nTesting\npytest (62 unit tests) + Playwright (6 end-to-end UI tests)\n\n\nCI/CD\nGitHub Actions — unit tests → Playwright UI tests on every push/PR\n\n\nLLM integration\nGitHub Models API (gpt-4.1-mini) via chatlas + querychat\n\n\nDeployment\nPosit Connect Cloud via GitHub integration"
+  },
+  {
+    "objectID": "projects/TempTales/index.html#what-i-improved",
+    "href": "projects/TempTales/index.html#what-i-improved",
+    "title": "TempTales: Global Temperature Explorer",
+    "section": "What I improved",
+    "text": "What I improved\nStarting from the group’s original codebase, the solo rebuild focused on:\n\nWiring up a full GitHub Actions CI pipeline (unit + Playwright UI tests)\nFixing broken test infrastructure and expanding coverage to 62 unit + 6 UI tests\nRefactoring server/UI separation for maintainability\nConfiguring cloud deployment on Posit Connect"
   },
   {
     "objectID": "projects/MIT_capstone/index.html",
