@@ -32,18 +32,11 @@
     "href": "index.html#experience",
     "title": "Ian Gault",
     "section": "Experience",
-    "text": "Experience\nEnvironmental Scientist | WSP | Jul 2022 – Aug 2025 Designed data science pipelines in R for environmental monitoring studies; ETL workflows, legacy data harmonization, and modelling. Lead data scientist, scientific communicator, and project coordinator for 10+ clients over three years.\nEnvironmental Specialist | Hatfield Consultants | May 2019 – Jun 2022 Led toxicological risk studies and coordinated large-scale field programs and end-to-end data pipelines — from field sample collection to R-based ETL outputs — for 10+ clients.\nGraduate Research Assistant | University of Alberta | 2015–2019 Used cell cultures, molecular techniques (RTCA, YES/YAS), and Orbitrap mass spectrometry to perform toxicity testing and chemical characterization of oil sands process-affected water."
+    "text": "Experience\nEnvironmental Scientist | WSP | Jul 2022 – Aug 2025 Lead data scientist and project coordinator across 10+ environmental monitoring clients over three years. Designed R-based ETL workflows, harmonized legacy datasets, and built reproducible modelling pipelines for water quality, sediment, and contaminated sites work. Developed tools that automated reporting and secured repeated contract renewals.\nEnvironmental Specialist | Hatfield Consultants | May 2019 – Jun 2022 Led toxicological risk studies and coordinated large-scale field programs end-to-end — from sample collection and laboratory communications to R-based data pipelines and regulatory reporting — for 10+ clients.\nGraduate Research Assistant | University of Alberta | 2015–2019 Conducted toxicity testing and non-targeted chemical characterization of oil sands process-affected water using Orbitrap mass spectrometry, cell cultures, and molecular bioassays. Published in ACS EST Water."
   },
   {
     "objectID": "index.html#skills",
     "href": "index.html#skills",
-    "title": "Ian Gault",
-    "section": "Skills",
-    "text": "Skills\nData & Programming: R, Python, SQL, modular pipelines, ETL workflows\nMachine Learning: PCA, classification, regression, clustering, neural networks\nStatistics: Descriptive, inferential, Bayesian, causal; temporospatial analysis\nWet Lab: Mass spectrometry, cell cultures, molecular techniques, field sampling\nTools: Git, GitHub, Make, Bash, Docker, Quarto, R Markdown, Shiny, dashboarding\nEnvironmental Scientist | WSP | Jul 2022 – Aug 2025 Lead data scientist and project coordinator across 10+ environmental monitoring clients over three years. Designed R-based ETL workflows, harmonized legacy datasets, and built reproducible modelling pipelines for water quality, sediment, and contaminated sites work. Developed tools that automated reporting and secured repeated contract renewals.\nEnvironmental Specialist | Hatfield Consultants | May 2019 – Jun 2022 Led toxicological risk studies and coordinated large-scale field programs end-to-end — from sample collection and laboratory communications to R-based data pipelines and regulatory reporting — for 10+ clients.\nGraduate Research Assistant | University of Alberta | 2015–2019 Conducted toxicity testing and non-targeted chemical characterization of oil sands process-affected water using Orbitrap mass spectrometry, cell cultures, and molecular bioassays. Published in ACS EST Water."
-  },
-  {
-    "objectID": "index.html#skills-1",
-    "href": "index.html#skills-1",
     "title": "Ian Gault",
     "section": "Skills",
     "text": "Skills\nProgramming & Data: R, Python, SQL · ETL pipelines · reproducible workflows · legacy data harmonization\nMachine Learning & Statistics: Classification, regression, clustering, PCA, neural networks · Bayesian, causal, and spatiotemporal methods\nInfrastructure & Tools: Git/GitHub, Docker, Make, Bash · Quarto, R Markdown, Shiny · dashboarding (Shiny, Plotly, DT)\nScientific Communication: Technical reporting for regulatory and non-technical audiences · data visualization for decision-making · peer-reviewed publication · conference presentation\nProject & Team Leadership: Multi-client project coordination · study design · cross-functional team leadership (biologists, GIS specialists, project managers) · budget and timeline management\nDomain Knowledge: Environmental chemistry & toxicology · regulatory frameworks (provincial & federal) · wet lab methods · field sampling & biomonitoring"
@@ -53,7 +46,28 @@
     "href": "index.html#designations",
     "title": "Ian Gault",
     "section": "Designations",
-    "text": "Designations\n\nRegistered Professional Biologist (RPBio) — College of Applied Biologists, BC (2024–present)\n\n\nProfessional Development\nAI-Assisted Development: Practices and Pitfalls (May 2026) UBC Master of Data Science — one-day workshop on agentic coding practices\nUpper Bound Conference (2024) Alberta Machine Intelligence Institute (AMII)\nDry It Up with R (2022) Vancouver DataJam - workshop on techniques used to “Don’t Repeat Yourself” in R\n\n\nAcademic Awards\n\n\n\nYear\nAward\n\n\n\n\n2017\nQueen Elizabeth II Graduate Scholarship\n\n\n2016\nMedical Sciences Graduate Program Scholarship\n\n\n2016\nFaculty of Medicine & Dentistry 75th Anniversary Award\n\n\n2016\nQueen Elizabeth II Graduate Scholarship\n\n\n2015\nMedical Sciences Graduate Program Scholarship\n\n\n2015\nDynaLIFEDX Major Incentive Award\n\n\n2014\nIndividual Education Abroad Scholarship\n\n\n2010, 2012, 2014\nJason Lang Scholarship\n\n\n\n\n\nCommunity Service\nStandards & Guidance Committee — BC College of Oral Health Professionals (Apr 2025 – Apr 2026) Served as a public member reviewing professional standards and guidance during the consolidation of multiple health professions under a unified regulatory body; engaged with governance structures, working groups of subject-matter experts, and the rollout of new enforceable professional standards.\nBoard Member (Secretary) & Mental Health Team Lead — Edmonton Men’s Health Collective (2015–2019) Executive board member of a grassroots collective improving health outcomes for sexual and gender minority men. Provided strategic oversight for mental health initiatives; supported grant proposals; bridged community members with stakeholders and subject-matter experts. Designed and led a 6-month harm reduction campaign: coordinated 5 naloxone training sessions reaching ~300 community members and produced an interview-based social media series featuring people with lived experience.\nInclusive Health Conference — Sexuality & Gender Advocacy Committee, Edmonton (May 2017) Presented as EMHC representative on mental health outcomes and LGBTQ+ issues in healthcare and medical education.\nTreasurer, LMP Student Group — University of Alberta (2016–2019) Managed budget and provided input on departmental policies for the Laboratory Medicine & Pathology student group."
+    "text": "Designations\nRegistered Professional Biologist (RPBio) — College of Applied Biologists, BC (2024–present)"
+  },
+  {
+    "objectID": "index.html#professional-development",
+    "href": "index.html#professional-development",
+    "title": "Ian Gault",
+    "section": "Professional Development",
+    "text": "Professional Development\nAI-Assisted Development: Practices and Pitfalls (May 2026) UBC Master of Data Science — one-day workshop on agentic coding practices\nUpper Bound Conference (2024) Alberta Machine Intelligence Institute (AMII)\nDry It Up with R (2022) Vancouver DataJam - workshop on techniques used to “Don’t Repeat Yourself” in R"
+  },
+  {
+    "objectID": "index.html#academic-awards",
+    "href": "index.html#academic-awards",
+    "title": "Ian Gault",
+    "section": "Academic Awards",
+    "text": "Academic Awards\n\n\n\n\n\n\n\nYear\nAward\n\n\n\n\n2017\nQueen Elizabeth II Graduate Scholarship\n\n\n2016\nMedical Sciences Graduate Program Scholarship\n\n\n2016\nFaculty of Medicine & Dentistry 75th Anniversary Award\n\n\n2016\nQueen Elizabeth II Graduate Scholarship\n\n\n2015\nMedical Sciences Graduate Program Scholarship\n\n\n2015\nDynaLIFEDX Major Incentive Award\n\n\n2014\nIndividual Education Abroad Scholarship\n\n\n2010, 2012, 2014\nJason Lang Scholarship"
+  },
+  {
+    "objectID": "index.html#community-service",
+    "href": "index.html#community-service",
+    "title": "Ian Gault",
+    "section": "Community Service",
+    "text": "Community Service\nStandards & Guidance Committee — BC College of Oral Health Professionals (Apr 2025 – Apr 2026) Served as a public member reviewing professional standards and guidance during the consolidation of multiple health professions under a unified regulatory body; engaged with governance structures, working groups of subject-matter experts, and the rollout of new enforceable professional standards.\nBoard Member (Secretary) & Mental Health Team Lead — Edmonton Men’s Health Collective (2015–2019) Executive board member of a collective dedicated to improving health outcomes of sexual and gender minority men; trusted communicator and collaborator, bridging community members with stakeholders, subject-matter experts, and the board; led a 6-month harm reduction campaign of community naloxone trainings paired with a web series.\nInclusive Health Conference — Sexuality & Gender Advocacy Committee, Edmonton (May 2017) Presented as EMHC representative on mental health outcomes and LGBTQ+ issues in healthcare and medical education.\nTreasurer, LMP Student Group — University of Alberta (2016–2019) Managed budget and provided input on departmental policies for the Laboratory Medicine & Pathology student group."
   },
   {
     "objectID": "projects/index.html",
