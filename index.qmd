@@ -5,7 +5,7 @@ toc: true
 toc-title: "On this page"
 about:
   template: trestles
-  image: media/109_IanG_2024.jpg
+  image: media/109_IanG_2024b.png
   image-shape: round
   image-width: 15em
   links:
@@ -68,7 +68,7 @@ Master of Data Science candidate (UBC, graduating Jun 2026) and Registered Profe
 ## Academic Awards
 
 | Year             | Award                                                  |
-|------------------|--------------------------------------------------------|
+|------------------|-----------------------------------------------------|
 | 2017             | Queen Elizabeth II Graduate Scholarship                |
 | 2016             | Medical Sciences Graduate Program Scholarship          |
 | 2016             | Faculty of Medicine & Dentistry 75th Anniversary Award |
