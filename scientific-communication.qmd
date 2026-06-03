@@ -3,17 +3,21 @@ title: "Publications"
 lightbox: true
 ---
 
-## Publications
-
-Gault IGM. **Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry.** MSc Thesis, University of Alberta, 2019. [University of Alberta Scholaris](https://ualberta.scholaris.ca/items/702d7d4c-fc4d-46ee-9803-c47e67620c94)
+## Peer-Reviewed Publications
 
 Gault IGM, Sun C, Martin JW. **Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake.** *ACS EST Water* 2023, 3(2), 366–376. DOI: [10.1021/acsestwater.2c00430](https://doi.org/10.1021/acsestwater.2c00430)
 
 Morandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. **Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW).** *Environmental Science & Technology* 2015, 49(20), 12395–12404. DOI: [10.1021/acs.est.5b02586](https://doi.org/10.1021/acs.est.5b02586)
 
+## Thesis
+
+Gault IGM. **Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry.** MSc Thesis, University of Alberta, 2019. [University of Alberta Scholaris](https://ualberta.scholaris.ca/items/702d7d4c-fc4d-46ee-9803-c47e67620c94)
+
 ---
 
 ## Conference Presentations
+
+The presentations below document an evolving research program on oil sands process-affected water (OSPW) toxicity, developed across four conferences between 2017 and 2018.
 
 **SETAC North America** — Sacramento, CA (Nov 2018)
 Oral: *Endocrine Activity of Oil Sands Process-Affected Water: Evaluating Ageing as a Remediation Strategy.*
