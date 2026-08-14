@@ -1,0 +1,39 @@
+<svg width="100%" viewBox="0 0 270 170" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Temporal trend analysis thumbnail</title>
+  <desc>Scatter of monitoring results over time with a fitted trend line and a flat reference line, evoking a two-way ANOVA trend plot</desc>
+  <rect width="260" height="160" x="5" y="5" fill="#2e3d3d"/>
+
+  <!-- axes -->
+  <line x1="30" y1="20" x2="30" y2="130" stroke="#e8ddd0" stroke-width="1.2" opacity="0.5"/>
+  <line x1="30" y1="130" x2="245" y2="130" stroke="#e8ddd0" stroke-width="1.2" opacity="0.5"/>
+
+  <!-- flat reference series (Total Copper style: no trend) -->
+  <polyline points="45,95 70,92 95,97 120,93 145,96 170,94 195,92 220,95"
+    fill="none" stroke="#7a9e8a" stroke-width="1.5" opacity="0.55"/>
+  <circle cx="45" cy="95" r="2.5" fill="#7a9e8a" opacity="0.7"/>
+  <circle cx="70" cy="92" r="2.5" fill="#7a9e8a" opacity="0.7"/>
+  <circle cx="95" cy="97" r="2.5" fill="#7a9e8a" opacity="0.7"/>
+  <circle cx="120" cy="93" r="2.5" fill="#7a9e8a" opacity="0.7"/>
+  <circle cx="145" cy="96" r="2.5" fill="#7a9e8a" opacity="0.7"/>
+  <circle cx="170" cy="94" r="2.5" fill="#7a9e8a" opacity="0.7"/>
+  <circle cx="195" cy="92" r="2.5" fill="#7a9e8a" opacity="0.7"/>
+  <circle cx="220" cy="95" r="2.5" fill="#7a9e8a" opacity="0.7"/>
+
+  <!-- trending series with scatter + fitted line (Total Suspended Solids style) -->
+  <circle cx="45" cy="112" r="3" fill="#b85c38" opacity="0.85"/>
+  <circle cx="63" cy="100" r="3" fill="#b85c38" opacity="0.85"/>
+  <circle cx="81" cy="104" r="3" fill="#b85c38" opacity="0.85"/>
+  <circle cx="99" cy="88" r="3" fill="#b85c38" opacity="0.85"/>
+  <circle cx="117" cy="82" r="3" fill="#b85c38" opacity="0.85"/>
+  <circle cx="135" cy="90" r="3" fill="#b85c38" opacity="0.85"/>
+  <circle cx="153" cy="70" r="3" fill="#b85c38" opacity="0.85"/>
+  <circle cx="171" cy="66" r="3" fill="#b85c38" opacity="0.85"/>
+  <circle cx="189" cy="72" r="3" fill="#b85c38" opacity="0.85"/>
+  <circle cx="207" cy="52" r="3" fill="#b85c38" opacity="0.85"/>
+  <circle cx="225" cy="48" r="3" fill="#b85c38" opacity="0.85"/>
+
+  <line x1="42" y1="110" x2="228" y2="42" stroke="#4a7c6f" stroke-width="2.2"/>
+
+  <text x="137" y="150" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e8ddd0" font-weight="600" opacity="0.85">year</text>
+  <text x="16" y="30" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e8ddd0" font-weight="600" opacity="0.85" transform="rotate(-90 16 30)">result</text>
+</svg>

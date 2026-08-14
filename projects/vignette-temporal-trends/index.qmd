@@ -1,0 +1,32 @@
+---
+title: "Temporal Trend Analysis"
+description: "A reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA workflow with a Mann-Kendall cross-check."
+author: "Ian Gault"
+date: "2026-08-14"
+categories: [R, statistics, environmental science, time series]
+image: "temporal_trends_thumbnail.svg"
+toc: true
+---
+
+<div style="margin-bottom: 1.5rem;">
+[View on GitHub](https://github.com/iangault/vignette-temporal-trends){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
+[View Vignette](https://iangault.github.io/vignette-temporal-trends/){.btn .btn-secondary style="font-size: 1rem;"}
+</div>
+
+Long-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.
+
+All program names and site identifiers have been replaced with generic labels; synthetic data is used so the vignette runs standalone.
+
+## What it does
+
+- Multi-year time-series overview figures across analytes and monitoring areas
+- Two-way ANOVA (`result ~ year * area`) with iterative studentized-residual outlier removal
+- Assumption checks: Breusch-Pagan heteroscedasticity test, Shapiro-Wilk normality test
+- Interaction significance testing that decides between the additive model and `emmeans` post-hoc pairwise comparisons
+- Slope extraction and back-transformation to a %/year rate of change, since a significant year effect only says a trend exists, not how big it is
+- Mann-Kendall trend test and Sen's slope estimator, run per monitoring area, as an assumption-light cross-check on both the direction and magnitude of the ANOVA trend
+- Significance annotation on post-hoc comparison figures, driven by the actual model p-values
+
+## Design
+
+The pipeline is organized into modular R functions (`trend_model.R`, `mann_kendall.R`, `plot_trend.R`, `utils.R`) and documented via an R Markdown vignette, including a flowchart figure of the model's decision path (outlier removal → assumptions → interaction test → additive/interaction branch). Four case-study analytes exercise different branches of the pipeline: a shared real trend, a flat null case, a trend confined to one area, and a flat case with injected high-leverage outliers.
