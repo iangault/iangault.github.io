@@ -9,12 +9,20 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: blog/index.qmd
-        text: Blog
-      - href: projects/index.qmd
-        text: Projects
       - href: scientific-communication.qmd
         text: Publications
+      - href: blog/index.qmd
+        text: Blog
+      - text: Projects
+        menu:
+          - href: projects/index.qmd
+            text: All Projects
+          - href: projects/water-quality/index.qmd
+            text: Water Quality
+          - href: projects/dashboards/index.qmd
+            text: Dashboards
+          - href: projects/machine-learning/index.qmd
+            text: Machine Learning
     right:
       - icon: github
         href: https://github.com/iangault

@@ -1,7 +1,11 @@
 ---
 title: "Projects"
 listing:
-  contents: "*/index.qmd"
+  contents:
+    - "wq-harmonization/index.qmd"
+    - "vignette-temporal-trends/index.qmd"
+    - "TempTales/index.qmd"
+    - "MIT_capstone/index.qmd"
   sort: "date desc"
   type: grid
   image-height: "200px"

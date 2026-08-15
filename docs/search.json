@@ -70,11 +70,60 @@
     "text": "Community Service\nStandards & Guidance Committee — BC College of Oral Health Professionals (Apr 2025 – Apr 2026) Served as a public member reviewing professional standards and guidance during the consolidation of multiple health professions under a unified regulatory body; engaged with governance structures, working groups of subject-matter experts, and the rollout of new enforceable professional standards.\nBoard Member (Secretary) & Mental Health Team Lead — Edmonton Men’s Health Collective (2015–2019) Executive board member of a collective dedicated to improving health outcomes of sexual and gender minority men; trusted communicator and collaborator, bridging community members with stakeholders, subject-matter experts, and the board; led a 6-month harm reduction campaign of community naloxone trainings paired with a web series.\nInclusive Health Conference — Sexuality & Gender Advocacy Committee, Edmonton (May 2017) Presented as EMHC representative on mental health outcomes and LGBTQ+ issues in healthcare and medical education.\nTreasurer, LMP Student Group — University of Alberta (2016–2019) Managed budget and provided input on departmental policies for the Laboratory Medicine & Pathology student group."
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
+    "objectID": "projects/vignette-temporal-trends/index.html",
+    "href": "projects/vignette-temporal-trends/index.html",
+    "title": "Temporal Trend Analysis",
     "section": "",
-    "text": "Temporal Trend Analysis\n\n\nA reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA…\n\n\n\nIan Gault\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTempTales: Global Temperature Explorer\n\n\nAn interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an…\n\n\n\nIan Gault\n\n\nMay 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nIan Gault\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\nCapstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).\n\n\n\nIan Gault\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "View on GitHub View Vignette\nLong-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.\nAll program names and site identifiers have been replaced with generic labels; synthetic data is used so the vignette runs standalone."
+  },
+  {
+    "objectID": "projects/vignette-temporal-trends/index.html#what-it-does",
+    "href": "projects/vignette-temporal-trends/index.html#what-it-does",
+    "title": "Temporal Trend Analysis",
+    "section": "What it does",
+    "text": "What it does\n\nMulti-year time-series overview figures across analytes and monitoring areas\nTwo-way ANOVA (result ~ year * area) with iterative studentized-residual outlier removal\nAssumption checks: Breusch-Pagan heteroscedasticity test, Shapiro-Wilk normality test\nInteraction significance testing that decides between the additive model and emmeans post-hoc pairwise comparisons\nSlope extraction and back-transformation to a %/year rate of change, since a significant year effect only says a trend exists, not how big it is\nMann-Kendall trend test and Sen’s slope estimator, run per monitoring area, as an assumption-light cross-check on both the direction and magnitude of the ANOVA trend\nSignificance annotation on post-hoc comparison figures, driven by the actual model p-values"
+  },
+  {
+    "objectID": "projects/vignette-temporal-trends/index.html#design",
+    "href": "projects/vignette-temporal-trends/index.html#design",
+    "title": "Temporal Trend Analysis",
+    "section": "Design",
+    "text": "Design\nThe pipeline is organized into modular R functions (trend_model.R, mann_kendall.R, plot_trend.R, utils.R) and documented via an R Markdown vignette, including a flowchart figure of the model’s decision path (outlier removal → assumptions → interaction test → additive/interaction branch). Four case-study analytes exercise different branches of the pipeline: a shared real trend, a flat null case, a trend confined to one area, and a flat case with injected high-leverage outliers."
+  },
+  {
+    "objectID": "projects/MIT_capstone/index.html",
+    "href": "projects/MIT_capstone/index.html",
+    "title": "MIT Capstone: Applied Data Science — Leveraging AI for Decision-making",
+    "section": "",
+    "text": "Open PDF in new tab"
+  },
+  {
+    "objectID": "projects/TempTales/index.html",
+    "href": "projects/TempTales/index.html",
+    "title": "TempTales: Global Temperature Explorer",
+    "section": "",
+    "text": "Live Dashboard View on GitHub\nTempTales is an interactive dashboard for exploring global and country-level temperature trends from 1860 to 2012. Users can select a country, compare two years side-by-side, view seasonal and monthly patterns, and see temperature shifts on a world heatmap. An AI assistant tab lets users query the data in natural language.\nThis project started as a UBC MDS group project (DSCI 532, 2026). This fork is a solo rebuild and improvement focused on production-readiness: adding CI, fixing test infrastructure, improving code quality, improving visualizations, and preparing for cloud redeployment on Posit Connect."
+  },
+  {
+    "objectID": "projects/TempTales/index.html#features",
+    "href": "projects/TempTales/index.html#features",
+    "title": "TempTales: Global Temperature Explorer",
+    "section": "Features",
+    "text": "Features\n\nCountry explorer — select any country and view its full temperature history with trend overlay\nYear comparison — pick two years and compare monthly/seasonal temperature profiles side-by-side\nWorld heatmap — Plotly choropleth showing global average temperatures by year\nAI assistant — natural-language querying of the dataset via GitHub Models API (GPT-4.1-mini) using chatlas + querychat"
+  },
+  {
+    "objectID": "projects/TempTales/index.html#technical-stack",
+    "href": "projects/TempTales/index.html#technical-stack",
+    "title": "TempTales: Global Temperature Explorer",
+    "section": "Technical stack",
+    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nApp framework\nPython Shiny (reactive server/UI separation)\n\n\nData backend\nDuckDB + ibis lazy expressions\n\n\nVisualizations\nAltair (time-series, comparison charts), Plotly (choropleth map)\n\n\nTesting\npytest (62 unit tests) + Playwright (6 end-to-end UI tests)\n\n\nCI/CD\nGitHub Actions — unit tests → Playwright UI tests on every push/PR\n\n\nLLM integration\nGitHub Models API (gpt-4.1-mini) via chatlas + querychat\n\n\nDeployment\nPosit Connect Cloud via GitHub integration"
+  },
+  {
+    "objectID": "projects/TempTales/index.html#what-i-improved",
+    "href": "projects/TempTales/index.html#what-i-improved",
+    "title": "TempTales: Global Temperature Explorer",
+    "section": "What I improved",
+    "text": "What I improved\nStarting from the group’s original codebase, the solo rebuild focused on:\n\nWiring up a full GitHub Actions CI pipeline (unit + Playwright UI tests)\nFixing broken test infrastructure and expanding coverage to 62 unit + 6 UI tests\nRefactoring server/UI separation for maintainability\nConfiguring cloud deployment on Posit Connect"
   },
   {
     "objectID": "projects/wq-harmonization/index.html",
@@ -133,39 +182,32 @@
     "text": "Presentation Awards\n\n\n\n\n\n\n\n\nYear\nConference\nAward\n\n\n\n\n2018\nSETAC North America\n3rd Place, Best Student Presentation (Masters category)\n\n\n2018\nSETAC-Prairie Northern Chapter\n1st Place, Best Student/PDF Oral Presentation\n\n\n2018\nCanadian Chemistry Conference\nOutstanding Graduate Oral Presentation\n\n\n2017\nCanadian Chemistry Conference\nBell McLeod Educational Fund Award; GSA Academic Travel Award"
   },
   {
-    "objectID": "projects/TempTales/index.html",
-    "href": "projects/TempTales/index.html",
-    "title": "TempTales: Global Temperature Explorer",
+    "objectID": "projects/water-quality/index.html",
+    "href": "projects/water-quality/index.html",
+    "title": "Water Quality Projects",
     "section": "",
-    "text": "Live Dashboard View on GitHub\nTempTales is an interactive dashboard for exploring global and country-level temperature trends from 1860 to 2012. Users can select a country, compare two years side-by-side, view seasonal and monthly patterns, and see temperature shifts on a world heatmap. An AI assistant tab lets users query the data in natural language.\nThis project started as a UBC MDS group project (DSCI 532, 2026). This fork is a solo rebuild and improvement focused on production-readiness: adding CI, fixing test infrastructure, improving code quality, improving visualizations, and preparing for cloud redeployment on Posit Connect."
+    "text": "Temporal Trend Analysis\n\n\nA reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA…\n\n\n\nIan Gault\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nIan Gault\n\n\nJan 1, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "projects/TempTales/index.html#features",
-    "href": "projects/TempTales/index.html#features",
-    "title": "TempTales: Global Temperature Explorer",
-    "section": "Features",
-    "text": "Features\n\nCountry explorer — select any country and view its full temperature history with trend overlay\nYear comparison — pick two years and compare monthly/seasonal temperature profiles side-by-side\nWorld heatmap — Plotly choropleth showing global average temperatures by year\nAI assistant — natural-language querying of the dataset via GitHub Models API (GPT-4.1-mini) using chatlas + querychat"
-  },
-  {
-    "objectID": "projects/TempTales/index.html#technical-stack",
-    "href": "projects/TempTales/index.html#technical-stack",
-    "title": "TempTales: Global Temperature Explorer",
-    "section": "Technical stack",
-    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nApp framework\nPython Shiny (reactive server/UI separation)\n\n\nData backend\nDuckDB + ibis lazy expressions\n\n\nVisualizations\nAltair (time-series, comparison charts), Plotly (choropleth map)\n\n\nTesting\npytest (62 unit tests) + Playwright (6 end-to-end UI tests)\n\n\nCI/CD\nGitHub Actions — unit tests → Playwright UI tests on every push/PR\n\n\nLLM integration\nGitHub Models API (gpt-4.1-mini) via chatlas + querychat\n\n\nDeployment\nPosit Connect Cloud via GitHub integration"
-  },
-  {
-    "objectID": "projects/TempTales/index.html#what-i-improved",
-    "href": "projects/TempTales/index.html#what-i-improved",
-    "title": "TempTales: Global Temperature Explorer",
-    "section": "What I improved",
-    "text": "What I improved\nStarting from the group’s original codebase, the solo rebuild focused on:\n\nWiring up a full GitHub Actions CI pipeline (unit + Playwright UI tests)\nFixing broken test infrastructure and expanding coverage to 62 unit + 6 UI tests\nRefactoring server/UI separation for maintainability\nConfiguring cloud deployment on Posit Connect"
-  },
-  {
-    "objectID": "projects/MIT_capstone/index.html",
-    "href": "projects/MIT_capstone/index.html",
-    "title": "MIT Capstone: Applied Data Science — Leveraging AI for Decision-making",
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
     "section": "",
-    "text": "Open PDF in new tab"
+    "text": "Temporal Trend Analysis\n\n\nA reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA…\n\n\n\nIan Gault\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTempTales: Global Temperature Explorer\n\n\nAn interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an…\n\n\n\nIan Gault\n\n\nMay 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nIan Gault\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\nCapstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).\n\n\n\nIan Gault\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/dashboards/index.html",
+    "href": "projects/dashboards/index.html",
+    "title": "Dashboard Projects",
+    "section": "",
+    "text": "TempTales: Global Temperature Explorer\n\n\nAn interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an…\n\n\n\nIan Gault\n\n\nMay 1, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/machine-learning/index.html",
+    "href": "projects/machine-learning/index.html",
+    "title": "Machine Learning Projects",
+    "section": "",
+    "text": "MIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\nCapstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).\n\n\n\nIan Gault\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/NADA2/index.html",
@@ -173,26 +215,5 @@
     "title": "NADA2: Accurate environmental monitoring starts with handling censured data",
     "section": "",
     "text": "With industrialization, humans have influenced the environment in which they live. We synthesize chemicals for specific uses and extract natural resources with chemical byproducts as waste. Exposure to chemical contaminants is unavoidable; even in environments that appear pristine and are free of human influence, such as regions of the Arctic, persistent synthetic chemicals can be detected by laboratory methods.1\nThe fields of analytical chemistry and toxicology converge to measure concentrations of chemical contaminants in the environment, in our food, water, and consumer products, and in our bodies, and to assess their associated health effects. With the backlog of chemical contaminants we are exposed to, many of whose toxicology is unknown, and the thousands of chemicals we encounter in our lives, methods in toxicology have been changing to keep up with the public health concern.2–4 However, at its root, effective chemical measurements through laboratory testing are needed to assess risk.\nEach method for measuring chemical concentrations has a lower limit, below which the instrument is not sensitive enough to detect true differences in concentrations. This inherent artifact of analytical instruments, though technology is continuously improving to get lower and lower detection limits of trace chemicals.\nEnvironmental chemistry typically follows a log-normal distribution,5 i.e., a right-skewed distribution, with fewer “hits” of hot spots with high-concentration observations relative to the majority of the dataset. Replacing the &lt;DL values with a constant cuts off the lower tail of the distribution, as shown in Figure 1. This is known as left-censored data.\n\nNote: Example figure was generated with ChatGPT5\nCommon practice in environmental monitoring is to impute observations below the detection limit (&lt;DL) to either 1 × DL or 1/2 × DL, because the data exists, but is not observable.6 This has traditionally been practical and was an accepted bias in summary statistics used in chemical evaluation. However, by doing so, you lose the data’s variability, which informs inferential techniques such as confidence intervals and hypothesis testing. And, depending on the distribution of the data and the substitution made, this can both overestimate and underestimate risk, collapsing a range of values into a single guess.\nAnother option–though, is arguably even worse!–would be to remove the censored data completely, removing that valuable information for when concentrations are low and artificially inflating the detected concentrations. Comparisons of contaminated environments that are of concern to surrounding life are usually done using summary statistics, such as upper bounds on chemical concentrations (or lower bounds for toxic effects), which can bias summary statistics used in chemical risk assessment.\nOverall, these two approaches do not incorporate modern methods for handling censored data based on probability and distributional data, and multiple options now exist to incorporate into your workflow, contributing to more accurate, measured downstream analyses.\nThree methods exist: parametric testing, which assumes a particular distribution for the data; non-parametric testing, which makes no distributional assumptions but ranks observations; or semi-parametric testing, which combines both, assuming a distribution while also ranking observations.7\nNADA2 is an R package that provides tools to handle censored data.8 It can incorporate the distribution of the data and provide a probabilistic representation of concentrations that are &lt;DL, thereby avoiding the fixed, direct substitution methods. It is aware of the censorship of the data, allowing for more explicit incorporation of uncertainty and unbiased summary statistics.\nMost commonly, a semi-parametric approach called Regression on Order Statistics (ROS) is used.8 Given that environmental chemistry data is often log-normal, ROS applies a log transformation and ranks observations with their expected normal quantiles. A regression is then used to estimate where censored observations would plausibly fall in the lower tail of the distribution. Here, the censored data is not replaced; instead, values are inferred from the distribution to avoid bias in how the data is used. In other words, the probability distribution is conditional on whether the data is censored or not, as described below:\n\\[\nX_i = \\begin{cases} x_i, & \\text{if detected} \\\\ &lt; DL_i, & \\text{if censored} \\end{cases}\n\\] For censored observations: \\[\nP(X \\le x \\mid X &lt; DL)\n\\] For detected observations: \\[\nP(X \\le x \\mid X \\ge DL_{\\min})\n\\] Note: Equations generated by ChatGPT5\nThis is what’s going on under the hood for the following example code:\n\n# Toy dataframe\ndf &lt;- data.frame(\n  concentration = c(0.2, 0.5, 1.0, 0.4, 2.0, 0.3),\n  censored = c(TRUE, TRUE, FALSE, TRUE, FALSE, TRUE)\n)\n# Created the log-normal estimated distribution\nestimated_distribution &lt;- NADA2::ros(df$concentration, df$censored)\n# Calculated unbiased summary statistics\nmean(estimated_distribution)\nmedian(estimated_distribution)\n# Test to evaluate guideline exceedances for an example contaminated site based on a censor-aware concentration point estimate\npoint_estimate &lt;- quantile(fit, 0.95)\nguideline &lt;- 0.35\nexceedance &lt;- point_estimate &gt; guideline\n\nThe semi-parametric ROS approach is best used when the distribution of data may not fully fit a log-normal distribution, which is often the case in real-world scenarios. It is also reasonably defensible for a high degree of censored data, with a frequency of 30%-50%.7 It is effective for summary statistics, trends, and guideline comparisons; however, it is not a predictive model.\nThe choice of approach depends on the assessment’s goal. If a predictive model is needed, such as estimating concentrations of chemicals in a lake based on the current outflow and concentrations, and a distribution assumption is defensible, then parametric testing would be needed. In this case, NADA provides parametric testing that assigns a distribution and uses Maximum Likelihood Estimates (MLE) to predict concentrations.7,8 An example of the code is below:\n\n# NOTE: this function is from the older package NADA\nparametric_distribution &lt;- NADA::cenmle(df$concentration, df$censored, dist = \"lognormal\")\n\nNon-parametric metrics, such as the Kaplan-Meier estimator, make minimal distributional assumptions; this can be suitable depending on how your data looks, allowing you to still extract valuable information. However, the representations of left-censored data are poorer compared to semi-parametric and parametric methods, with limited extrapolation from observed values and no smoothing.9 Therefore, it is less sensitive.\nThe incorporation of NADA2 or similar packages into an environmental data science workflow is not too much additional work, but does require a shift in perspective. There may be an initial learning curve to understand what’s happening, but the coding is minimal and defensible. Environmental scientists may be resistant to turning to a coding-based workflow and to changing their approach based on what has always been done or what has previously been accepted, but the benefits outweigh the initial discomfort.\nThis is needed because some chemical contaminants have very low recommended safe doses that are approaching the detection limit of our best laboratory methods. As a result, small biases in our imputed values, which may be minor when chemical concentrations are well above the detection limit, can have a much greater impact as measured concentrations approach the detection limit. As environmental scientists, we now have the tools to do better: to accurately represent the data in our studies, make inferences, and have measured remediation strategies and protections for the environment and the life within it.\n\nReferences\nImage taken from: A global agreement to tame chemical pollution | United Nations. https://www.un.org/en/climatechange/global-agreement-tame-chemical-pollution. Accessed January 17, 2026.\n\nPersistent Organic Pollutants: A Global Issue, A Global Response | US EPA. https://www.epa.gov/international-cooperation/persistent-organic-pollutants-global-issue-global-response. Accessed January 13, 2026.\nKrewski D, Westphal M, Andersen ME, et al. A framework for the next generation of risk science. Environ Health Perspect. 2014;122(8):796-805. doi:10.1289/ehp.1307260\nBell SM, Chang X, Wambaugh JF, et al. in vitro to in vivo extrapolation for high throughput prioritization and decision making. Toxicol Vitr. 2018;47(December 2017):213-227. doi:10.1016/j.tiv.2017.11.016\nTox21. Toxicology in the 21st Century. https://tox21.gov/overview/about-tox21/. Accessed January 8, 2025.\nAndersson A. Mechanisms for log normal concentration distributions in the environment. Sci Reports 2021 111. 2021;11(1):16418-. doi:10.1038/s41598-021-96010-6\nMihalache OA, Dall’Asta C. Left-censored data and where to find them: Current implications in mycotoxin-related risk assessment, legislative and economic impacts. Trends Food Sci Technol. 2023;136:112-119. doi:10.1016/J.TIFS.2023.04.011\nHolbert C. How to Calculate Summary Statistics for Left-Censored Data. https://www.cfholbert.com/blog/summary-statistics-censored-data/. Published 2022. Accessed January 17, 2026.\nNADA2 package - RDocumentation. https://www.rdocumentation.org/packages/NADA2/versions/2.0.1. Accessed January 8, 2026.\nWey A, Connett J, Rudser K. Combining parametric, semi-parametric, and non-parametric survival models with stacked survival models. Biostatistics. 2015;16(3):537. doi:10.1093/BIOSTATISTICS/KXV001"
-  },
-  {
-    "objectID": "projects/vignette-temporal-trends/index.html",
-    "href": "projects/vignette-temporal-trends/index.html",
-    "title": "Temporal Trend Analysis",
-    "section": "",
-    "text": "View on GitHub View Vignette\nLong-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.\nAll program names and site identifiers have been replaced with generic labels; synthetic data is used so the vignette runs standalone."
-  },
-  {
-    "objectID": "projects/vignette-temporal-trends/index.html#what-it-does",
-    "href": "projects/vignette-temporal-trends/index.html#what-it-does",
-    "title": "Temporal Trend Analysis",
-    "section": "What it does",
-    "text": "What it does\n\nMulti-year time-series overview figures across analytes and monitoring areas\nTwo-way ANOVA (result ~ year * area) with iterative studentized-residual outlier removal\nAssumption checks: Breusch-Pagan heteroscedasticity test, Shapiro-Wilk normality test\nInteraction significance testing that decides between the additive model and emmeans post-hoc pairwise comparisons\nSlope extraction and back-transformation to a %/year rate of change, since a significant year effect only says a trend exists, not how big it is\nMann-Kendall trend test and Sen’s slope estimator, run per monitoring area, as an assumption-light cross-check on both the direction and magnitude of the ANOVA trend\nSignificance annotation on post-hoc comparison figures, driven by the actual model p-values"
-  },
-  {
-    "objectID": "projects/vignette-temporal-trends/index.html#design",
-    "href": "projects/vignette-temporal-trends/index.html#design",
-    "title": "Temporal Trend Analysis",
-    "section": "Design",
-    "text": "Design\nThe pipeline is organized into modular R functions (trend_model.R, mann_kendall.R, plot_trend.R, utils.R) and documented via an R Markdown vignette, including a flowchart figure of the model’s decision path (outlier removal → assumptions → interaction test → additive/interaction branch). Four case-study analytes exercise different branches of the pipeline: a shared real trend, a flat null case, a trend confined to one area, and a flat case with injected high-leverage outliers."
   }
 ]

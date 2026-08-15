@@ -1,0 +1,10 @@
+---
+title: "Machine Learning Projects"
+listing:
+  contents:
+    - "../MIT_capstone/index.qmd"
+  sort: "date desc"
+  type: grid
+  image-height: "200px"
+page-layout: full
+---

@@ -1,0 +1,11 @@
+---
+title: "Water Quality Projects"
+listing:
+  contents:
+    - "../wq-harmonization/index.qmd"
+    - "../vignette-temporal-trends/index.qmd"
+  sort: "date desc"
+  type: grid
+  image-height: "200px"
+page-layout: full
+---

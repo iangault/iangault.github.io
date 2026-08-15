@@ -6,11 +6,30 @@
     ]
   },
   {
+    "listing": "/projects/water-quality/index.html",
+    "items": [
+      "/projects/vignette-temporal-trends/index.html",
+      "/projects/wq-harmonization/index.html"
+    ]
+  },
+  {
     "listing": "/projects/index.html",
     "items": [
       "/projects/vignette-temporal-trends/index.html",
       "/projects/TempTales/index.html",
       "/projects/wq-harmonization/index.html",
+      "/projects/MIT_capstone/index.html"
+    ]
+  },
+  {
+    "listing": "/projects/dashboards/index.html",
+    "items": [
+      "/projects/TempTales/index.html"
+    ]
+  },
+  {
+    "listing": "/projects/machine-learning/index.html",
+    "items": [
       "/projects/MIT_capstone/index.html"
     ]
   }
