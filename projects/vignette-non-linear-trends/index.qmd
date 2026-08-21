@@ -1,0 +1,31 @@
+---
+title: "Modelling Beyond a Straight Line"
+description: "A Quarto site walking through nonlinear and non-monotonic trend detection for water-quality data - piecewise regression, changepoint detection, k-NN, LOESS, GAMs and GAMMs - for an environmental-consulting audience."
+author: "Ian Gault"
+date: "2026-08-20"
+categories: [R, statistics, environmental science, regression]
+image: "nonlinear_trends_thumbnail.svg"
+toc: true
+---
+
+<div style="margin-bottom: 1.5rem;">
+[View on GitHub](https://github.com/iangault/vignette-non-linear-trends){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
+[View Vignette](https://iangault.github.io/vignette-non-linear-trends/){.btn .btn-secondary style="font-size: 1rem;"}
+</div>
+
+Not every water-quality trend is a straight line. This vignette works through the toolkit for series that curve, plateau, break, or shift level, building from OLS assumptions up to semi-parametric models, with each method paired to a case study analyte that actually needs it.
+
+## What it covers
+
+- The regression framework: estimand, link, systematic component, and how OLS sits inside it as the identity-link/Gaussian special case
+- Diagnosing which kind of nonlinearity a series needs: a log-response transform, a feature-engineered regressor, or a link function
+- Piecewise / segmented linear regression for a slope break at an unknown location
+- Changepoint detection for a level shift at an unknown location
+- k-NN regression and LOESS smoothing for a rise-then-plateau shape, compared side by side on the same data
+- GAMs (`mgcv`) for step-like, non-monotonic change with no periodic or polynomial pattern
+- GAMMs for a seasonal cycle plus trend, with autocorrelated residuals
+- A closing comparison of linear vs. nonlinear fits on two control analytes
+
+## Design
+
+The site is organized as one method per chapter, each grounded in a specific case study rather than a generic worked example, and framed around inference on the observed record rather than forecasting - k-NN, LOESS, GAM, and GAMM all extrapolate poorly outside the fitted range. It's a working site: some chapters are complete case studies, others are still scaffolds being filled in.
