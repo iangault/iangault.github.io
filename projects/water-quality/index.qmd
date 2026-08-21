@@ -4,6 +4,7 @@ listing:
   contents:
     - "../wq-harmonization/index.qmd"
     - "../vignette-temporal-trends/index.qmd"
+    - "../vignette-non-linear-trends/index.qmd"
   sort: "date desc"
   type: grid
   image-height: "200px"

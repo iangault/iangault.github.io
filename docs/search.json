@@ -186,7 +186,7 @@
     "href": "projects/water-quality/index.html",
     "title": "Water Quality Projects",
     "section": "",
-    "text": "Temporal Trend Analysis\n\n\nA reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA…\n\n\n\nIan Gault\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nIan Gault\n\n\nJan 1, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Modelling Beyond a Straight Line\n\n\nA Quarto site walking through nonlinear and non-monotonic trend detection for water-quality data - piecewise regression, changepoint detection, k-NN, LOESS, GAMs and GAMMs -…\n\n\n\nIan Gault\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\nA reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA…\n\n\n\nIan Gault\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nIan Gault\n\n\nJan 1, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/index.html",
