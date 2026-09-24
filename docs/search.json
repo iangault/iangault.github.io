@@ -228,7 +228,7 @@
     "href": "projects/ibd-mycobiome-dashboard/index.html#technical-stack",
     "title": "IBD Mycobiome Dashboard",
     "section": "Technical stack",
-    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nData pipeline\nR (tidyverse), GNU Make\n\n\nStatistics\nvegan, Quarto\n\n\nApp framework\nShiny + bslib\n\n\nReproducibility\nrenv, testthat unit tests\n\n\nCI/CD\nGitHub Actions (rebuilds and publishes the statistics site to GitHub Pages)\n\n\nDeployment\nPosit Connect Cloud\n\n\nSynthetic data\nPython (pandas, numpy)"
+    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nData pipeline\nR (tidyverse), GNU Make\n\n\nStatistics\nPERMANOVA and Bray-Curtis distances (vegan), Kruskal-Wallis, PCA, clustering\n\n\nApp framework\nShiny\n\n\nReporting\nQuarto\n\n\nReproducibility\nrenv, testthat unit tests\n\n\nCI/CD\nGitHub Actions (rebuilds and publishes the statistics site to GitHub Pages)\n\n\nDeployment\nPosit Connect Cloud\n\n\nSynthetic data\nPython (pandas, numpy)"
   },
   {
     "objectID": "projects/ibd-mycobiome-dashboard/index.html#what-i-changed-for-the-public-version",

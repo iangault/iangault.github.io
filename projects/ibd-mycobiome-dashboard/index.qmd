@@ -29,8 +29,9 @@ The original work was a 2026 UBC Master of Data Science capstone built with a ho
 | Area | Tools |
 |---|---|
 | Data pipeline | R (tidyverse), GNU Make |
-| Statistics | vegan, Quarto |
-| App framework | Shiny + bslib |
+| Statistics | PERMANOVA and Bray-Curtis distances (vegan), Kruskal-Wallis, PCA, clustering |
+| App framework | Shiny |
+| Reporting | Quarto |
 | Reproducibility | renv, testthat unit tests |
 | CI/CD | GitHub Actions (rebuilds and publishes the statistics site to GitHub Pages) |
 | Deployment | Posit Connect Cloud |
