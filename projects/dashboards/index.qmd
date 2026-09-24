@@ -3,6 +3,7 @@ title: "Dashboard Projects"
 listing:
   contents:
     - "../TempTales/index.qmd"
+    - "../ibd-mycobiome-dashboard/index.qmd"
   sort: "date desc"
   type: grid
   image-height: "200px"

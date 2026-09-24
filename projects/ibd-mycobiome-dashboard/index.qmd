@@ -1,0 +1,44 @@
+---
+title: "IBD Mycobiome Dashboard"
+description: "An R pipeline, Shiny dashboard, and Quarto statistics site for exploring how gut fungi, diet, and inflammatory biomarkers relate to inflammatory bowel disease, built as a UBC MDS capstone with a hospital research partner and republished on synthetic data."
+author: "Ian Gault"
+date: "2026-09-24"
+categories: [R, Shiny, Quarto, statistics, bioinformatics, data visualization]
+image: "ibd_dashboard_thumbnail.svg"
+toc: true
+---
+
+<div style="margin-bottom: 1.5rem;">
+[Live Dashboard](https://iangault-ibd-dashboard-demo.share.connect.posit.cloud){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
+[Statistics Site](https://iangault.github.io/ibd-dashboard-demo/){.btn .btn-secondary style="margin-right: 0.5rem; font-size: 1rem;"}
+[View on GitHub](https://github.com/iangault/ibd-dashboard-demo){.btn .btn-secondary style="font-size: 1rem;"}
+</div>
+
+This project explores how the gut mycobiome (the fungal community in the gut), diet, and inflammatory biomarkers relate to inflammatory bowel disease (IBD). It combines a data pipeline, an interactive Shiny dashboard with participant-level and cohort-level views, and a Quarto site with one post per statistical analysis.
+
+The original work was a 2026 UBC Master of Data Science capstone built with a hospital research partner by Tiffany Chu, Victoria Farkas, Ian Gault, and Derrick Jaskiel. The original used real patient data under a data-use agreement and is kept private. This public version runs the same code on synthetic data, so the numbers and figures are not real findings.
+
+## What it does
+
+- **Data pipeline** - R scripts that clean and merge four sources (stool mycobiome relative abundance, dietary intake, inflammatory biomarkers, and participant characteristics) into analysis-ready files, orchestrated with GNU Make
+- **Shiny dashboard** - participant-level and cohort-level views of fungal composition, diet, and biomarkers
+- **Statistics site** - alpha diversity (Kruskal-Wallis), beta diversity (PERMANOVA at four taxonomic levels), symptom and nutrient associations, PCA and clustering, and an evidence-ranking matrix
+
+## Technical stack
+
+| Area | Tools |
+|---|---|
+| Data pipeline | R (tidyverse), GNU Make |
+| Statistics | vegan, Quarto |
+| App framework | Shiny + bslib |
+| Reproducibility | renv, testthat unit tests |
+| CI/CD | GitHub Actions (rebuilds and publishes the statistics site to GitHub Pages) |
+| Deployment | Posit Connect Cloud |
+| Synthetic data | Python (pandas, numpy) |
+
+## What I changed for the public version
+
+- Wrote a synthetic data generator that matches the original raw file schemas, so the full pipeline runs end to end
+- Removed the dashboard login (shinymanager), since there is no real data to protect
+- Added a GitHub Actions workflow that rebuilds and publishes the statistics site
+- Removed patient data, results, and the capstone report

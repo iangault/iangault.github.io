@@ -1,0 +1,45 @@
+<svg width="100%" viewBox="0 0 270 170" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>IBD mycobiome dashboard thumbnail</title>
+  <desc>Stacked relative-abundance bars for several participants, evoking a fungal composition view in a dashboard</desc>
+  <rect width="260" height="160" x="5" y="5" fill="#2e3d3d"/>
+
+  <!-- axes -->
+  <line x1="30" y1="20" x2="30" y2="130" stroke="#e8ddd0" stroke-width="1.2" opacity="0.5"/>
+  <line x1="30" y1="130" x2="245" y2="130" stroke="#e8ddd0" stroke-width="1.2" opacity="0.5"/>
+
+  <!-- stacked bars: each bar sums to 100 px height (y 30 to 130) -->
+  <g opacity="0.9">
+    <rect x="42" y="30" width="22" height="45" fill="#4a7c6f"/>
+    <rect x="42" y="75" width="22" height="25" fill="#7a9e8a"/>
+    <rect x="42" y="100" width="22" height="18" fill="#b85c38"/>
+    <rect x="42" y="118" width="22" height="12" fill="#d9a441"/>
+
+    <rect x="76" y="30" width="22" height="30" fill="#4a7c6f"/>
+    <rect x="76" y="60" width="22" height="40" fill="#7a9e8a"/>
+    <rect x="76" y="100" width="22" height="10" fill="#b85c38"/>
+    <rect x="76" y="110" width="22" height="20" fill="#d9a441"/>
+
+    <rect x="110" y="30" width="22" height="60" fill="#4a7c6f"/>
+    <rect x="110" y="90" width="22" height="15" fill="#7a9e8a"/>
+    <rect x="110" y="105" width="22" height="15" fill="#b85c38"/>
+    <rect x="110" y="120" width="22" height="10" fill="#d9a441"/>
+
+    <rect x="144" y="30" width="22" height="20" fill="#4a7c6f"/>
+    <rect x="144" y="50" width="22" height="30" fill="#7a9e8a"/>
+    <rect x="144" y="80" width="22" height="35" fill="#b85c38"/>
+    <rect x="144" y="115" width="22" height="15" fill="#d9a441"/>
+
+    <rect x="178" y="30" width="22" height="38" fill="#4a7c6f"/>
+    <rect x="178" y="68" width="22" height="22" fill="#7a9e8a"/>
+    <rect x="178" y="90" width="22" height="25" fill="#b85c38"/>
+    <rect x="178" y="115" width="22" height="15" fill="#d9a441"/>
+
+    <rect x="212" y="30" width="22" height="52" fill="#4a7c6f"/>
+    <rect x="212" y="82" width="22" height="28" fill="#7a9e8a"/>
+    <rect x="212" y="110" width="22" height="8" fill="#b85c38"/>
+    <rect x="212" y="118" width="22" height="12" fill="#d9a441"/>
+  </g>
+
+  <text x="137" y="150" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e8ddd0" font-weight="600" opacity="0.85">participant</text>
+  <text x="16" y="80" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e8ddd0" font-weight="600" opacity="0.85" transform="rotate(-90 16 80)">abundance</text>
+</svg>

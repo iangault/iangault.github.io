@@ -5,6 +5,7 @@ listing:
     - "wq-harmonization/index.qmd"
     - "vignette-temporal-trends/index.qmd"
     - "vignette-non-linear-trends/index.qmd"
+    - "ibd-mycobiome-dashboard/index.qmd"
     - "TempTales/index.qmd"
     - "MIT_capstone/index.qmd"
   sort: "date desc"
