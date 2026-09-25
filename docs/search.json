@@ -102,7 +102,7 @@
     "href": "projects/wq-harmonization/index.html",
     "title": "Water Quality Data Harmonization Pipeline",
     "section": "",
-    "text": "View on GitHub View Vignette\nEnvironmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end."
+    "text": "View Vignette View on GitHub\nEnvironmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end."
   },
   {
     "objectID": "projects/wq-harmonization/index.html#what-it-does",
@@ -228,7 +228,7 @@
     "href": "projects/product-search-rag/index.html",
     "title": "Product Search RAG",
     "section": "",
-    "text": "Live App View on GitHub Data on Hugging Face\nThis project is a product search assistant built on the Appliances category of the Amazon Reviews 2023 dataset from McAuley Lab. It compares keyword, semantic, and hybrid retrieval side by side, and adds two RAG modes that answer natural language questions using retrieved product details and reviews.\nIt started as a team project by Christine Chow and Ian Gault for DSCI 575 (Advanced Machine Learning) in the UBC Master of Data Science program. The public repository is my continuation of that work.\nThe live app runs on Streamlit Community Cloud’s free tier. If it has not been used for a while, it may need a minute or two to wake up."
+    "text": "Live App View on GitHub Data on Hugging Face\n The live app is on a free tier. If it has been idle, it can take 1 to 2 minutes to start.\nThis project is a product search assistant built on the Appliances category of the Amazon Reviews 2023 dataset from McAuley Lab. It compares keyword, semantic, and hybrid retrieval side by side, and adds two RAG modes that answer natural language questions using retrieved product details and reviews.\nIt started as a team project by Christine Chow and Ian Gault for DSCI 575 (Advanced Machine Learning) in the UBC Master of Data Science program. The public repository is my continuation of that work."
   },
   {
     "objectID": "projects/product-search-rag/index.html#what-it-does",
@@ -270,7 +270,7 @@
     "href": "projects/vignette-temporal-trends/index.html",
     "title": "Temporal Trend Analysis",
     "section": "",
-    "text": "View on GitHub View Vignette\nLong-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.\nAll program names and site identifiers have been replaced with generic labels; synthetic data is used so the vignette runs standalone."
+    "text": "View Vignette View on GitHub\nLong-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.\nAll program names and site identifiers have been replaced with generic labels; synthetic data is used so the vignette runs standalone."
   },
   {
     "objectID": "projects/vignette-temporal-trends/index.html#what-it-does",
@@ -291,7 +291,7 @@
     "href": "projects/vignette-non-linear-trends/index.html",
     "title": "Modelling Beyond a Straight Line",
     "section": "",
-    "text": "View on GitHub View Vignette\nNot every water-quality trend is a straight line. This vignette works through the toolkit for series that curve, plateau, break, or shift level, building from OLS assumptions up to semi-parametric models, with each method paired to a case study analyte that actually needs it."
+    "text": "View Vignette View on GitHub\nNot every water-quality trend is a straight line. This vignette works through the toolkit for series that curve, plateau, break, or shift level, building from OLS assumptions up to semi-parametric models, with each method paired to a case study analyte that actually needs it."
   },
   {
     "objectID": "projects/vignette-non-linear-trends/index.html#what-it-covers",

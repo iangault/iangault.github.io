@@ -9,8 +9,8 @@ toc: true
 ---
 
 <div style="margin-bottom: 1.5rem;">
-[View on GitHub](https://github.com/iangault/vignette-non-linear-trends){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
-[View Vignette](https://iangault.github.io/vignette-non-linear-trends/){.btn .btn-secondary style="font-size: 1rem;"}
+[View Vignette](https://iangault.github.io/vignette-non-linear-trends/){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
+[View on GitHub](https://github.com/iangault/vignette-non-linear-trends){.btn .btn-secondary style="font-size: 1rem;"}
 </div>
 
 Not every water-quality trend is a straight line. This vignette works through the toolkit for series that curve, plateau, break, or shift level, building from OLS assumptions up to semi-parametric models, with each method paired to a case study analyte that actually needs it.

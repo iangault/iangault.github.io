@@ -568,3 +568,21 @@ article figure img,
   margin-top: 0.5rem;
   margin-bottom: 2rem;
 }
+
+/* ── Live app wake-up note (project pages with hosted apps) ─ */
+.app-wake-note {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: #5c6b6b;
+}
+
+.app-wake-note .bi {
+  color: var(--highlight);
+  margin-right: 0.25rem;
+}
+
+#wakeAppModal .modal-content {
+  border: 1px solid var(--band-bg);
+  border-top: 4px solid var(--deep-sage);
+}

@@ -9,8 +9,8 @@ toc: true
 ---
 
 <div style="margin-bottom: 1.5rem;">
-[View on GitHub](https://github.com/iangault/vignette-temporal-trends){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
-[View Vignette](https://iangault.github.io/vignette-temporal-trends/){.btn .btn-secondary style="font-size: 1rem;"}
+[View Vignette](https://iangault.github.io/vignette-temporal-trends/){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
+[View on GitHub](https://github.com/iangault/vignette-temporal-trends){.btn .btn-secondary style="font-size: 1rem;"}
 </div>
 
 Long-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.

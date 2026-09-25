@@ -9,8 +9,8 @@ toc: true
 ---
 
 <div style="margin-bottom: 1.5rem;">
-[View on GitHub](https://github.com/iangault/vignette-wq-harmonization){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
-[View Vignette](https://iangault.github.io/vignette-wq-harmonization/){.btn .btn-secondary style="font-size: 1rem;"}
+[View Vignette](https://iangault.github.io/vignette-wq-harmonization/){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
+[View on GitHub](https://github.com/iangault/vignette-wq-harmonization){.btn .btn-secondary style="font-size: 1rem;"}
 </div>
 
 Environmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end.

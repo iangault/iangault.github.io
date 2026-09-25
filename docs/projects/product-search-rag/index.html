@@ -192,11 +192,53 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div style="margin-bottom: 1.5rem;">
-<p><a href="https://bm-semantic-hybrid-search.streamlit.app/" class="btn btn-primary" style="margin-right: 0.5rem; font-size: 1rem;">Live App</a> <a href="https://github.com/iangault/product-search-rag" class="btn btn-secondary" style="margin-right: 0.5rem; font-size: 1rem;">View on GitHub</a> <a href="https://huggingface.co/datasets/gaultian/product-search-rag-data" class="btn btn-secondary" style="font-size: 1rem;">Data on Hugging Face</a></p>
+<p><a href="https://bm-semantic-hybrid-search.streamlit.app/" class="btn btn-primary wake-app-link" target="_blank" rel="noopener" style="margin-right: 0.5rem; font-size: 1rem;">Live App</a> <a href="https://github.com/iangault/product-search-rag" class="btn btn-secondary" style="margin-right: 0.5rem; font-size: 1rem;">View on GitHub</a> <a href="https://huggingface.co/datasets/gaultian/product-search-rag-data" class="btn btn-secondary" style="font-size: 1rem;">Data on Hugging Face</a></p>
+<p><span class="app-wake-note"><i class="bi bi-clock" aria-hidden="true"></i> The live app is on a free tier. If it has been idle, it can take 1 to 2 minutes to start.</span></p>
 </div>
+<div class="modal fade" id="wakeAppModal" tabindex="-1" aria-labelledby="wakeAppModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title fs-5 fw-semibold" id="wakeAppModalTitle">The app may be asleep</div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>This app runs on Streamlit Community Cloud's free tier, which puts it to sleep after a period of no use.</p>
+        <p class="mb-0">If you see a page saying the app has gone to sleep, click <strong>"Yes, get this app back up!"</strong> and give it 1 to 2 minutes to start.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" id="wakeAppContinue" href="https://bm-semantic-hybrid-search.streamlit.app/" target="_blank" rel="noopener">Open the app</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var modalEl = document.getElementById("wakeAppModal");
+  if (!modalEl || !window.bootstrap) return;
+  var modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+  function seen() {
+    try { return sessionStorage.getItem("wakeAppNoticeSeen") === "1"; } catch (e) { return false; }
+  }
+  function markSeen() {
+    try { sessionStorage.setItem("wakeAppNoticeSeen", "1"); } catch (e) {}
+  }
+  document.querySelectorAll(".wake-app-link").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      if (seen()) return;
+      e.preventDefault();
+      modal.show();
+    });
+  });
+  document.getElementById("wakeAppContinue").addEventListener("click", function () {
+    markSeen();
+    modal.hide();
+  });
+});
+</script>
 <p>This project is a product search assistant built on the Appliances category of the <a href="https://amazon-reviews-2023.github.io">Amazon Reviews 2023</a> dataset from McAuley Lab. It compares keyword, semantic, and hybrid retrieval side by side, and adds two RAG modes that answer natural language questions using retrieved product details and reviews.</p>
 <p>It started as a team project by Christine Chow and Ian Gault for DSCI 575 (Advanced Machine Learning) in the UBC Master of Data Science program. The public repository is my continuation of that work.</p>
-<p>The live app runs on Streamlit Community Cloud’s free tier. If it has not been used for a while, it may need a minute or two to wake up.</p>
 <section id="what-it-does" class="level2">
 <h2 class="anchored" data-anchor-id="what-it-does">What it does</h2>
 <ul>
