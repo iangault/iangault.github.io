@@ -1,11 +1,13 @@
 ---
 title: "MIT Capstone: Applied Data Science — Leveraging AI for Decision-making"
-description: "Capstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023)."
+description: "Customer segmentation using PCA, t-SNE, and five clustering methods, compared by silhouette score."
 author: "Ian Gault"
 date: "2023-12-01"
 categories: [Machine Learning, data science, presentation]
 image: market_segmentation_thumbnail.svg
 ---
+
+Capstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).
 
 <iframe
   src="Capstone Presentation Gault.pptx.pdf"

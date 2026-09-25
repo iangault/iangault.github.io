@@ -1,6 +1,6 @@
 ---
 title: "Modelling Beyond a Straight Line"
-description: "A Quarto site walking through nonlinear and non-monotonic trend detection for water-quality data - piecewise regression, changepoint detection, k-NN, LOESS, GAMs and GAMMs - for an environmental-consulting audience."
+description: "A practical guide to modelling water-quality trends that curve, plateau, or shift, from piecewise regression to GAMs."
 author: "Ian Gault"
 date: "2026-08-20"
 categories: [Water Quality, R, statistics, environmental science, regression]
