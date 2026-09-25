@@ -1,0 +1,58 @@
+<svg width="100%" viewBox="0 0 270 170" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>TempTales thumbnail</title>
+  <desc>Two monthly temperature curves for 1950 and 2000 with a strip of warming by month, evoking the TempTales year comparison view</desc>
+  <rect width="260" height="160" x="5" y="5" fill="#2e3d3d"/>
+
+  <!-- axes -->
+  <line x1="30" y1="20" x2="30" y2="128" stroke="#e8ddd0" stroke-width="1.2" opacity="0.5"/>
+  <line x1="30" y1="128" x2="245" y2="128" stroke="#e8ddd0" stroke-width="1.2" opacity="0.5"/>
+
+  <!-- 1950 and 2000 monthly curves -->
+  <path d="M44.0,116.9 L61.5,106.0 L78.9,90.4 L96.4,74.9 L113.8,52.3 L131.3,38.7 L148.7,31.6 L166.2,35.9 L183.6,44.9 L201.1,64.2 L218.5,85.2 L236.0,95.7" fill="none" stroke="#4a7c6f" stroke-width="2.2"/>
+  <path d="M44.0,103.6 L61.5,94.5 L78.9,81.3 L96.4,70.5 L113.8,52.7 L131.3,38.7 L148.7,28.7 L166.2,33.0 L183.6,46.0 L201.1,61.0 L218.5,78.1 L236.0,100.6" fill="none" stroke="#d9a441" stroke-width="2.2"/>
+  <g>
+    <circle cx="44.0" cy="116.9" r="2.6" fill="#4a7c6f"/>
+    <circle cx="61.5" cy="106.0" r="2.6" fill="#4a7c6f"/>
+    <circle cx="78.9" cy="90.4" r="2.6" fill="#4a7c6f"/>
+    <circle cx="96.4" cy="74.9" r="2.6" fill="#4a7c6f"/>
+    <circle cx="113.8" cy="52.3" r="2.6" fill="#4a7c6f"/>
+    <circle cx="131.3" cy="38.7" r="2.6" fill="#4a7c6f"/>
+    <circle cx="148.7" cy="31.6" r="2.6" fill="#4a7c6f"/>
+    <circle cx="166.2" cy="35.9" r="2.6" fill="#4a7c6f"/>
+    <circle cx="183.6" cy="44.9" r="2.6" fill="#4a7c6f"/>
+    <circle cx="201.1" cy="64.2" r="2.6" fill="#4a7c6f"/>
+    <circle cx="218.5" cy="85.2" r="2.6" fill="#4a7c6f"/>
+    <circle cx="236.0" cy="95.7" r="2.6" fill="#4a7c6f"/>
+    <circle cx="44.0" cy="103.6" r="2.6" fill="#d9a441"/>
+    <circle cx="61.5" cy="94.5" r="2.6" fill="#d9a441"/>
+    <circle cx="78.9" cy="81.3" r="2.6" fill="#d9a441"/>
+    <circle cx="96.4" cy="70.5" r="2.6" fill="#d9a441"/>
+    <circle cx="113.8" cy="52.7" r="2.6" fill="#d9a441"/>
+    <circle cx="131.3" cy="38.7" r="2.6" fill="#d9a441"/>
+    <circle cx="148.7" cy="28.7" r="2.6" fill="#d9a441"/>
+    <circle cx="166.2" cy="33.0" r="2.6" fill="#d9a441"/>
+    <circle cx="183.6" cy="46.0" r="2.6" fill="#d9a441"/>
+    <circle cx="201.1" cy="61.0" r="2.6" fill="#d9a441"/>
+    <circle cx="218.5" cy="78.1" r="2.6" fill="#d9a441"/>
+    <circle cx="236.0" cy="100.6" r="2.6" fill="#d9a441"/>
+  </g>
+
+  <!-- change by month -->
+  <g>
+    <rect x="36.3" y="132" width="15.5" height="6" fill="#b85c38" opacity="0.95"/>
+    <rect x="53.7" y="132" width="15.5" height="6" fill="#b85c38" opacity="0.95"/>
+    <rect x="71.2" y="132" width="15.5" height="6" fill="#b85c38" opacity="0.90"/>
+    <rect x="88.6" y="132" width="15.5" height="6" fill="#b85c38" opacity="0.61"/>
+    <rect x="106.1" y="132" width="15.5" height="6" fill="#7a9e8a" opacity="0.37"/>
+    <rect x="123.5" y="132" width="15.5" height="6" fill="#d9a441" opacity="0.35"/>
+    <rect x="141.0" y="132" width="15.5" height="6" fill="#b85c38" opacity="0.53"/>
+    <rect x="158.5" y="132" width="15.5" height="6" fill="#b85c38" opacity="0.53"/>
+    <rect x="175.9" y="132" width="15.5" height="6" fill="#7a9e8a" opacity="0.42"/>
+    <rect x="193.4" y="132" width="15.5" height="6" fill="#b85c38" opacity="0.54"/>
+    <rect x="210.8" y="132" width="15.5" height="6" fill="#b85c38" opacity="0.78"/>
+    <rect x="228.3" y="132" width="15.5" height="6" fill="#7a9e8a" opacity="0.64"/>
+  </g>
+
+  <text x="137" y="154" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e8ddd0" font-weight="600" opacity="0.85">month</text>
+  <text x="16" y="76" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e8ddd0" font-weight="600" opacity="0.85" transform="rotate(-90 16 76)">temp (°C)</text>
+</svg>

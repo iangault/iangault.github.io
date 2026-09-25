@@ -1,0 +1,98 @@
+<svg width="100%" viewBox="0 0 270 170" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>MIT capstone thumbnail</title>
+  <desc>Scatter plot of three customer segments in principal component space, evoking PCA and clustering for market segmentation</desc>
+  <rect width="260" height="160" x="5" y="5" fill="#2e3d3d"/>
+
+  <!-- axes -->
+  <line x1="30" y1="20" x2="30" y2="130" stroke="#e8ddd0" stroke-width="1.2" opacity="0.5"/>
+  <line x1="30" y1="130" x2="245" y2="130" stroke="#e8ddd0" stroke-width="1.2" opacity="0.5"/>
+
+  <!-- three clusters -->
+  <g opacity="0.85">
+    <circle cx="52.9" cy="70.6" r="3.2" fill="#d9a441"/>
+    <circle cx="206.4" cy="58.0" r="3.2" fill="#b85c38"/>
+    <circle cx="221.6" cy="75.9" r="3.2" fill="#b85c38"/>
+    <circle cx="90.1" cy="98.5" r="3.2" fill="#d9a441"/>
+    <circle cx="76.4" cy="90.6" r="3.2" fill="#d9a441"/>
+    <circle cx="143.3" cy="80.0" r="3.2" fill="#4a7c6f"/>
+    <circle cx="204.7" cy="81.4" r="3.2" fill="#b85c38"/>
+    <circle cx="70.1" cy="84.6" r="3.2" fill="#d9a441"/>
+    <circle cx="71.7" cy="112.1" r="3.2" fill="#d9a441"/>
+    <circle cx="106.5" cy="49.3" r="3.2" fill="#4a7c6f"/>
+    <circle cx="120.5" cy="75.1" r="3.2" fill="#4a7c6f"/>
+    <circle cx="65.8" cy="88.4" r="3.2" fill="#d9a441"/>
+    <circle cx="187.1" cy="71.3" r="3.2" fill="#b85c38"/>
+    <circle cx="172.1" cy="70.5" r="3.2" fill="#b85c38"/>
+    <circle cx="208.3" cy="60.7" r="3.2" fill="#b85c38"/>
+    <circle cx="113.0" cy="92.8" r="3.2" fill="#4a7c6f"/>
+    <circle cx="72.8" cy="81.6" r="3.2" fill="#d9a441"/>
+    <circle cx="138.7" cy="87.6" r="3.2" fill="#4a7c6f"/>
+    <circle cx="96.6" cy="98.5" r="3.2" fill="#d9a441"/>
+    <circle cx="185.6" cy="76.2" r="3.2" fill="#b85c38"/>
+    <circle cx="140.4" cy="72.4" r="3.2" fill="#4a7c6f"/>
+    <circle cx="128.2" cy="65.6" r="3.2" fill="#4a7c6f"/>
+    <circle cx="216.1" cy="75.6" r="3.2" fill="#b85c38"/>
+    <circle cx="115.3" cy="102.9" r="3.2" fill="#4a7c6f"/>
+    <circle cx="113.1" cy="85.1" r="3.2" fill="#4a7c6f"/>
+    <circle cx="125.1" cy="76.6" r="3.2" fill="#4a7c6f"/>
+    <circle cx="154.3" cy="55.6" r="3.2" fill="#4a7c6f"/>
+    <circle cx="65.1" cy="92.0" r="3.2" fill="#d9a441"/>
+    <circle cx="84.9" cy="94.4" r="3.2" fill="#d9a441"/>
+    <circle cx="67.1" cy="98.4" r="3.2" fill="#d9a441"/>
+    <circle cx="182.8" cy="70.9" r="3.2" fill="#b85c38"/>
+    <circle cx="145.0" cy="94.3" r="3.2" fill="#4a7c6f"/>
+    <circle cx="88.3" cy="86.0" r="3.2" fill="#d9a441"/>
+    <circle cx="158.9" cy="90.0" r="3.2" fill="#4a7c6f"/>
+    <circle cx="121.8" cy="94.3" r="3.2" fill="#4a7c6f"/>
+    <circle cx="195.2" cy="74.6" r="3.2" fill="#b85c38"/>
+    <circle cx="88.1" cy="102.0" r="3.2" fill="#d9a441"/>
+    <circle cx="157.0" cy="76.2" r="3.2" fill="#4a7c6f"/>
+    <circle cx="150.6" cy="82.3" r="3.2" fill="#4a7c6f"/>
+    <circle cx="111.5" cy="98.7" r="3.2" fill="#4a7c6f"/>
+    <circle cx="75.9" cy="102.2" r="3.2" fill="#d9a441"/>
+    <circle cx="193.7" cy="66.3" r="3.2" fill="#b85c38"/>
+    <circle cx="151.5" cy="84.0" r="3.2" fill="#4a7c6f"/>
+    <circle cx="132.2" cy="95.3" r="3.2" fill="#4a7c6f"/>
+    <circle cx="69.4" cy="119.0" r="3.2" fill="#d9a441"/>
+    <circle cx="189.1" cy="82.5" r="3.2" fill="#b85c38"/>
+    <circle cx="179.8" cy="78.9" r="3.2" fill="#b85c38"/>
+    <circle cx="194.5" cy="73.6" r="3.2" fill="#b85c38"/>
+    <circle cx="139.9" cy="90.4" r="3.2" fill="#4a7c6f"/>
+    <circle cx="53.3" cy="107.0" r="3.2" fill="#d9a441"/>
+    <circle cx="88.9" cy="111.8" r="3.2" fill="#d9a441"/>
+    <circle cx="86.3" cy="97.6" r="3.2" fill="#d9a441"/>
+    <circle cx="47.8" cy="90.5" r="3.2" fill="#d9a441"/>
+    <circle cx="188.1" cy="68.7" r="3.2" fill="#b85c38"/>
+    <circle cx="147.6" cy="58.5" r="3.2" fill="#4a7c6f"/>
+    <circle cx="213.9" cy="43.8" r="3.2" fill="#b85c38"/>
+    <circle cx="184.4" cy="79.2" r="3.2" fill="#b85c38"/>
+    <circle cx="80.8" cy="113.3" r="3.2" fill="#d9a441"/>
+    <circle cx="118.2" cy="94.7" r="3.2" fill="#4a7c6f"/>
+    <circle cx="149.3" cy="88.9" r="3.2" fill="#4a7c6f"/>
+    <circle cx="84.9" cy="100.5" r="3.2" fill="#d9a441"/>
+    <circle cx="74.5" cy="93.5" r="3.2" fill="#d9a441"/>
+    <circle cx="175.4" cy="74.7" r="3.2" fill="#b85c38"/>
+    <circle cx="156.7" cy="89.5" r="3.2" fill="#4a7c6f"/>
+    <circle cx="197.4" cy="72.0" r="3.2" fill="#b85c38"/>
+    <circle cx="97.8" cy="100.9" r="3.2" fill="#d9a441"/>
+    <circle cx="203.1" cy="59.1" r="3.2" fill="#b85c38"/>
+    <circle cx="192.0" cy="78.3" r="3.2" fill="#b85c38"/>
+    <circle cx="199.9" cy="78.2" r="3.2" fill="#b85c38"/>
+    <circle cx="88.0" cy="94.1" r="3.2" fill="#d9a441"/>
+    <circle cx="136.8" cy="65.1" r="3.2" fill="#4a7c6f"/>
+    <circle cx="136.8" cy="96.9" r="3.2" fill="#4a7c6f"/>
+    <circle cx="144.2" cy="74.0" r="3.2" fill="#4a7c6f"/>
+    <circle cx="78.3" cy="83.6" r="3.2" fill="#d9a441"/>
+    <circle cx="154.5" cy="66.6" r="3.2" fill="#b85c38"/>
+    <circle cx="142.8" cy="89.1" r="3.2" fill="#4a7c6f"/>
+    <circle cx="187.7" cy="75.1" r="3.2" fill="#b85c38"/>
+    <circle cx="189.8" cy="82.2" r="3.2" fill="#b85c38"/>
+    <circle cx="184.4" cy="67.9" r="3.2" fill="#b85c38"/>
+    <circle cx="156.6" cy="86.7" r="3.2" fill="#4a7c6f"/>
+    <circle cx="105.4" cy="73.8" r="3.2" fill="#4a7c6f"/>
+    <circle cx="86.8" cy="74.1" r="3.2" fill="#d9a441"/>
+  </g>
+
+  <text x="137" y="150" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e8ddd0" font-weight="600" opacity="0.85">PC1</text>
+  <text x="16" y="80" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e8ddd0" font-weight="600" opacity="0.85" transform="rotate(-90 16 80)">PC2</text>
+</svg>

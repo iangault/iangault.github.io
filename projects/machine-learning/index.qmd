@@ -2,6 +2,7 @@
 title: "Machine Learning Projects"
 listing:
   contents:
+    - "../product-search-rag/index.qmd"
     - "../MIT_capstone/index.qmd"
   sort: "date desc"
   type: grid

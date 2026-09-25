@@ -4,7 +4,7 @@ description: "Capstone presentation for the MIT Certificate in Applied Data Scie
 author: "Ian Gault"
 date: "2023-12-01"
 categories: [data science, machine learning, presentation]
-image: market_segmentation.png
+image: market_segmentation_thumbnail.svg
 ---
 
 <iframe

@@ -5,7 +5,7 @@ author: "Ian Gault"
 date: "2026-05-01"
 categories: [Python, Shiny, DuckDB, Altair, Plotly, CI/CD, LLM, data visualization]
 toc: true
-image: temptales.png
+image: temptales_thumbnail.svg
 ---
 
 <div style="margin-bottom: 1.5rem;">

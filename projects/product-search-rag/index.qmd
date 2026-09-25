@@ -1,0 +1,61 @@
+---
+title: "Product Search RAG"
+description: "A Streamlit app for searching Amazon appliance products with BM25, semantic, and hybrid retrieval, plus retrieval-augmented generation (RAG) for answering product questions from review and metadata context."
+author: "Ian Gault"
+date: "2026-09-24"
+categories: [Python, machine learning, NLP, information retrieval, RAG, LLM, Streamlit]
+image: "product_search_thumbnail.svg"
+toc: true
+---
+
+<div style="margin-bottom: 1.5rem;">
+[Live App](https://bm-semantic-hybrid-search.streamlit.app/){.btn .btn-primary style="margin-right: 0.5rem; font-size: 1rem;"}
+[View on GitHub](https://github.com/iangault/product-search-rag){.btn .btn-secondary style="margin-right: 0.5rem; font-size: 1rem;"}
+[Data on Hugging Face](https://huggingface.co/datasets/gaultian/product-search-rag-data){.btn .btn-secondary style="font-size: 1rem;"}
+</div>
+
+This project is a product search assistant built on the Appliances category of the [Amazon Reviews 2023](https://amazon-reviews-2023.github.io) dataset from McAuley Lab. It compares keyword, semantic, and hybrid retrieval side by side, and adds two RAG modes that answer natural language questions using retrieved product details and reviews.
+
+It started as a team project by Christine Chow and Ian Gault for DSCI 575 (Advanced Machine Learning) in the UBC Master of Data Science program. The public repository is my continuation of that work.
+
+The live app runs on Streamlit Community Cloud's free tier. If it has not been used for a while, it may need a minute or two to wake up.
+
+## What it does
+
+- **BM25 search** - keyword ranking with `rank_bm25` over product titles, features, descriptions, categories, details, and review text
+- **Semantic search** - `all-MiniLM-L6-v2` sentence embeddings indexed with FAISS, matching queries by meaning rather than exact words
+- **Hybrid search** - combines BM25 and semantic results with Reciprocal Rank Fusion
+- **RAG and Hybrid RAG** - retrieved products and review text are passed as context to a Qwen model via the Groq API, which writes a grounded answer shown alongside the supporting products
+- **Query guardrail** - an LLM-based check rejects questions unrelated to appliances or product shopping
+
+## Retrieval evaluation
+
+Each retriever was scored on 10 test queries against human relevance labels (k = 5):
+
+| Retriever | Mean Precision@5 | Mean Recall@5 | MRR |
+|---|---|---|---|
+| BM25 | 0.54 | 0.33 | 0.73 |
+| Semantic | 0.68 | 0.39 | 0.85 |
+| Hybrid | 0.58 | 0.36 | 0.85 |
+
+Semantic search scored highest on this query set and tied with hybrid search on MRR. Some queries were written to favour semantic interpretation (for example, misspellings), which may explain part of the gap.
+
+## Technical stack
+
+| Area | Tools |
+|---|---|
+| Data processing | DuckDB, pandas, NLTK |
+| Keyword retrieval | rank_bm25 |
+| Semantic retrieval | sentence-transformers, FAISS |
+| RAG | LangChain, Groq API (Qwen) |
+| App framework | Streamlit |
+| Data hosting | Hugging Face Hub |
+| Deployment | Streamlit Community Cloud |
+| Reproducibility | conda, GNU Make |
+
+## What I changed for the public version
+
+- Reworked the project into a standalone repository with a new README
+- Switched the LLM to `qwen/qwen3.8-27b` after Groq retired the original `qwen/qwen3-32b`
+- Moved the processed data and search indexes (about 207 MB) to a public Hugging Face dataset, so the git repository stays small and the app downloads them at startup
+- Deployed the app to Streamlit Community Cloud
