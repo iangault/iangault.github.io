@@ -258,6 +258,110 @@ h1.hero-headline {
   color: var(--text-dark);
 }
 
+/* How I work pipeline */
+.how-i-work {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.how-i-work > p {
+  color: #5b6b6b;
+  margin-bottom: 1.25rem;
+}
+
+.pipeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.75rem;
+}
+
+.step {
+  position: relative;
+  background: #ffffff;
+  border-top: 3px solid var(--deep-sage);
+  border-radius: 4px;
+  padding: 1rem 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.step p {
+  margin-bottom: 0.75rem;
+  font-size: 0.97rem;
+  line-height: 1.45;
+}
+
+/* Arrow between steps */
+.step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -1.35rem;
+  top: 1rem;
+  color: var(--highlight);
+  font-weight: 600;
+}
+
+.step-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--highlight);
+}
+
+.step p:last-child {
+  margin-top: auto;
+  margin-bottom: 0;
+  /* Room for the label plus a two-line link, so labels line up across cards */
+  min-height: 4.2rem;
+}
+
+.step-eg {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5b6b6b;
+  margin-bottom: 0.15rem;
+}
+
+.step-link {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* What I'm looking for */
+.looking-for {
+  max-width: 1200px;
+  margin: 0 auto 3.5rem;
+  padding: 0 1.5rem;
+}
+
+.looking-for > p {
+  max-width: 760px;
+  font-size: 1.1rem;
+}
+
+.looking-for .hero-buttons {
+  margin-top: 1rem;
+}
+
+@media (max-width: 992px) {
+  .pipeline {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .step:not(:last-child)::after {
+    content: "↓";
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -1.45rem;
+  }
+}
+
 /* Featured projects */
 .featured {
   max-width: 1200px;

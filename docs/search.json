@@ -14,11 +14,25 @@
     "text": "Ian Gault\n\n\n\n\nApplied Data Scientist · MDS · MSc · RPBio\n\n\nI turn messy scientific data into trustworthy systems, models, and decisions.\n\nMy background spans scientific research, six years of environmental consulting, and modern data science and machine learning. I work across the data lifecycle: understanding how measurements are generated, building reproducible pipelines, developing statistical and machine-learning models, deploying them, and communicating results to the people who depend on them.\n\nSee my projects Resume Get in touch"
   },
   {
+    "objectID": "index.html#how-i-work",
+    "href": "index.html#how-i-work",
+    "title": "A scientist who builds data systems.",
+    "section": "How I work",
+    "text": "How I work\nFrom how the data were generated to the decisions they support.\n\n\nMeasure\nStart with how the data were generated: instruments, detection limits, and sampling design.\nFor example MSc research in analytical toxicology\n\n\nEngineer\nTurn messy, multi-source data into reproducible, tested pipelines.\nFor example Water Quality Harmonization\n\n\nModel\nMatch the model to the data and check its assumptions before trusting the result.\nFor example Modelling Beyond a Straight Line\n\n\nDeploy\nBuild reports, dashboards, and apps.\nFor example IBD Mycobiome Dashboard\n\n\nDecide\nCommunicate results clearly enough to support regulatory, environmental, and business decisions.\nFor example Six years of consulting"
+  },
+  {
     "objectID": "index.html#featured-projects",
     "href": "index.html#featured-projects",
     "title": "A scientist who builds data systems.",
     "section": "Featured projects",
     "text": "Featured projects\n\n\n\n\n\n\n\n\n\n\nIBD Mycobiome Dashboard\n\n\nShiny dashboard and statistics site linking gut fungi, diet, and inflammation in IBD, built with a hospital partner.\n\n\n\n\n\n\n\n\n\n\n\n\nModelling Beyond a Straight Line\n\n\nA practical guide to modelling water-quality trends that curve, plateau, or shift, from piecewise regression to GAMs.\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\nA reproducible R workflow for detecting linear, monotonic water-quality trends and comparing them across monitoring areas.\n\n\n\n\n\nNo matching items\n\nSee all projects →"
+  },
+  {
+    "objectID": "index.html#what-im-looking-for",
+    "href": "index.html#what-im-looking-for",
+    "title": "A scientist who builds data systems.",
+    "section": "What I’m looking for",
+    "text": "What I’m looking for\nI’m interested in data science and analytics roles where quantitative methods intersect with science, technology, health, natural resources, or other complex real-world systems.\n\nGet in touch Resume"
   },
   {
     "objectID": "projects/ibd-mycobiome-dashboard/index.html",

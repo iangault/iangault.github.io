@@ -55,6 +55,58 @@ My background spans scientific research, six years of environmental consulting, 
 My work is grounded in a simple principle: good models start with understanding the data-generating process and end with something people can actually use.
 :::
 
+::: {.how-i-work}
+
+## How I work
+
+From how the data were generated to the decisions they support.
+
+::: {.pipeline}
+
+::: {.step}
+[Measure]{.step-label}
+
+Start with how the data were generated: instruments, detection limits, and sampling design.
+
+[For example]{.step-eg} [MSc research in analytical toxicology](scientific-communication.qmd){.step-link}
+:::
+
+::: {.step}
+[Engineer]{.step-label}
+
+Turn messy, multi-source data into reproducible, tested pipelines.
+
+[For example]{.step-eg} [Water Quality Harmonization](projects/wq-harmonization/index.qmd){.step-link}
+:::
+
+::: {.step}
+[Model]{.step-label}
+
+Match the model to the data and check its assumptions before trusting the result.
+
+[For example]{.step-eg} [Modelling Beyond a Straight Line](projects/vignette-non-linear-trends/index.qmd){.step-link}
+:::
+
+::: {.step}
+[Deploy]{.step-label}
+
+Build reports, dashboards, and apps.
+
+[For example]{.step-eg} [IBD Mycobiome Dashboard](projects/ibd-mycobiome-dashboard/index.qmd){.step-link}
+:::
+
+::: {.step}
+[Decide]{.step-label}
+
+Communicate results clearly enough to support regulatory, environmental, and business decisions.
+
+[For example]{.step-eg} [Six years of consulting](resume.qmd#experience){.step-link}
+:::
+
+:::
+
+:::
+
 ::: {.featured}
 
 ## Featured projects
@@ -63,5 +115,18 @@ My work is grounded in a simple principle: good models start with understanding 
 :::
 
 [See all projects →](projects/index.qmd){.see-all}
+
+:::
+
+::: {.looking-for}
+
+## What I'm looking for
+
+I'm interested in data science and analytics roles where quantitative methods intersect with science, technology, health, natural resources, or other complex real-world systems.
+
+::: {.hero-buttons}
+[Get in touch](https://www.linkedin.com/in/gaultian){.btn .btn-primary}
+[Resume](resume.qmd){.btn .btn-outline-secondary}
+:::
 
 :::
