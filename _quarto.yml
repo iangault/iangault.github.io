@@ -20,7 +20,7 @@ website:
         href: https://github.com/iangault
         aria-label: GitHub
       - icon: linkedin
-        href: https://www.linkedin.com/in/iangault
+        href: https://www.linkedin.com/in/gaultian
         aria-label: LinkedIn
   page-footer:
     left: "© 2026 Ian Gault · Built with [Quarto](https://quarto.org)"
@@ -29,7 +29,7 @@ website:
         href: https://github.com/iangault
         aria-label: GitHub
       - icon: linkedin
-        href: https://www.linkedin.com/in/iangault
+        href: https://www.linkedin.com/in/gaultian
         aria-label: LinkedIn
 
 format:

@@ -44,7 +44,7 @@ My background spans scientific research, six years of environmental consulting, 
 ::: {.hero-buttons}
 [See my projects](projects/index.qmd){.btn .btn-primary}
 [Resume](resume.qmd){.btn .btn-outline-secondary}
-[Get in touch](https://www.linkedin.com/in/iangault){.btn .btn-outline-secondary}
+[Get in touch](https://www.linkedin.com/in/gaultian){.btn .btn-outline-secondary}
 :::
 
 :::
