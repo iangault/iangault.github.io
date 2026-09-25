@@ -6,6 +6,14 @@
     ]
   },
   {
+    "listing": "/index.html",
+    "items": [
+      "/projects/ibd-mycobiome-dashboard/index.html",
+      "/projects/vignette-non-linear-trends/index.html",
+      "/projects/vignette-temporal-trends/index.html"
+    ]
+  },
+  {
     "listing": "/projects/machine-learning/index.html",
     "items": [
       "/projects/product-search-rag/index.html",

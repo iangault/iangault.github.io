@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://iangault.github.io/index.html</loc>
-    <lastmod>2026-09-25T04:35:05.484Z</lastmod>
+    <lastmod>2026-09-25T04:51:26.188Z</lastmod>
   </url>
   <url>
     <loc>https://iangault.github.io/projects/machine-learning/index.html</loc>
@@ -25,12 +25,20 @@
     <lastmod>2026-09-25T03:52:12.615Z</lastmod>
   </url>
   <url>
-    <loc>https://iangault.github.io/projects/wq-harmonization/index.html</loc>
-    <lastmod>2026-05-28T05:36:40.199Z</lastmod>
+    <loc>https://iangault.github.io/projects/product-search-rag/index.html</loc>
+    <lastmod>2026-09-25T03:47:21.284Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iangault.github.io/resume.html</loc>
+    <lastmod>2026-09-25T04:50:57.274Z</lastmod>
   </url>
   <url>
     <loc>https://iangault.github.io/scientific-communication.html</loc>
     <lastmod>2026-06-03T22:56:28.431Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iangault.github.io/projects/wq-harmonization/index.html</loc>
+    <lastmod>2026-05-28T05:36:40.199Z</lastmod>
   </url>
   <url>
     <loc>https://iangault.github.io/projects/water-quality/index.html</loc>
@@ -55,9 +63,5 @@
   <url>
     <loc>https://iangault.github.io/blog/posts/NADA2/index.html</loc>
     <lastmod>2026-05-28T05:24:56.818Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iangault.github.io/projects/product-search-rag/index.html</loc>
-    <lastmod>2026-09-25T03:47:21.284Z</lastmod>
   </url>
 </urlset>

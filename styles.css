@@ -71,6 +71,148 @@ body {
   font-weight: 600;
 }
 
+/* ── Homepage hero ────────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 3rem auto 2.5rem;
+  padding: 0 1.5rem;
+}
+
+.hero-photo img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--warm-paper);
+}
+
+.hero-photo figure,
+.hero-photo p {
+  margin: 0;
+}
+
+.hero-name {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--highlight);
+}
+
+h1.hero-headline {
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin: 0.25rem 0 0.5rem;
+  border: none;
+}
+
+.hero-credentials {
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: #5b6b6b;
+  margin-bottom: 1.25rem;
+}
+
+.hero-tagline {
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: var(--deep-sage);
+  margin-bottom: 1rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.hero-buttons p {
+  display: contents;
+}
+
+.hero-buttons .btn-primary {
+  background-color: var(--deep-sage);
+  border-color: var(--deep-sage);
+}
+
+.hero-buttons .btn-primary:hover {
+  background-color: var(--banner-bg);
+  border-color: var(--banner-bg);
+}
+
+.hero-buttons .btn-outline-secondary {
+  color: var(--deep-sage);
+  border-color: var(--deep-sage);
+}
+
+.hero-buttons .btn-outline-secondary:hover {
+  background-color: var(--deep-sage);
+  color: #ffffff;
+}
+
+/* Principle statement band */
+.principle {
+  background-color: var(--warm-paper);
+  padding: 2rem 1.5rem;
+  margin: 0 0 2.5rem;
+  text-align: center;
+}
+
+.principle p {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+}
+
+/* Featured projects */
+.featured {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.featured .quarto-listing {
+  padding: 0;
+}
+
+.see-all {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--deep-sage);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .hero-photo img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  h1.hero-headline {
+    font-size: 1.9rem;
+  }
+}
+
 /* ── Section headers (## banners) ─────────────────────────── */
 .quarto-about-trestles .about-contents h2,
 main h2 {
