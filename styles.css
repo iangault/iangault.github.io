@@ -368,14 +368,22 @@ main h2 {
   color: #ffffff;
 }
 
-/* Tags on cards */
-.quarto-listing .card .listing-categories .listing-category {
+/* Tags on project cards, blog posts, and page title blocks */
+.quarto-listing .listing-categories .listing-category,
+div.quarto-post .listing-categories .listing-category,
+.quarto-title .quarto-categories .quarto-category {
   border-color: var(--accent);
   color: var(--deep-sage);
 }
 
-.quarto-listing .card .listing-categories .listing-category:hover {
+.quarto-listing .listing-categories .listing-category:hover,
+div.quarto-post .listing-categories .listing-category:hover {
   background-color: var(--warm-paper);
+}
+
+/* Blog list: date and author use the site font */
+div.quarto-post .metadata {
+  font-family: inherit;
 }
 
 /* Card accent */

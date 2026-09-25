@@ -1,5 +1,6 @@
 ---
-title: "NADA2: Accurate environmental monitoring starts with handling censured data"
+title: "NADA2: Accurate environmental monitoring starts with handling censored data"
+description: "Why substituting or dropping values below the detection limit biases environmental data, and how censor-aware methods in NADA2 handle them."
 author: "Ian Gault"
 date: "2026-01-13"
 categories: [code, analysis]
