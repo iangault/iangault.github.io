@@ -42,6 +42,8 @@ Within the time frame we could test, dilution was the main process lowering both
 
 The peer-reviewed version of the lake results was later published as [Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake](https://doi.org/10.1021/acsestwater.2c00430) (*ACS EST Water*, 2023).
 
+Before the defense, I presented this work at four conferences between 2017 and 2018. The toxicity attribution results were also shown as a poster at DRIvE Days 2018, listed with the other presentations on my [Publications](../../../scientific-communication.qmd#conference-presentations) page.
+
 ## Slides
 
 <object data="msc-defense-gault-2019.pdf" type="application/pdf" width="100%" height="600px" style="border:1px solid #ccc; border-radius:4px;">
