@@ -126,7 +126,7 @@ I'm interested in data science and analytics roles where quantitative methods in
 
 ::: {.hero-buttons}
 [Get in touch](https://www.linkedin.com/in/gaultian){.btn .btn-primary}
-[Resume](resume.qmd){.btn .btn-outline-secondary}
+[Download Resume](media/Ian_Gault_Resume.pdf){.btn .btn-outline-secondary download="Ian_Gault_Resume.pdf"}
 :::
 
 :::
