@@ -17,7 +17,7 @@ Gault IGM. **Toxicity and Chemical Characterization of Oil Sands Process-Affecte
 
 ## Conference Presentations
 
-The presentations below document an evolving research program on oil sands process-affected water (OSPW) toxicity, developed across four conferences between 2017 and 2018.
+Four oral presentations and one poster on oil sands process-affected water (OSPW) toxicity, 2017–2018.
 
 **SETAC North America** — Sacramento, CA (Nov 2018)
 Oral: *Endocrine Activity of Oil Sands Process-Affected Water: Evaluating Ageing as a Remediation Strategy.*
@@ -28,13 +28,13 @@ Oral: *Process-Affected Water in the Oil Sands Industry: Toxicity Attribution an
 **Canadian Chemistry Conference** — Edmonton, AB (May 2018)
 Oral: *Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.*
 
-**Canadian Chemistry Conference** — Toronto, ON (May 2017)
-Oral: *Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.*
-
-**DRIvE Days — Laboratory Medicine & Pathology Conference** — Edmonton, AB (2018)
+**DRIvE Days — Laboratory Medicine & Pathology Conference** — Edmonton, AB (Apr 2018)
 Poster: *Process-Affected Water in the Oil Sands: Attributing Toxicity within the Organic Chemical Mixture.*
 
 ![DRIvE Days 2018 Poster](media/Drive Days Poster 2018 final Gault.pdf.png){width="320px" .lightbox style="border:1px solid #ccc; border-radius:4px; cursor:zoom-in;"}
+
+**Canadian Chemistry Conference** — Toronto, ON (May 2017)
+Oral: *Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.*
 
 ---
 
