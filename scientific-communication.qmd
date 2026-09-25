@@ -11,7 +11,7 @@ Morandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. **
 
 ## Thesis
 
-Gault IGM. **Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry.** MSc Thesis, University of Alberta, 2019. [University of Alberta Scholaris](https://ualberta.scholaris.ca/items/702d7d4c-fc4d-46ee-9803-c47e67620c94)
+Gault IGM. **Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry.** MSc Thesis, University of Alberta, 2019. [University of Alberta Scholaris](https://ualberta.scholaris.ca/items/702d7d4c-fc4d-46ee-9803-c47e67620c94) · [Defense presentation, in plain language](blog/posts/msc-defense/index.qmd)
 
 ---
 

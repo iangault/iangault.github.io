@@ -1,0 +1,51 @@
+---
+title: "My MSc defense, in plain language: does time make oil sands water safer?"
+description: "A readable summary of my 2019 MSc defense on the toxicity of oil sands process-affected water, with the full slide deck."
+author: "Ian Gault"
+date: "2019-01-22"
+categories: [toxicology, environmental chemistry, science communication]
+image: "title-slide.png"
+toc: true
+---
+
+On January 22, 2019, I defended my MSc in the Department of Laboratory Medicine & Pathology at the University of Alberta, supervised by Dr. Jonathan Martin. This post summarizes the research for a general reader. The full slide deck is at the end, and the formal thesis is listed on my [Publications](../../../scientific-communication.qmd) page.
+
+## The problem
+
+Oil sands mining in Alberta uses water to separate bitumen from sand. The water left over, called oil sands process-affected water (OSPW), carries a complex mixture of dissolved organic chemicals, and more than a billion cubic metres of it is held on site.
+
+One proposed long-term solution is the end pit lake: fill a mined-out pit with this water, cap it with fresh water, and let time do the work. The hope is that over years, the organic chemicals settle out or break down, and the lake eventually connects safely to the surrounding watershed. Base Mine Lake (BML), commissioned in 2012, was the first full-scale test of that idea. Because release into the watershed is the long-term plan, and communities downstream have raised health concerns, it matters whether the strategy works.
+
+## The question
+
+My research asked two things:
+
+1. **Does ageing reduce toxicity?** I compared water of different ages: Base Mine Lake sampled in 2013, 2015, and 2017, an older experimental pond that had aged about 23 years, and the Athabasca River as a reference.
+2. **Which chemicals are responsible?** I split the 2015 lake water into chemical fractions to see which groups of compounds drove the toxic effects.
+
+## What I measured
+
+- **Chemistry.** High-resolution Orbitrap mass spectrometry described the mixture by chemical class (contributed by Dr. Chenxing Sun). This mixture is too complex to identify compound by compound, so it is described by families of chemical formulas.
+- **Cell toxicity.** Real-time cell analysis tracked how human liver cells (HepG2) grew over time when exposed to the water extracts.
+- **Hormone disruption.** A yeast screen tested whether the extracts activated or blocked the human estrogen and androgen receptors.
+
+## What I found
+
+- **The lake water became less toxic over time, but mostly because it got diluted.** The total amount of organic chemicals dropped as the lake aged, and so did overall toxicity. When I compared samples at equal chemical concentration, the differences between lake years largely disappeared. The chemicals that remained were about as potent as before, which points to fresh water dilution rather than breakdown.
+- **The oldest water was not the safest per unit of chemical.** The 23-year-old sample showed a two-phase toxicity profile and was more potent than young lake water in the first 24 hours. Since that sample is a preview of what the lake may look like in the future, this was a concerning result.
+- **The water blocked hormone receptors, and ageing did not change that.** Extracts at every age acted as antagonists of both the estrogen and androgen receptors, at doses below the concentrations found in the field. Chemical classes that persisted longer in the mass spectrometry data may be maintaining this effect.
+- **Different chemical groups caused different effects.** Naphthenic acids were the main driver of acute cell toxicity. Polar non-acid compounds, which get less attention, were among the most potent for hormone receptor blocking, so they may matter as much as naphthenic acids.
+
+## Why it mattered
+
+Within the time frame we could test, dilution was the main process lowering both chemical concentrations and toxicity. The talk closed on an old phrase from environmental science: is "dilution the solution to pollution?" For an end pit lake meant to eventually join a river system, relying on dilution alone raises questions about what happens once the lake is connected.
+
+The peer-reviewed version of the lake results was later published as [Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake](https://doi.org/10.1021/acsestwater.2c00430) (*ACS EST Water*, 2023).
+
+## Slides
+
+<object data="msc-defense-gault-2019.pdf" type="application/pdf" width="100%" height="600px" style="border:1px solid #ccc; border-radius:4px;">
+<p>Your browser can't display the slides inline. <a href="msc-defense-gault-2019.pdf">Download the slides (PDF)</a>.</p>
+</object>
+
+[Download the slides (PDF, 5 MB)](msc-defense-gault-2019.pdf){.btn .btn-secondary style="margin-top: 0.75rem; font-size: 1rem;"}
