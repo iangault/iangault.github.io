@@ -3,7 +3,7 @@ title: "Water Quality Data Harmonization Pipeline"
 description: "A production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean, analysis-ready datasets."
 author: "Ian Gault"
 date: "2025-01-01"
-categories: [R, ETL, water quality, environmental science]
+categories: [Water Quality, R, ETL, environmental science]
 image: "water_quality_thumbnail_b.svg"
 toc: true
 ---

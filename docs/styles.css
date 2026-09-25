@@ -280,6 +280,46 @@ main h2 {
   justify-content: flex-start;
 }
 
+/* Area filter buttons (Projects page) */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.filter-btn {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.35rem 1rem;
+  border: 1.5px solid var(--deep-sage);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--deep-sage);
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: var(--warm-paper);
+}
+
+.filter-btn.active {
+  background-color: var(--deep-sage);
+  color: #ffffff;
+}
+
+/* Tags on cards */
+.quarto-listing .card .listing-categories .listing-category {
+  border-color: var(--accent);
+  color: var(--deep-sage);
+}
+
+.quarto-listing .card .listing-categories .listing-category:hover {
+  background-color: var(--warm-paper);
+}
+
 /* Card accent */
 .quarto-listing .card {
   border-top: 3px solid var(--highlight);

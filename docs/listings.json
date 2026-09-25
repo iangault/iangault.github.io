@@ -14,21 +14,6 @@
     ]
   },
   {
-    "listing": "/projects/machine-learning/index.html",
-    "items": [
-      "/projects/product-search-rag/index.html",
-      "/projects/MIT_capstone/index.html"
-    ]
-  },
-  {
-    "listing": "/projects/water-quality/index.html",
-    "items": [
-      "/projects/vignette-non-linear-trends/index.html",
-      "/projects/vignette-temporal-trends/index.html",
-      "/projects/wq-harmonization/index.html"
-    ]
-  },
-  {
     "listing": "/projects/index.html",
     "items": [
       "/projects/ibd-mycobiome-dashboard/index.html",
@@ -38,13 +23,6 @@
       "/projects/TempTales/index.html",
       "/projects/wq-harmonization/index.html",
       "/projects/MIT_capstone/index.html"
-    ]
-  },
-  {
-    "listing": "/projects/dashboards/index.html",
-    "items": [
-      "/projects/ibd-mycobiome-dashboard/index.html",
-      "/projects/TempTales/index.html"
     ]
   }
 ]

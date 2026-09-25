@@ -21,32 +21,32 @@
     "text": "Featured projects\n\n\n\n\n\n\n\n\n\n\nIBD Mycobiome Dashboard\n\n\nAn R pipeline, Shiny dashboard, and Quarto statistics site for exploring how gut fungi, diet, and inflammatory biomarkers relate to inflammatory bowel…\n\n\n\n\n\n\n\n\n\n\n\n\nModelling Beyond a Straight Line\n\n\nA Quarto site walking through nonlinear and non-monotonic trend detection for water-quality data - piecewise regression, changepoint detection, k-NN, LOESS…\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\nA reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a…\n\n\n\n\n\nNo matching items\n\nSee all projects →"
   },
   {
-    "objectID": "projects/machine-learning/index.html",
-    "href": "projects/machine-learning/index.html",
-    "title": "Machine Learning Projects",
+    "objectID": "projects/ibd-mycobiome-dashboard/index.html",
+    "href": "projects/ibd-mycobiome-dashboard/index.html",
+    "title": "IBD Mycobiome Dashboard",
     "section": "",
-    "text": "Product Search RAG\n\n\nA Streamlit app for searching Amazon appliance products with BM25, semantic, and hybrid retrieval, plus retrieval-augmented generation (RAG) for answering product questions…\n\n\n\nIan Gault\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\nCapstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).\n\n\n\nIan Gault\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Live Dashboard Statistics Site View on GitHub\nThis project explores how the gut mycobiome (the fungal community in the gut), diet, and inflammatory biomarkers relate to inflammatory bowel disease (IBD). It combines a data pipeline, an interactive Shiny dashboard with participant-level and cohort-level views, and a Quarto site with one post per statistical analysis.\nThe original work was a 2026 UBC Master of Data Science capstone built with a hospital research partner by Tiffany Chu, Victoria Farkas, Ian Gault, and Derrick Jaskiel. The original used real patient data under a data-use agreement and is kept private. This public version runs the same code on synthetic data, so the numbers and figures are not real findings."
   },
   {
-    "objectID": "projects/vignette-temporal-trends/index.html",
-    "href": "projects/vignette-temporal-trends/index.html",
-    "title": "Temporal Trend Analysis",
-    "section": "",
-    "text": "View on GitHub View Vignette\nLong-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.\nAll program names and site identifiers have been replaced with generic labels; synthetic data is used so the vignette runs standalone."
-  },
-  {
-    "objectID": "projects/vignette-temporal-trends/index.html#what-it-does",
-    "href": "projects/vignette-temporal-trends/index.html#what-it-does",
-    "title": "Temporal Trend Analysis",
+    "objectID": "projects/ibd-mycobiome-dashboard/index.html#what-it-does",
+    "href": "projects/ibd-mycobiome-dashboard/index.html#what-it-does",
+    "title": "IBD Mycobiome Dashboard",
     "section": "What it does",
-    "text": "What it does\n\nMulti-year time-series overview figures across analytes and monitoring areas\nTwo-way ANOVA (result ~ year * area) with iterative studentized-residual outlier removal\nAssumption checks: Breusch-Pagan heteroscedasticity test, Shapiro-Wilk normality test\nInteraction significance testing that decides between the additive model and emmeans post-hoc pairwise comparisons\nSlope extraction and back-transformation to a %/year rate of change, since a significant year effect only says a trend exists, not how big it is\nMann-Kendall trend test and Sen’s slope estimator, run per monitoring area, as an assumption-light cross-check on both the direction and magnitude of the ANOVA trend\nSignificance annotation on post-hoc comparison figures, driven by the actual model p-values"
+    "text": "What it does\n\nData pipeline - R scripts that clean and merge four sources (stool mycobiome relative abundance, dietary intake, inflammatory biomarkers, and participant characteristics) into analysis-ready files, orchestrated with GNU Make\nShiny dashboard - participant-level and cohort-level views of fungal composition, diet, and biomarkers\nStatistics site - alpha diversity (Kruskal-Wallis), beta diversity (PERMANOVA at four taxonomic levels), symptom and nutrient associations, PCA and clustering, and an evidence-ranking matrix"
   },
   {
-    "objectID": "projects/vignette-temporal-trends/index.html#design",
-    "href": "projects/vignette-temporal-trends/index.html#design",
-    "title": "Temporal Trend Analysis",
-    "section": "Design",
-    "text": "Design\nThe pipeline is organized into modular R functions (trend_model.R, mann_kendall.R, plot_trend.R, utils.R) and documented via an R Markdown vignette, including a flowchart figure of the model’s decision path (outlier removal → assumptions → interaction test → additive/interaction branch). Four case-study analytes exercise different branches of the pipeline: a shared real trend, a flat null case, a trend confined to one area, and a flat case with injected high-leverage outliers."
+    "objectID": "projects/ibd-mycobiome-dashboard/index.html#technical-stack",
+    "href": "projects/ibd-mycobiome-dashboard/index.html#technical-stack",
+    "title": "IBD Mycobiome Dashboard",
+    "section": "Technical stack",
+    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nData pipeline\nR (tidyverse), GNU Make\n\n\nStatistics\nPERMANOVA and Bray-Curtis distances (vegan), Kruskal-Wallis, PCA, clustering\n\n\nApp framework\nShiny\n\n\nReporting\nQuarto\n\n\nReproducibility\nrenv, testthat unit tests\n\n\nCI/CD\nGitHub Actions (rebuilds and publishes the statistics site to GitHub Pages)\n\n\nDeployment\nPosit Connect Cloud\n\n\nSynthetic data\nPython (pandas, numpy)"
+  },
+  {
+    "objectID": "projects/ibd-mycobiome-dashboard/index.html#what-i-changed-for-the-public-version",
+    "href": "projects/ibd-mycobiome-dashboard/index.html#what-i-changed-for-the-public-version",
+    "title": "IBD Mycobiome Dashboard",
+    "section": "What I changed for the public version",
+    "text": "What I changed for the public version\n\nWrote a synthetic data generator that matches the original raw file schemas, so the full pipeline runs end to end\nRemoved the dashboard login (shinymanager), since there is no real data to protect\nAdded a GitHub Actions workflow that rebuilds and publishes the statistics site\nRemoved patient data, results, and the capstone report"
   },
   {
     "objectID": "projects/MIT_capstone/index.html",
@@ -84,39 +84,60 @@
     "text": "What I improved\nStarting from the group’s original codebase, the solo rebuild focused on:\n\nWiring up a full GitHub Actions CI pipeline (unit + Playwright UI tests)\nFixing broken test infrastructure and expanding coverage to 62 unit + 6 UI tests\nRefactoring server/UI separation for maintainability\nConfiguring cloud deployment on Posit Connect"
   },
   {
-    "objectID": "projects/product-search-rag/index.html",
-    "href": "projects/product-search-rag/index.html",
-    "title": "Product Search RAG",
+    "objectID": "projects/wq-harmonization/index.html",
+    "href": "projects/wq-harmonization/index.html",
+    "title": "Water Quality Data Harmonization Pipeline",
     "section": "",
-    "text": "Live App View on GitHub Data on Hugging Face\nThis project is a product search assistant built on the Appliances category of the Amazon Reviews 2023 dataset from McAuley Lab. It compares keyword, semantic, and hybrid retrieval side by side, and adds two RAG modes that answer natural language questions using retrieved product details and reviews.\nIt started as a team project by Christine Chow and Ian Gault for DSCI 575 (Advanced Machine Learning) in the UBC Master of Data Science program. The public repository is my continuation of that work.\nThe live app runs on Streamlit Community Cloud’s free tier. If it has not been used for a while, it may need a minute or two to wake up."
+    "text": "View on GitHub View Vignette\nEnvironmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end."
   },
   {
-    "objectID": "projects/product-search-rag/index.html#what-it-does",
-    "href": "projects/product-search-rag/index.html#what-it-does",
-    "title": "Product Search RAG",
+    "objectID": "projects/wq-harmonization/index.html#what-it-does",
+    "href": "projects/wq-harmonization/index.html#what-it-does",
+    "title": "Water Quality Data Harmonization Pipeline",
     "section": "What it does",
-    "text": "What it does\n\nBM25 search - keyword ranking with rank_bm25 over product titles, features, descriptions, categories, details, and review text\nSemantic search - all-MiniLM-L6-v2 sentence embeddings indexed with FAISS, matching queries by meaning rather than exact words\nHybrid search - combines BM25 and semantic results with Reciprocal Rank Fusion\nRAG and Hybrid RAG - retrieved products and review text are passed as context to a Qwen model via the Groq API, which writes a grounded answer shown alongside the supporting products\nQuery guardrail - an LLM-based check rejects questions unrelated to appliances or product shopping"
+    "text": "What it does\nThe pipeline ingests raw multi-lab water quality submissions and produces a clean, standardized dataset ready for analysis or reporting. Key steps include:\n\nAnalyte name standardization — resolves lab-specific submission codes to a common naming convention\nFraction parsing — extracts dissolved/total fractionation from analyte suffixes\nClassification — groups analytes into analysis categories (Nutrients, Major Ions, Metals, etc.)\nWater type detection — distinguishes freshwater from seawater samples to apply appropriate thresholds\nUnit conversion — converts mixed units with correct scaling of associated detection limits\nDetection limit handling — flags and substitutes values below detection using consistent conventions\nQAQC checks — automated screening for field blanks, field duplicates, holding time exceedances, and metals ratio verification"
   },
   {
-    "objectID": "projects/product-search-rag/index.html#retrieval-evaluation",
-    "href": "projects/product-search-rag/index.html#retrieval-evaluation",
-    "title": "Product Search RAG",
-    "section": "Retrieval evaluation",
-    "text": "Retrieval evaluation\nEach retriever was scored on 10 test queries against human relevance labels (k = 5):\n\n\n\nRetriever\nMean Precision@5\nMean Recall@5\nMRR\n\n\n\n\nBM25\n0.54\n0.33\n0.73\n\n\nSemantic\n0.68\n0.39\n0.85\n\n\nHybrid\n0.58\n0.36\n0.85\n\n\n\nSemantic search scored highest on this query set and tied with hybrid search on MRR. Some queries were written to favour semantic interpretation (for example, misspellings), which may explain part of the gap."
+    "objectID": "projects/wq-harmonization/index.html#design",
+    "href": "projects/wq-harmonization/index.html#design",
+    "title": "Water Quality Data Harmonization Pipeline",
+    "section": "Design",
+    "text": "Design\nThe pipeline is organized into modular R functions (harmonize.R, units.R, qaqc.R, database.R, utils.R) and documented via an R Markdown vignette. Synthetic test data is included so the vignette runs standalone without proprietary lab submissions.\nAll program names and site identifiers in the repository have been anonymized."
   },
   {
-    "objectID": "projects/product-search-rag/index.html#technical-stack",
-    "href": "projects/product-search-rag/index.html#technical-stack",
-    "title": "Product Search RAG",
-    "section": "Technical stack",
-    "text": "Technical stack\n\n\n\nArea\nTools\n\n\n\n\nData processing\nDuckDB, pandas, NLTK\n\n\nKeyword retrieval\nrank_bm25\n\n\nSemantic retrieval\nsentence-transformers, FAISS\n\n\nRAG\nLangChain, Groq API (Qwen)\n\n\nApp framework\nStreamlit\n\n\nData hosting\nHugging Face Hub\n\n\nDeployment\nStreamlit Community Cloud\n\n\nReproducibility\nconda, GNU Make"
+    "objectID": "scientific-communication.html",
+    "href": "scientific-communication.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
   },
   {
-    "objectID": "projects/product-search-rag/index.html#what-i-changed-for-the-public-version",
-    "href": "projects/product-search-rag/index.html#what-i-changed-for-the-public-version",
-    "title": "Product Search RAG",
-    "section": "What I changed for the public version",
-    "text": "What I changed for the public version\n\nReworked the project into a standalone repository with a new README\nSwitched the LLM to qwen/qwen3.8-27b after Groq retired the original qwen/qwen3-32b\nMoved the processed data and search indexes (about 207 MB) to a public Hugging Face dataset, so the git repository stays small and the app downloads them at startup\nDeployed the app to Streamlit Community Cloud"
+    "objectID": "scientific-communication.html#peer-reviewed-publications",
+    "href": "scientific-communication.html#peer-reviewed-publications",
+    "title": "Publications",
+    "section": "",
+    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
+  },
+  {
+    "objectID": "scientific-communication.html#thesis",
+    "href": "scientific-communication.html#thesis",
+    "title": "Publications",
+    "section": "Thesis",
+    "text": "Thesis\nGault IGM. Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry. MSc Thesis, University of Alberta, 2019. University of Alberta Scholaris"
+  },
+  {
+    "objectID": "scientific-communication.html#conference-presentations",
+    "href": "scientific-communication.html#conference-presentations",
+    "title": "Publications",
+    "section": "Conference Presentations",
+    "text": "Conference Presentations\nThe presentations below document an evolving research program on oil sands process-affected water (OSPW) toxicity, developed across four conferences between 2017 and 2018.\nSETAC North America — Sacramento, CA (Nov 2018) Oral: Endocrine Activity of Oil Sands Process-Affected Water: Evaluating Ageing as a Remediation Strategy.\nSETAC-Prairie Northern Chapter Conference — Edmonton, AB (Jun 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nCanadian Chemistry Conference — Edmonton, AB (May 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nCanadian Chemistry Conference — Toronto, ON (May 2017) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nDRIvE Days — Laboratory Medicine & Pathology Conference — Edmonton, AB (2018) Poster: Process-Affected Water in the Oil Sands: Attributing Toxicity within the Organic Chemical Mixture.\n\n\n\nDRIvE Days 2018 Poster"
+  },
+  {
+    "objectID": "scientific-communication.html#presentation-awards",
+    "href": "scientific-communication.html#presentation-awards",
+    "title": "Publications",
+    "section": "Presentation Awards",
+    "text": "Presentation Awards\n\n\n\n\n\n\n\n\nYear\nConference\nAward\n\n\n\n\n2018\nSETAC North America\n3rd Place, Best Student Presentation (Masters category)\n\n\n2018\nSETAC-Prairie Northern Chapter\n1st Place, Best Student/PDF Oral Presentation\n\n\n2018\nCanadian Chemistry Conference\nOutstanding Graduate Oral Presentation\n\n\n2017\nCanadian Chemistry Conference\nBell McLeod Educational Fund Award; GSA Academic Travel Award"
   },
   {
     "objectID": "resume.html",
@@ -182,109 +203,67 @@
     "text": "Community Service\nStandards & Guidance Committee — BC College of Oral Health Professionals (Apr 2025 – Apr 2026)\nServed as a public member reviewing professional standards and guidance during the consolidation of multiple health professions under a unified regulatory body; engaged with governance structures, working groups of subject-matter experts, and the rollout of new enforceable professional standards.\nBoard Member (Secretary) & Mental Health Team Lead — Edmonton Men’s Health Collective (2015–2019)\nExecutive board member of a collective dedicated to improving health outcomes of sexual and gender minority men; trusted communicator and collaborator, bridging community members with stakeholders, subject-matter experts, and the board; led a 6-month harm reduction campaign of community naloxone trainings paired with a web series.\nInclusive Health Conference — Sexuality & Gender Advocacy Committee, Edmonton (May 2017)\nPresented as EMHC representative on mental health outcomes and LGBTQ+ issues in healthcare and medical education.\nTreasurer, LMP Student Group — University of Alberta (2016–2019)\nManaged budget and provided input on departmental policies for the Laboratory Medicine & Pathology student group."
   },
   {
-    "objectID": "scientific-communication.html",
-    "href": "scientific-communication.html",
-    "title": "Publications",
+    "objectID": "projects/product-search-rag/index.html",
+    "href": "projects/product-search-rag/index.html",
+    "title": "Product Search RAG",
     "section": "",
-    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
+    "text": "Live App View on GitHub Data on Hugging Face\nThis project is a product search assistant built on the Appliances category of the Amazon Reviews 2023 dataset from McAuley Lab. It compares keyword, semantic, and hybrid retrieval side by side, and adds two RAG modes that answer natural language questions using retrieved product details and reviews.\nIt started as a team project by Christine Chow and Ian Gault for DSCI 575 (Advanced Machine Learning) in the UBC Master of Data Science program. The public repository is my continuation of that work.\nThe live app runs on Streamlit Community Cloud’s free tier. If it has not been used for a while, it may need a minute or two to wake up."
   },
   {
-    "objectID": "scientific-communication.html#peer-reviewed-publications",
-    "href": "scientific-communication.html#peer-reviewed-publications",
-    "title": "Publications",
-    "section": "",
-    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
-  },
-  {
-    "objectID": "scientific-communication.html#thesis",
-    "href": "scientific-communication.html#thesis",
-    "title": "Publications",
-    "section": "Thesis",
-    "text": "Thesis\nGault IGM. Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry. MSc Thesis, University of Alberta, 2019. University of Alberta Scholaris"
-  },
-  {
-    "objectID": "scientific-communication.html#conference-presentations",
-    "href": "scientific-communication.html#conference-presentations",
-    "title": "Publications",
-    "section": "Conference Presentations",
-    "text": "Conference Presentations\nThe presentations below document an evolving research program on oil sands process-affected water (OSPW) toxicity, developed across four conferences between 2017 and 2018.\nSETAC North America — Sacramento, CA (Nov 2018) Oral: Endocrine Activity of Oil Sands Process-Affected Water: Evaluating Ageing as a Remediation Strategy.\nSETAC-Prairie Northern Chapter Conference — Edmonton, AB (Jun 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nCanadian Chemistry Conference — Edmonton, AB (May 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nCanadian Chemistry Conference — Toronto, ON (May 2017) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nDRIvE Days — Laboratory Medicine & Pathology Conference — Edmonton, AB (2018) Poster: Process-Affected Water in the Oil Sands: Attributing Toxicity within the Organic Chemical Mixture.\n\n\n\nDRIvE Days 2018 Poster"
-  },
-  {
-    "objectID": "scientific-communication.html#presentation-awards",
-    "href": "scientific-communication.html#presentation-awards",
-    "title": "Publications",
-    "section": "Presentation Awards",
-    "text": "Presentation Awards\n\n\n\n\n\n\n\n\nYear\nConference\nAward\n\n\n\n\n2018\nSETAC North America\n3rd Place, Best Student Presentation (Masters category)\n\n\n2018\nSETAC-Prairie Northern Chapter\n1st Place, Best Student/PDF Oral Presentation\n\n\n2018\nCanadian Chemistry Conference\nOutstanding Graduate Oral Presentation\n\n\n2017\nCanadian Chemistry Conference\nBell McLeod Educational Fund Award; GSA Academic Travel Award"
-  },
-  {
-    "objectID": "projects/wq-harmonization/index.html",
-    "href": "projects/wq-harmonization/index.html",
-    "title": "Water Quality Data Harmonization Pipeline",
-    "section": "",
-    "text": "View on GitHub View Vignette\nEnvironmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end."
-  },
-  {
-    "objectID": "projects/wq-harmonization/index.html#what-it-does",
-    "href": "projects/wq-harmonization/index.html#what-it-does",
-    "title": "Water Quality Data Harmonization Pipeline",
+    "objectID": "projects/product-search-rag/index.html#what-it-does",
+    "href": "projects/product-search-rag/index.html#what-it-does",
+    "title": "Product Search RAG",
     "section": "What it does",
-    "text": "What it does\nThe pipeline ingests raw multi-lab water quality submissions and produces a clean, standardized dataset ready for analysis or reporting. Key steps include:\n\nAnalyte name standardization — resolves lab-specific submission codes to a common naming convention\nFraction parsing — extracts dissolved/total fractionation from analyte suffixes\nClassification — groups analytes into analysis categories (Nutrients, Major Ions, Metals, etc.)\nWater type detection — distinguishes freshwater from seawater samples to apply appropriate thresholds\nUnit conversion — converts mixed units with correct scaling of associated detection limits\nDetection limit handling — flags and substitutes values below detection using consistent conventions\nQAQC checks — automated screening for field blanks, field duplicates, holding time exceedances, and metals ratio verification"
+    "text": "What it does\n\nBM25 search - keyword ranking with rank_bm25 over product titles, features, descriptions, categories, details, and review text\nSemantic search - all-MiniLM-L6-v2 sentence embeddings indexed with FAISS, matching queries by meaning rather than exact words\nHybrid search - combines BM25 and semantic results with Reciprocal Rank Fusion\nRAG and Hybrid RAG - retrieved products and review text are passed as context to a Qwen model via the Groq API, which writes a grounded answer shown alongside the supporting products\nQuery guardrail - an LLM-based check rejects questions unrelated to appliances or product shopping"
   },
   {
-    "objectID": "projects/wq-harmonization/index.html#design",
-    "href": "projects/wq-harmonization/index.html#design",
-    "title": "Water Quality Data Harmonization Pipeline",
-    "section": "Design",
-    "text": "Design\nThe pipeline is organized into modular R functions (harmonize.R, units.R, qaqc.R, database.R, utils.R) and documented via an R Markdown vignette. Synthetic test data is included so the vignette runs standalone without proprietary lab submissions.\nAll program names and site identifiers in the repository have been anonymized."
+    "objectID": "projects/product-search-rag/index.html#retrieval-evaluation",
+    "href": "projects/product-search-rag/index.html#retrieval-evaluation",
+    "title": "Product Search RAG",
+    "section": "Retrieval evaluation",
+    "text": "Retrieval evaluation\nEach retriever was scored on 10 test queries against human relevance labels (k = 5):\n\n\n\nRetriever\nMean Precision@5\nMean Recall@5\nMRR\n\n\n\n\nBM25\n0.54\n0.33\n0.73\n\n\nSemantic\n0.68\n0.39\n0.85\n\n\nHybrid\n0.58\n0.36\n0.85\n\n\n\nSemantic search scored highest on this query set and tied with hybrid search on MRR. Some queries were written to favour semantic interpretation (for example, misspellings), which may explain part of the gap."
   },
   {
-    "objectID": "projects/water-quality/index.html",
-    "href": "projects/water-quality/index.html",
-    "title": "Water Quality Projects",
-    "section": "",
-    "text": "Modelling Beyond a Straight Line\n\n\nA Quarto site walking through nonlinear and non-monotonic trend detection for water-quality data - piecewise regression, changepoint detection, k-NN, LOESS, GAMs and GAMMs -…\n\n\n\nIan Gault\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\nA reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA…\n\n\n\nIan Gault\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nIan Gault\n\n\nJan 1, 2025\n\n\n\n\n\n\nNo matching items"
+    "objectID": "projects/product-search-rag/index.html#technical-stack",
+    "href": "projects/product-search-rag/index.html#technical-stack",
+    "title": "Product Search RAG",
+    "section": "Technical stack",
+    "text": "Technical stack\n\n\n\nArea\nTools\n\n\n\n\nData processing\nDuckDB, pandas, NLTK\n\n\nKeyword retrieval\nrank_bm25\n\n\nSemantic retrieval\nsentence-transformers, FAISS\n\n\nRAG\nLangChain, Groq API (Qwen)\n\n\nApp framework\nStreamlit\n\n\nData hosting\nHugging Face Hub\n\n\nDeployment\nStreamlit Community Cloud\n\n\nReproducibility\nconda, GNU Make"
+  },
+  {
+    "objectID": "projects/product-search-rag/index.html#what-i-changed-for-the-public-version",
+    "href": "projects/product-search-rag/index.html#what-i-changed-for-the-public-version",
+    "title": "Product Search RAG",
+    "section": "What I changed for the public version",
+    "text": "What I changed for the public version\n\nReworked the project into a standalone repository with a new README\nSwitched the LLM to qwen/qwen3.8-27b after Groq retired the original qwen/qwen3-32b\nMoved the processed data and search indexes (about 207 MB) to a public Hugging Face dataset, so the git repository stays small and the app downloads them at startup\nDeployed the app to Streamlit Community Cloud"
   },
   {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "IBD Mycobiome Dashboard\n\n\nAn R pipeline, Shiny dashboard, and Quarto statistics site for exploring how gut fungi, diet, and inflammatory biomarkers relate to inflammatory bowel disease, built as a…\n\n\n\nIan Gault\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nProduct Search RAG\n\n\nA Streamlit app for searching Amazon appliance products with BM25, semantic, and hybrid retrieval, plus retrieval-augmented generation (RAG) for answering product questions…\n\n\n\nIan Gault\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nModelling Beyond a Straight Line\n\n\nA Quarto site walking through nonlinear and non-monotonic trend detection for water-quality data - piecewise regression, changepoint detection, k-NN, LOESS, GAMs and GAMMs -…\n\n\n\nIan Gault\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\nA reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA…\n\n\n\nIan Gault\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTempTales: Global Temperature Explorer\n\n\nAn interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an…\n\n\n\nIan Gault\n\n\nMay 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nIan Gault\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\nCapstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).\n\n\n\nIan Gault\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "All\n  Water Quality\n  Dashboards\n  Machine Learning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIBD Mycobiome Dashboard\n\n\n\nDashboards\n\nR\n\nShiny\n\nQuarto\n\nstatistics\n\nbioinformatics\n\ndata visualization\n\n\n\nAn R pipeline, Shiny dashboard, and Quarto statistics site for exploring how gut fungi, diet, and inflammatory biomarkers relate to inflammatory bowel disease, built as a…\n\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nProduct Search RAG\n\n\n\nMachine Learning\n\nPython\n\nNLP\n\ninformation retrieval\n\nRAG\n\nLLM\n\nStreamlit\n\n\n\nA Streamlit app for searching Amazon appliance products with BM25, semantic, and hybrid retrieval, plus retrieval-augmented generation (RAG) for answering product questions…\n\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nModelling Beyond a Straight Line\n\n\n\nWater Quality\n\nR\n\nstatistics\n\nenvironmental science\n\nregression\n\n\n\nA Quarto site walking through nonlinear and non-monotonic trend detection for water-quality data - piecewise regression, changepoint detection, k-NN, LOESS, GAMs and GAMMs -…\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\n\nWater Quality\n\nR\n\nstatistics\n\nenvironmental science\n\ntime series\n\n\n\nA reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA…\n\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTempTales: Global Temperature Explorer\n\n\n\nDashboards\n\nPython\n\nShiny\n\nDuckDB\n\nAltair\n\nPlotly\n\nCI/CD\n\nLLM\n\ndata visualization\n\n\n\nAn interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an…\n\n\n\nMay 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\n\nWater Quality\n\nR\n\nETL\n\nenvironmental science\n\n\n\nA production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\n\nMachine Learning\n\ndata science\n\npresentation\n\n\n\nCapstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).\n\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "projects/dashboards/index.html",
-    "href": "projects/dashboards/index.html",
-    "title": "Dashboard Projects",
+    "objectID": "projects/vignette-temporal-trends/index.html",
+    "href": "projects/vignette-temporal-trends/index.html",
+    "title": "Temporal Trend Analysis",
     "section": "",
-    "text": "IBD Mycobiome Dashboard\n\n\nAn R pipeline, Shiny dashboard, and Quarto statistics site for exploring how gut fungi, diet, and inflammatory biomarkers relate to inflammatory bowel disease, built as a…\n\n\n\nIan Gault\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTempTales: Global Temperature Explorer\n\n\nAn interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an…\n\n\n\nIan Gault\n\n\nMay 1, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "View on GitHub View Vignette\nLong-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.\nAll program names and site identifiers have been replaced with generic labels; synthetic data is used so the vignette runs standalone."
   },
   {
-    "objectID": "projects/ibd-mycobiome-dashboard/index.html",
-    "href": "projects/ibd-mycobiome-dashboard/index.html",
-    "title": "IBD Mycobiome Dashboard",
-    "section": "",
-    "text": "Live Dashboard Statistics Site View on GitHub\nThis project explores how the gut mycobiome (the fungal community in the gut), diet, and inflammatory biomarkers relate to inflammatory bowel disease (IBD). It combines a data pipeline, an interactive Shiny dashboard with participant-level and cohort-level views, and a Quarto site with one post per statistical analysis.\nThe original work was a 2026 UBC Master of Data Science capstone built with a hospital research partner by Tiffany Chu, Victoria Farkas, Ian Gault, and Derrick Jaskiel. The original used real patient data under a data-use agreement and is kept private. This public version runs the same code on synthetic data, so the numbers and figures are not real findings."
-  },
-  {
-    "objectID": "projects/ibd-mycobiome-dashboard/index.html#what-it-does",
-    "href": "projects/ibd-mycobiome-dashboard/index.html#what-it-does",
-    "title": "IBD Mycobiome Dashboard",
+    "objectID": "projects/vignette-temporal-trends/index.html#what-it-does",
+    "href": "projects/vignette-temporal-trends/index.html#what-it-does",
+    "title": "Temporal Trend Analysis",
     "section": "What it does",
-    "text": "What it does\n\nData pipeline - R scripts that clean and merge four sources (stool mycobiome relative abundance, dietary intake, inflammatory biomarkers, and participant characteristics) into analysis-ready files, orchestrated with GNU Make\nShiny dashboard - participant-level and cohort-level views of fungal composition, diet, and biomarkers\nStatistics site - alpha diversity (Kruskal-Wallis), beta diversity (PERMANOVA at four taxonomic levels), symptom and nutrient associations, PCA and clustering, and an evidence-ranking matrix"
+    "text": "What it does\n\nMulti-year time-series overview figures across analytes and monitoring areas\nTwo-way ANOVA (result ~ year * area) with iterative studentized-residual outlier removal\nAssumption checks: Breusch-Pagan heteroscedasticity test, Shapiro-Wilk normality test\nInteraction significance testing that decides between the additive model and emmeans post-hoc pairwise comparisons\nSlope extraction and back-transformation to a %/year rate of change, since a significant year effect only says a trend exists, not how big it is\nMann-Kendall trend test and Sen’s slope estimator, run per monitoring area, as an assumption-light cross-check on both the direction and magnitude of the ANOVA trend\nSignificance annotation on post-hoc comparison figures, driven by the actual model p-values"
   },
   {
-    "objectID": "projects/ibd-mycobiome-dashboard/index.html#technical-stack",
-    "href": "projects/ibd-mycobiome-dashboard/index.html#technical-stack",
-    "title": "IBD Mycobiome Dashboard",
-    "section": "Technical stack",
-    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nData pipeline\nR (tidyverse), GNU Make\n\n\nStatistics\nPERMANOVA and Bray-Curtis distances (vegan), Kruskal-Wallis, PCA, clustering\n\n\nApp framework\nShiny\n\n\nReporting\nQuarto\n\n\nReproducibility\nrenv, testthat unit tests\n\n\nCI/CD\nGitHub Actions (rebuilds and publishes the statistics site to GitHub Pages)\n\n\nDeployment\nPosit Connect Cloud\n\n\nSynthetic data\nPython (pandas, numpy)"
-  },
-  {
-    "objectID": "projects/ibd-mycobiome-dashboard/index.html#what-i-changed-for-the-public-version",
-    "href": "projects/ibd-mycobiome-dashboard/index.html#what-i-changed-for-the-public-version",
-    "title": "IBD Mycobiome Dashboard",
-    "section": "What I changed for the public version",
-    "text": "What I changed for the public version\n\nWrote a synthetic data generator that matches the original raw file schemas, so the full pipeline runs end to end\nRemoved the dashboard login (shinymanager), since there is no real data to protect\nAdded a GitHub Actions workflow that rebuilds and publishes the statistics site\nRemoved patient data, results, and the capstone report"
+    "objectID": "projects/vignette-temporal-trends/index.html#design",
+    "href": "projects/vignette-temporal-trends/index.html#design",
+    "title": "Temporal Trend Analysis",
+    "section": "Design",
+    "text": "Design\nThe pipeline is organized into modular R functions (trend_model.R, mann_kendall.R, plot_trend.R, utils.R) and documented via an R Markdown vignette, including a flowchart figure of the model’s decision path (outlier removal → assumptions → interaction test → additive/interaction branch). Four case-study analytes exercise different branches of the pipeline: a shared real trend, a flat null case, a trend confined to one area, and a flat case with injected high-leverage outliers."
   },
   {
     "objectID": "projects/vignette-non-linear-trends/index.html",

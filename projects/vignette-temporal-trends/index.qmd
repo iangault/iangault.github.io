@@ -3,7 +3,7 @@ title: "Temporal Trend Analysis"
 description: "A reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA workflow with a Mann-Kendall cross-check."
 author: "Ian Gault"
 date: "2026-08-14"
-categories: [R, statistics, environmental science, time series]
+categories: [Water Quality, R, statistics, environmental science, time series]
 image: "temporal_trends_thumbnail.svg"
 toc: true
 ---

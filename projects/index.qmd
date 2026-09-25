@@ -11,6 +11,61 @@ listing:
     - "MIT_capstone/index.qmd"
   sort: "date desc"
   type: grid
+  grid-columns: 3
   image-height: "200px"
+  categories: true
+  fields: [image, title, description, categories, date]
 page-layout: full
 ---
+
+```{=html}
+<div class="project-filters" role="group" aria-label="Filter projects by area">
+  <button type="button" class="filter-btn" data-cat="">All</button>
+  <button type="button" class="filter-btn" data-cat="Water Quality">Water Quality</button>
+  <button type="button" class="filter-btn" data-cat="Dashboards">Dashboards</button>
+  <button type="button" class="filter-btn" data-cat="Machine Learning">Machine Learning</button>
+</div>
+
+<style>
+  /* Area buttons replace Quarto's full category sidebar on this page */
+  .quarto-listing-category-title,
+  .quarto-listing-category,
+  #quarto-margin-sidebar {
+    display: none;
+  }
+
+  /* Reclaim the width Quarto reserves for that sidebar */
+  main.content.column-page-left {
+    grid-column: page-start / page-end;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".filter-btn");
+    const setActive = (cat) => {
+      buttons.forEach((b) => {
+        const on = b.dataset.cat === cat;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", on);
+      });
+    };
+
+    // Keep button state in sync when a tag on a card is clicked
+    const quartoFilter = window.quartoListingCategory;
+    window.quartoListingCategory = (encoded) => {
+      quartoFilter(encoded);
+      setActive(decodeURIComponent(atob(encoded)));
+    };
+
+    buttons.forEach((b) => {
+      b.addEventListener("click", () => {
+        window.quartoListingCategory(btoa(encodeURIComponent(b.dataset.cat)));
+      });
+    });
+
+    const match = window.location.hash.match(/category=([^&]*)/);
+    setActive(match ? decodeURIComponent(match[1]) : "");
+  });
+</script>
+```

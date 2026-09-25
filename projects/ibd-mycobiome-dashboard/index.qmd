@@ -3,7 +3,7 @@ title: "IBD Mycobiome Dashboard"
 description: "An R pipeline, Shiny dashboard, and Quarto statistics site for exploring how gut fungi, diet, and inflammatory biomarkers relate to inflammatory bowel disease, built as a UBC MDS capstone with a hospital research partner and republished on synthetic data."
 author: "Ian Gault"
 date: "2026-09-24"
-categories: [R, Shiny, Quarto, statistics, bioinformatics, data visualization]
+categories: [Dashboards, R, Shiny, Quarto, statistics, bioinformatics, data visualization]
 image: "ibd_dashboard_thumbnail.svg"
 toc: true
 ---

@@ -3,7 +3,7 @@ title: "Modelling Beyond a Straight Line"
 description: "A Quarto site walking through nonlinear and non-monotonic trend detection for water-quality data - piecewise regression, changepoint detection, k-NN, LOESS, GAMs and GAMMs - for an environmental-consulting audience."
 author: "Ian Gault"
 date: "2026-08-20"
-categories: [R, statistics, environmental science, regression]
+categories: [Water Quality, R, statistics, environmental science, regression]
 image: "nonlinear_trends_thumbnail.svg"
 toc: true
 ---

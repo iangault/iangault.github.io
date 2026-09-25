@@ -3,7 +3,7 @@ title: "TempTales: Global Temperature Explorer"
 description: "An interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an AI assistant powered by GPT-4.1-mini."
 author: "Ian Gault"
 date: "2026-05-01"
-categories: [Python, Shiny, DuckDB, Altair, Plotly, CI/CD, LLM, data visualization]
+categories: [Dashboards, Python, Shiny, DuckDB, Altair, Plotly, CI/CD, LLM, data visualization]
 toc: true
 image: temptales_thumbnail.svg
 ---

@@ -3,7 +3,7 @@ title: "MIT Capstone: Applied Data Science — Leveraging AI for Decision-making
 description: "Capstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023)."
 author: "Ian Gault"
 date: "2023-12-01"
-categories: [data science, machine learning, presentation]
+categories: [Machine Learning, data science, presentation]
 image: market_segmentation_thumbnail.svg
 ---
 

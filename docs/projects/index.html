@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-title','listing-description','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -188,9 +188,10 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="QWx0YWly">Altair <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmlvaW5mb3JtYXRpY3M=">bioinformatics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q0klMkZDRA==">CI/CD <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGFzaGJvYXJkcw==">Dashboards <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGF0YSUyMHNjaWVuY2U=">data science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YSUyMHZpc3VhbGl6YXRpb24=">data visualization <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RHVja0RC">DuckDB <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZW52aXJvbm1lbnRhbCUyMHNjaWVuY2U=">environmental science <span class="quarto-category-count">(3)</span></div><div class="category" data-category="RVRM">ETL <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW5mb3JtYXRpb24lMjByZXRyaWV2YWw=">information retrieval <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TExN">LLM <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TkxQ">NLP <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGxvdGx5">Plotly <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJlc2VudGF0aW9u">presentation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UXVhcnRv">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(4)</span></div><div class="category" data-category="UkFH">RAG <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVncmVzc2lvbg==">regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2hpbnk=">Shiny <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c3RhdGlzdGljcw==">statistics <span class="quarto-category-count">(3)</span></div><div class="category" data-category="U3RyZWFtbGl0">Streamlit <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGltZSUyMHNlcmllcw==">time series <span class="quarto-category-count">(1)</span></div><div class="category" data-category="V2F0ZXIlMjBRdWFsaXR5">Water Quality <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -199,7 +200,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -211,13 +212,62 @@ window.Quarto = {
 </header>
 
 
+<div class="project-filters" role="group" aria-label="Filter projects by area">
+  <button type="button" class="filter-btn" data-cat="">All</button>
+  <button type="button" class="filter-btn" data-cat="Water Quality">Water Quality</button>
+  <button type="button" class="filter-btn" data-cat="Dashboards">Dashboards</button>
+  <button type="button" class="filter-btn" data-cat="Machine Learning">Machine Learning</button>
+</div>
+
+<style>
+  /* Area buttons replace Quarto's full category sidebar on this page */
+  .quarto-listing-category-title,
+  .quarto-listing-category,
+  #quarto-margin-sidebar {
+    display: none;
+  }
+
+  /* Reclaim the width Quarto reserves for that sidebar */
+  main.content.column-page-left {
+    grid-column: page-start / page-end;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".filter-btn");
+    const setActive = (cat) => {
+      buttons.forEach((b) => {
+        const on = b.dataset.cat === cat;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", on);
+      });
+    };
+
+    // Keep button state in sync when a tag on a card is clicked
+    const quartoFilter = window.quartoListingCategory;
+    window.quartoListingCategory = (encoded) => {
+      quartoFilter(encoded);
+      setActive(decodeURIComponent(atob(encoded)));
+    };
+
+    buttons.forEach((b) => {
+      b.addEventListener("click", () => {
+        window.quartoListingCategory(btoa(encodeURIComponent(b.dataset.cat)));
+      });
+    });
+
+    const match = window.location.hash.match(/category=([^&]*)/);
+    setActive(match ? decodeURIComponent(match[1]) : "");
+  });
+</script>
 
 
 
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UiUyQ1NoaW55JTJDUXVhcnRvJTJDc3RhdGlzdGljcyUyQ2Jpb2luZm9ybWF0aWNzJTJDZGF0YSUyMHZpc3VhbGl6YXRpb24=" data-listing-date-sort="1790233200000" data-listing-file-modified-sort="1790287032039" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="320">
+<div class="g-col-1" data-index="0" data-categories="RGFzaGJvYXJkcyUyQ1IlMkNTaGlueSUyQ1F1YXJ0byUyQ3N0YXRpc3RpY3MlMkNiaW9pbmZvcm1hdGljcyUyQ2RhdGElMjB2aXN1YWxpemF0aW9u" data-listing-date-sort="1790233200000" data-listing-file-modified-sort="1790312277592" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="320">
 <a href="../projects/ibd-mycobiome-dashboard/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -227,13 +277,27 @@ window.Quarto = {
 <h5 class="no-anchor card-title listing-title">
 IBD Mycobiome Dashboard
 </h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGFzaGJvYXJkcw=='); return false;">Dashboards</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2hpbnk='); return false;">Shiny</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UXVhcnRv'); return false;">Quarto</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YmlvaW5mb3JtYXRpY3M='); return false;">bioinformatics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMHZpc3VhbGl6YXRpb24='); return false;">data visualization</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>An R pipeline, Shiny dashboard, and Quarto statistics site for exploring how gut fungi, diet, and inflammatory biomarkers relate to inflammatory bowel disease, built as a…</p>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ian Gault
-</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Sep 24, 2026
 </div>
@@ -241,7 +305,7 @@ Sep 24, 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="UHl0aG9uJTJDbWFjaGluZSUyMGxlYXJuaW5nJTJDTkxQJTJDaW5mb3JtYXRpb24lMjByZXRyaWV2YWwlMkNSQUclMkNMTE0lMkNTdHJlYW1saXQ=" data-listing-date-sort="1790233200000" data-listing-file-modified-sort="1790308041284" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="424">
+<div class="g-col-1" data-index="1" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDUHl0aG9uJTJDTkxQJTJDaW5mb3JtYXRpb24lMjByZXRyaWV2YWwlMkNSQUclMkNMTE0lMkNTdHJlYW1saXQ=" data-listing-date-sort="1790233200000" data-listing-file-modified-sort="1790312277593" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="424">
 <a href="../projects/product-search-rag/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -251,13 +315,27 @@ Sep 24, 2026
 <h5 class="no-anchor card-title listing-title">
 Product Search RAG
 </h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">NLP</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW5mb3JtYXRpb24lMjByZXRyaWV2YWw='); return false;">information retrieval</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UkFH'); return false;">RAG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TExN'); return false;">LLM</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RyZWFtbGl0'); return false;">Streamlit</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>A Streamlit app for searching Amazon appliance products with BM25, semantic, and hybrid retrieval, plus retrieval-augmented generation (RAG) for answering product questions…</p>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ian Gault
-</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Sep 24, 2026
 </div>
@@ -265,7 +343,7 @@ Sep 24, 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="UiUyQ3N0YXRpc3RpY3MlMkNlbnZpcm9ubWVudGFsJTIwc2NpZW5jZSUyQ3JlZ3Jlc3Npb24=" data-listing-date-sort="1787209200000" data-listing-file-modified-sort="1788368119522" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="200">
+<div class="g-col-1" data-index="2" data-categories="V2F0ZXIlMjBRdWFsaXR5JTJDUiUyQ3N0YXRpc3RpY3MlMkNlbnZpcm9ubWVudGFsJTIwc2NpZW5jZSUyQ3JlZ3Jlc3Npb24=" data-listing-date-sort="1787209200000" data-listing-file-modified-sort="1790312277592" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="200">
 <a href="../projects/vignette-non-linear-trends/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -275,13 +353,23 @@ Sep 24, 2026
 <h5 class="no-anchor card-title listing-title">
 Modelling Beyond a Straight Line
 </h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('V2F0ZXIlMjBRdWFsaXR5'); return false;">Water Quality</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZW52aXJvbm1lbnRhbCUyMHNjaWVuY2U='); return false;">environmental science</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVncmVzc2lvbg=='); return false;">regression</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>A Quarto site walking through nonlinear and non-monotonic trend detection for water-quality data - piecewise regression, changepoint detection, k-NN, LOESS, GAMs and GAMMs -…</p>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ian Gault
-</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Aug 20, 2026
 </div>
@@ -289,7 +377,7 @@ Aug 20, 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="UiUyQ3N0YXRpc3RpY3MlMkNlbnZpcm9ubWVudGFsJTIwc2NpZW5jZSUyQ3RpbWUlMjBzZXJpZXM=" data-listing-date-sort="1786690800000" data-listing-file-modified-sort="1786751296169" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="243">
+<div class="g-col-1" data-index="3" data-categories="V2F0ZXIlMjBRdWFsaXR5JTJDUiUyQ3N0YXRpc3RpY3MlMkNlbnZpcm9ubWVudGFsJTIwc2NpZW5jZSUyQ3RpbWUlMjBzZXJpZXM=" data-listing-date-sort="1786690800000" data-listing-file-modified-sort="1790312277592" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="243">
 <a href="../projects/vignette-temporal-trends/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -299,13 +387,23 @@ Aug 20, 2026
 <h5 class="no-anchor card-title listing-title">
 Temporal Trend Analysis
 </h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('V2F0ZXIlMjBRdWFsaXR5'); return false;">Water Quality</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZW52aXJvbm1lbnRhbCUyMHNjaWVuY2U='); return false;">environmental science</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGltZSUyMHNlcmllcw=='); return false;">time series</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>A reproducible R pipeline for assessing whether a water quality analyte is trending over time, and whether that trend differs by monitoring area, combining a two-way ANOVA…</p>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ian Gault
-</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Aug 14, 2026
 </div>
@@ -313,7 +411,7 @@ Aug 14, 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="UHl0aG9uJTJDU2hpbnklMkNEdWNrREIlMkNBbHRhaXIlMkNQbG90bHklMkNDSSUyRkNEJTJDTExNJTJDZGF0YSUyMHZpc3VhbGl6YXRpb24=" data-listing-date-sort="1777618800000" data-listing-file-modified-sort="1790308332615" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="292">
+<div class="g-col-1" data-index="4" data-categories="RGFzaGJvYXJkcyUyQ1B5dGhvbiUyQ1NoaW55JTJDRHVja0RCJTJDQWx0YWlyJTJDUGxvdGx5JTJDQ0klMkZDRCUyQ0xMTSUyQ2RhdGElMjB2aXN1YWxpemF0aW9u" data-listing-date-sort="1777618800000" data-listing-file-modified-sort="1790312277593" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="292">
 <a href="../projects/TempTales/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -323,13 +421,31 @@ Aug 14, 2026
 <h5 class="no-anchor card-title listing-title">
 TempTales: Global Temperature Explorer
 </h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGFzaGJvYXJkcw=='); return false;">Dashboards</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2hpbnk='); return false;">Shiny</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RHVja0RC'); return false;">DuckDB</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QWx0YWly'); return false;">Altair</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UGxvdGx5'); return false;">Plotly</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q0klMkZDRA=='); return false;">CI/CD</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TExN'); return false;">LLM</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMHZpc3VhbGl6YXRpb24='); return false;">data visualization</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>An interactive Python Shiny dashboard for exploring global and country-level temperature trends from 1860–2012, with a DuckDB backend, Altair/Plotly visualizations, and an…</p>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ian Gault
-</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 May 1, 2026
 </div>
@@ -337,7 +453,7 @@ May 1, 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="UiUyQ0VUTCUyQ3dhdGVyJTIwcXVhbGl0eSUyQ2Vudmlyb25tZW50YWwlMjBzY2llbmNl" data-listing-date-sort="1735718400000" data-listing-file-modified-sort="1779946600199" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="206">
+<div class="g-col-1" data-index="5" data-categories="V2F0ZXIlMjBRdWFsaXR5JTJDUiUyQ0VUTCUyQ2Vudmlyb25tZW50YWwlMjBzY2llbmNl" data-listing-date-sort="1735718400000" data-listing-file-modified-sort="1790312277592" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="206">
 <a href="../projects/wq-harmonization/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -347,13 +463,21 @@ May 1, 2026
 <h5 class="no-anchor card-title listing-title">
 Water Quality Data Harmonization Pipeline
 </h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('V2F0ZXIlMjBRdWFsaXR5'); return false;">Water Quality</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RVRM'); return false;">ETL</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZW52aXJvbm1lbnRhbCUyMHNjaWVuY2U='); return false;">environmental science</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>A production-grade R pipeline for standardizing multi-lab water quality data with inconsistent naming conventions, mixed units, and detection limit notations into clean…</p>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ian Gault
-</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jan 1, 2025
 </div>
@@ -361,7 +485,7 @@ Jan 1, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="ZGF0YSUyMHNjaWVuY2UlMkNtYWNoaW5lJTIwbGVhcm5pbmclMkNwcmVzZW50YXRpb24=" data-listing-date-sort="1701417600000" data-listing-file-modified-sort="1790308332618" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27">
+<div class="g-col-1" data-index="6" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDZGF0YSUyMHNjaWVuY2UlMkNwcmVzZW50YXRpb24=" data-listing-date-sort="1701417600000" data-listing-file-modified-sort="1790312277593" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27">
 <a href="../projects/MIT_capstone/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -371,13 +495,19 @@ Jan 1, 2025
 <h5 class="no-anchor card-title listing-title">
 MIT Capstone: Applied Data Science — Leveraging AI for Decision-making
 </h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMHNjaWVuY2U='); return false;">data science</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHJlc2VudGF0aW9u'); return false;">presentation</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Capstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).</p>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ian Gault
-</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Dec 1, 2023
 </div>
