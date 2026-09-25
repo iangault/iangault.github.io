@@ -7,22 +7,23 @@ website:
   site-url: https://iangault.github.io
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      - href: projects/index.qmd
+        text: Projects
+      - href: resume.qmd
+        text: Resume
       - href: scientific-communication.qmd
         text: Publications
       - href: blog/index.qmd
         text: Blog
-      - text: Projects
-        menu:
-          - href: projects/index.qmd
-            text: All Projects
-          - href: projects/water-quality/index.qmd
-            text: Water Quality
-          - href: projects/dashboards/index.qmd
-            text: Dashboards
-          - href: projects/machine-learning/index.qmd
-            text: Machine Learning
+    right:
+      - icon: github
+        href: https://github.com/iangault
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/iangault
+        aria-label: LinkedIn
+  page-footer:
+    left: "© 2026 Ian Gault · Built with [Quarto](https://quarto.org)"
     right:
       - icon: github
         href: https://github.com/iangault
