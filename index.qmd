@@ -14,7 +14,7 @@ listing:
   grid-columns: 3
   image-height: "200px"
   fields: [image, title, description]
-  max-description-length: 160
+  max-description-length: 400
 ---
 
 ::: {.hero}

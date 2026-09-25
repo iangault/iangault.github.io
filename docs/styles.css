@@ -14,7 +14,65 @@
 /* ── Base ─────────────────────────────────────────────────── */
 body {
   font-family: 'Source Sans 3', sans-serif;
+  font-size: 1.05rem;
   background-color: var(--light-bg);
+  --bs-link-color: var(--deep-sage);
+  --bs-link-color-rgb: 74, 124, 111;
+  --bs-link-hover-color: var(--highlight);
+  --bs-link-hover-color-rgb: 184, 92, 56;
+}
+
+/* Litera sets paragraphs in Georgia; use Source Sans throughout */
+p {
+  font-family: inherit;
+}
+
+a {
+  color: var(--deep-sage);
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--highlight);
+}
+
+/* Table of contents */
+.sidebar nav[role=doc-toc] ul > li > a.active,
+.sidebar nav[role=doc-toc] ul > li > ul > li > a.active {
+  color: var(--deep-sage) !important;
+  border-left-color: var(--deep-sage);
+}
+
+/* Buttons (project pages use .btn-primary / .btn-secondary) */
+.btn {
+  --bs-btn-font-family: 'Source Sans 3', sans-serif;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--deep-sage);
+  border-color: var(--deep-sage);
+  color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--banner-bg);
+  border-color: var(--banner-bg);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1.5px solid var(--deep-sage);
+  color: var(--deep-sage);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--deep-sage);
+  border-color: var(--deep-sage);
+  color: #ffffff;
 }
 
 /* ── Navbar ───────────────────────────────────────────────── */
@@ -323,11 +381,35 @@ main h2 {
 /* Card accent */
 .quarto-listing .card {
   border-top: 3px solid var(--highlight);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .quarto-listing .card:hover {
   border-top-color: var(--deep-sage);
-  box-shadow: 0 4px 12px rgba(46, 61, 61, 0.12);
+  box-shadow: 0 6px 16px rgba(46, 61, 61, 0.14);
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quarto-listing .card {
+    transition: none;
+  }
+
+  .quarto-listing .card:hover {
+    transform: none;
+  }
+}
+
+/* Keep cards even: 4-line descriptions, at most 4 tags (all tags show on the project page) */
+.quarto-listing .card .listing-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.quarto-listing .card .listing-categories .listing-category:nth-child(n+5) {
+  display: none;
 }
 
 /* Thumbnail image rendering */
