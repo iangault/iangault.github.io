@@ -22,8 +22,9 @@ body {
   --bs-link-hover-color-rgb: 184, 92, 56;
 }
 
-/* Litera sets paragraphs in Georgia; use Source Sans throughout */
-p {
+/* Litera sets paragraphs and .lead text (page subtitles) in other fonts; use Source Sans throughout */
+p,
+.lead {
   font-family: inherit;
 }
 
@@ -560,4 +561,10 @@ article figure img,
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Resume page buttons above the first section */
+.resume-actions {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
 }

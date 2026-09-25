@@ -1,71 +1,112 @@
 ---
 title: "Resume"
+subtitle: "Applied Data Scientist · Analytical Chemistry & Toxicology"
 toc: true
 toc-title: "On this page"
 ---
 
+::: {.hero-buttons .resume-actions}
+[Download PDF resume](media/Ian_Gault_Resume.pdf){.btn .btn-primary download="Ian_Gault_Resume.pdf"}
+[Get in touch](https://www.linkedin.com/in/gaultian){.btn .btn-outline-secondary}
+:::
+
 ## Summary
 
-Master of Data Science graduate (UBC, 2026) and Registered Professional Biologist with six years of experience designing reproducible data systems for biological and chemical datasets. Graduate research in wet-lab spans mass spectrometry, chemical extraction, cell cultures, and endocrine disruption & high-throughput cytotoxicity assays; subsequent work & training in end-to-end ML pipelines, ETL workflows, and data modelling. Expertise in identifying inefficiencies, building datasets from legacy sources, and translating between multi-disciplinary teams to support defensible, data-driven decisions.
-
-## Education
-
-**Master of Data Science** *(2026)*\
-University of British Columbia, Vancouver, BC
-
-**Certificate — Applied Data Science: Leveraging AI for Decision-making** *(2023)*\
-Massachusetts Institute of Technology, Cambridge, MA
-
-**Master of Science — Analytical & Environmental Toxicology** *(2015–2019)*\
-University of Alberta, Edmonton, AB
-
-**Bachelor of Science — Biological Science & Science Psychology** *(with Distinction, 2009–2014)*\
-University of Alberta, Edmonton, AB
+Master of Data Science graduate and Registered Professional Biologist with an analytical chemistry research background and six years of experience as a consultant, translating complex chemical data into decision-ready evidence. MSc research characterized unknown chemical mixtures using high-resolution mass spectrometry, building experience with high-dimensional instrument data, measurement variability, and censored data. Brings this measurement-science foundation to statistical modelling and causal reasoning in R, Python, and SQL, with an emphasis on testing assumptions and quantifying uncertainty. Master of Data Science project work extended this into machine learning (PyTorch, scikit-learn), cloud computing on AWS, and reproducible workflows with Git, Docker, and CI/CD.
 
 ## Experience
 
-**Environmental Scientist** \| WSP \| Jul 2022 – Aug 2025\
-Lead data scientist and project coordinator across 10+ environmental monitoring clients over three years. Designed R-based ETL workflows, harmonized legacy datasets, and built reproducible modelling pipelines for water quality, sediment, and contaminated sites work. Developed tools that automated reporting and secured repeated contract renewals.
+**Environmental Scientist** \| WSP, Vancouver, BC \| Jul 2022 – Aug 2025
 
-**Environmental Specialist** \| Hatfield Consultants \| May 2019 – Jun 2022\
-Led toxicological risk studies and coordinated large-scale field programs end-to-end — from sample collection and laboratory communications to R-based data pipelines and regulatory reporting — for 10+ clients.
+- Delivered environmental monitoring studies and regulatory reporting for 10+ clients across the metals, coal, and wastewater sectors, managing multiple concurrent programs as lead data analyst across the full project lifecycle (proposal, execution, analysis, and reporting) and contributing to contract renewals exceeding $200k.
+- Initiated the team's shift from manual Excel-based analysis to reproducible, Git-versioned collaborative development, and mentored junior staff; replaced ad hoc QA/QC review with a rule-based pipeline used on multiple projects.
+- Built reusable R frameworks (ETL, harmonization, statistical analysis, reporting) adopted across 2–3 projects, and automated the conversion of analyses into interactive HTML reports and client-ready tables for senior review.
+- Applied statistical and machine-learning methods (trend detection, spatial and multivariate analysis, supervised and unsupervised learning) to flag environmental changes and support regulatory determinations.
+- Served as lead data scientist on a small team, advising senior leadership on study design and analytical approach.
 
-**Graduate Research Assistant** \| University of Alberta \| 2015–2019\
-Conducted toxicity testing and non-targeted chemical characterization of oil sands process-affected water using Orbitrap mass spectrometry, cell cultures, and molecular bioassays. Published in *ACS EST Water*.
+**Environmental Specialist** \| Hatfield Consultants, North Vancouver, BC \| May 2019 – Jun 2022
+
+- Applied a weight-of-evidence approach across contaminated-site ecological risk assessments and monitoring projects, synthesizing complex water, sediment, and biota datasets into defensible reports for regulators.
+- Coordinated end-to-end data pipelines for 10+ clients, from field sample collection and contract lab analysis to R-based ETL and analysis-ready outputs, gaining familiarity with provincial and federal regulatory requirements.
+- Contributed to study design and field data collection across 5+ projects, and stepped into an expanded assistant project manager role across 3 concurrent programs during a period of team understaffing, meeting deadlines.
+
+**Graduate Research Assistant** \| University of Alberta, Edmonton, AB \| Jan 2015 – Jan 2019
+
+- Characterized complex, unknown chemical mixtures using high-resolution Orbitrap mass spectrometry, linking analytical signals with biological responses through effect-directed analysis and toxicity identification evaluation.
+- Developed and evaluated experimental workflows integrating chemical measurements with in-vitro toxicity assays, working with high-dimensional instrument data and the measurement variability inherent to laboratory systems.
+- Results published in *ACS EST Water* (2023); see [Publications](scientific-communication.qmd).
+
+## Selected Projects
+
+**Applied Statistical Modelling Portfolio: Environmental Health & Toxicology** \| Independent project \| Jun – Aug 2026
+
+- Built a 9-part reproducible R/Quarto portfolio translating consulting-industry water chemistry workflows into a documented data science practice: a regression framework, nonlinear trend detection (GAM, GAMM, changepoint, piecewise, LOESS/k-NN) with AIC-based model selection and residual diagnostics (heteroscedasticity, normality, autocorrelation), PCA-based multivariate screening, regulatory compliance screening, and data harmonization.
+- See [Modelling Beyond a Straight Line](projects/vignette-non-linear-trends/index.qmd) and [Temporal Trend Analysis](projects/vignette-temporal-trends/index.qmd).
+
+**Multi-source Clinical Data Pipeline & Dashboard** \| BC Children's Hospital Research Institute (UBC MDS Capstone), Vancouver, BC \| May – Jun 2026
+
+- Designed a reproducible, modular analysis pipeline in R and a multi-tab interactive Shiny dashboard to characterize Crohn's disease using microbiome, patient, and dietary data, supporting funding and recruitment.
+- Built ETL workflows for heterogeneous sources, delivering ML-ready structured datasets and decision-ready outputs through a Makefile-driven environment; authored a companion Quarto site documenting the statistical analysis pipelines.
+- See the [public version on synthetic data](projects/ibd-mycobiome-dashboard/index.qmd).
+
+**Environmental Health & Statistical Modelling Consulting Projects** \| WSP & Hatfield Consultants, Vancouver, BC \| 2020 – 2025
+
+- Modelled 20+ years of water-quality chemistry data using Mann-Kendall, GAMs, ANOVA, PCA, and regression to distinguish temporal and spatial patterns associated with wastewater, salinity, flow conditions, and other drivers.
+- Developed a food-chain bioaccumulation model integrating soil, water, and dietary chemistry across ~160 spatial plots and multiple wildlife receptors; outputs supported ecological risk assessment and post-closure remediation.
+- Analyzed complex observational datasets with detection limits, missingness, outliers, non-normal distributions, and heterogeneous sampling designs, applying assumption testing and parametric and non-parametric methods.
+
+[See all projects →](projects/index.qmd)
+
+## Education
+
+**Master of Data Science** \| University of British Columbia, Vancouver, BC \| Sep 2025 – Jun 2026
+
+- Project work: built CNNs in PyTorch and applied pretrained ResNet50 and text embeddings to image data; trained and evaluated classification models; processed datasets locally with DuckDB/Arrow before scaling to distributed PySpark on AWS; and deployed containerized ML workflows using EC2, Docker, automated testing, and CI/CD.
+
+**Certificate, Applied Data Science: Leveraging AI for Decision-making** \| Massachusetts Institute of Technology, Cambridge, MA \| Sep – Dec 2023
+
+**Master of Science, Analytical & Environmental Toxicology** \| University of Alberta, Edmonton, AB \| 2015 – 2019
+
+**Bachelor of Science, Biological Science & Science Psychology** (with Distinction) \| University of Alberta, Edmonton, AB \| 2009 – 2014
 
 ## Skills
 
-**Programming & Data:** R, Python, SQL · ETL pipelines · reproducible workflows · legacy data harmonization
+**Programming:** R, Python, SQL, Bash
 
-**Machine Learning & Statistics:** Classification, regression, clustering, PCA, neural networks · Bayesian, causal, and spatiotemporal methods
+**Data engineering:** ETL pipelines · databases · data cleaning and harmonization · feature engineering · data quality and QA/QC · DuckDB/Arrow · PySpark
 
-**Infrastructure & Tools:** Git/GitHub, Docker, Make, Bash · Quarto, R Markdown, Shiny · dashboarding (Shiny, Plotly, DT)
+**Statistics:** Descriptive and inferential statistics · regression (LMs, GLMs, GAMs) · survival analysis · experimental design · Bayesian and causal methods · censored data
 
-**Scientific Communication:** Technical reporting for regulatory and non-technical audiences · data visualization for decision-making · peer-reviewed publication · conference presentation
+**Spatial & temporal analysis:** Time series and trend detection · spatial and multivariate analysis
 
-**Project & Team Leadership:** Multi-client project coordination · study design · cross-functional team leadership (biologists, GIS specialists, project managers) · budget and timeline management
+**Machine learning:** Classification · clustering · PCA · regularization · neural networks and deep learning (PyTorch, scikit-learn)
 
-**Domain Knowledge:** Environmental chemistry & toxicology · regulatory frameworks (provincial & federal) · wet lab methods · field sampling & biomonitoring
+**Infrastructure & tools:** Git/GitHub · Docker · Make · CI/CD · AWS (EC2) · agentic coding
+
+**Visualization & communication:** Shiny · Plotly · Quarto and R Markdown · Microsoft Office · scientific writing · presentations · technical reporting for regulatory and non-technical audiences · decision support
+
+**Project & team leadership:** Multi-client project coordination · study design · cross-functional team leadership (biologists, GIS specialists, project managers) · budget and timeline management
+
+**Domain knowledge:** Environmental chemistry and toxicology · ecological risk assessment · regulatory frameworks (provincial and federal) · wet lab methods · field sampling and biomonitoring
 
 ## Designations
 
-**Registered Professional Biologist (RPBio)** — College of Applied Biologists, BC (2024–present)
+**Registered Professional Biologist (RPBio)** \| College of Applied Biologists, BC \| 2024 – present
 
 ## Professional Development
 
-**AI-Assisted Development: Practices and Pitfalls** *(May 2026)*\
-UBC Master of Data Science — one-day workshop on agentic coding practices
+**AI-Assisted Development: Practices and Pitfalls** \| UBC Master of Data Science \| May 2026\
+One-day workshop on agentic coding practices.
 
-**Upper Bound Conference** *(2024)*\
-Alberta Machine Intelligence Institute (AMII)
+**Upper Bound Conference** \| Alberta Machine Intelligence Institute (Amii) \| 2024
 
-**Dry It Up with R** *(2022)*\
-Vancouver DataJam - workshop on techniques used to "Don't Repeat Yourself" in R
+**Dry It Up with R** \| Vancouver DataJam \| 2022\
+Workshop on "Don't Repeat Yourself" techniques in R.
 
 ## Academic Awards
 
 | Year             | Award                                                  |
-|------------------|-----------------------------------------------------|
+|------------------|--------------------------------------------------------|
 | 2017             | Queen Elizabeth II Graduate Scholarship                |
 | 2016             | Medical Sciences Graduate Program Scholarship          |
 | 2016             | Faculty of Medicine & Dentistry 75th Anniversary Award |
@@ -77,14 +118,11 @@ Vancouver DataJam - workshop on techniques used to "Don't Repeat Yourself" in R
 
 ## Community Service
 
-**Standards & Guidance Committee** — BC College of Oral Health Professionals *(Apr 2025 – Apr 2026)*\
-Served as a public member reviewing professional standards and guidance during the consolidation of multiple health professions under a unified regulatory body; engaged with governance structures, working groups of subject-matter experts, and the rollout of new enforceable professional standards.
+**Standards & Guidance Committee, Public Member** \| BC College of Oral Health Professionals \| Apr 2025 – Apr 2026\
+Reviewed professional standards and guidance during the consolidation of multiple health professions under a unified regulatory body; engaged with governance structures, working groups of subject-matter experts, and the rollout of new enforceable professional standards.
 
-**Board Member (Secretary) & Mental Health Team Lead** — Edmonton Men's Health Collective *(2015–2019)*\
-Executive board member of a collective dedicated to improving health outcomes of sexual and gender minority men; trusted communicator and collaborator, bridging community members with stakeholders, subject-matter experts, and the board; led a 6-month harm reduction campaign of community naloxone trainings paired with a web series.
+**Board Member (Secretary) & Mental Health Team Lead** \| Edmonton Men's Health Collective \| 2015 – 2019\
+Executive board member of a collective dedicated to improving health outcomes of sexual and gender minority men; bridged community members with stakeholders, subject-matter experts, and the board; led a 6-month harm reduction campaign of community naloxone trainings paired with a web series.
 
-**Inclusive Health Conference** — Sexuality & Gender Advocacy Committee, Edmonton *(May 2017)*\
-Presented as EMHC representative on mental health outcomes and LGBTQ+ issues in healthcare and medical education.
-
-**Treasurer, LMP Student Group** — University of Alberta *(2016–2019)*\
+**Treasurer, LMP Student Group** \| University of Alberta \| 2016 – 2019\
 Managed budget and provided input on departmental policies for the Laboratory Medicine & Pathology student group.
