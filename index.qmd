@@ -20,7 +20,7 @@ listing:
 ::: {.hero}
 
 ::: {.hero-photo}
-![](media/109_IanG_2024b.png){fig-alt="Portrait of Ian Gault"}
+![](media/profile-480.jpg){fig-alt="Portrait of Ian Gault"}
 :::
 
 ::: {.hero-text}
