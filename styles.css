@@ -252,6 +252,7 @@ h1.hero-headline {
 
 .principle p {
   max-width: 760px;
+  text-wrap: balance;
   margin: 0 auto;
   font-size: 1.2rem;
   line-height: 1.5;
