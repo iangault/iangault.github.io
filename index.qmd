@@ -32,11 +32,11 @@ Ian Gault
 # A scientist who builds data systems. {.hero-headline .unnumbered .unlisted}
 
 ::: {.hero-credentials}
-MSc Analytical & Environmental Toxicology · Master of Data Science (UBC) · Registered Professional Biologist (RPBio)
+MSc Analytical & Environmental Toxicology (U of A) · Master of Data Science (UBC) · Registered Professional Biologist (RPBio)
 :::
 
 ::: {.hero-tagline}
-I build pipelines, models, and dashboards for laboratory, clinical, and environmental data. I started at the bench in analytical toxicology, so I understand how the numbers were made before I model them.
+I build pipelines, models, apps, and reports for laboratory, clinical, and environmental data. I started at the bench in analytical toxicology, so I understand how the numbers were made before I model them.
 :::
 
 ::: {.hero-buttons}
@@ -54,19 +54,19 @@ I build pipelines, models, and dashboards for laboratory, clinical, and environm
 ::: {.proof-item}
 [30+ projects]{.proof-lead}
 
-over six years of regulated monitoring and risk assessment for oil sands, mining, municipal wastewater, and contaminated sites, including a US EPA Superfund site. Built on reusable workflows I developed, one now used across 5 projects.
+of analysis and reporting over six years of regulated monitoring and risk assessment for oil sands, mining, municipal wastewater, and contaminated sites, including a US EPA Superfund site. I develop reusable, modular workflows that make each analysis faster and easier to extend to future projects.
 :::
 
 ::: {.proof-item}
 [Research scientist training]{.proof-lead}
 
-mass spectrometry, cell culture, water chemistry, toxicology, and human research studies, with 2 peer-reviewed publications and a hospital research partnership in IBD.
+study design, biotic and abiotic environmental field sampling, sample extraction, mass spectrometry, bioanalytical methods, cell culture, water chemistry, toxicology, and human research, with 2 peer-reviewed publications and a hospital research partnership in IBD.
 :::
 
 ::: {.proof-item}
 [Modern data science]{.proof-lead}
 
-machine learning and statistical modelling, collaborative development with Git and CI/CD, cloud computing on AWS, large-scale data with PySpark and DuckDB, and LLM tools including RAG and agentic coding.
+descriptive, inferential, and Bayesian statistical modelling, machine learning, and data visualization, plus collaborative development with Git and CI/CD, cloud computing on AWS, large-scale data with PySpark and DuckDB, and LLM tools including RAG and agentic coding.
 :::
 
 :::
