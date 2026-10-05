@@ -42,7 +42,7 @@ I build pipelines, models, apps, and reports for laboratory, clinical, and envir
 ::: {.hero-buttons}
 [See my projects](projects/index.qmd){.btn .btn-primary}
 [Resume](resume.qmd){.btn .btn-outline-secondary}
-[Get in touch](https://www.linkedin.com/in/gaultian){.btn .btn-outline-secondary}
+[Publications](scientific-communication.qmd){.btn .btn-outline-secondary}
 :::
 
 :::
@@ -52,9 +52,9 @@ I build pipelines, models, apps, and reports for laboratory, clinical, and envir
 ::: {.proof-strip}
 
 ::: {.proof-item}
-[30+ projects]{.proof-lead}
+[30+ projects of experience]{.proof-lead}
 
-of analysis and reporting over six years of regulated monitoring and risk assessment for oil sands, mining, municipal wastewater, and contaminated sites, including a US EPA Superfund site. I develop reusable, modular workflows that make each analysis faster and easier to extend to future projects.
+in analysis and reporting over six years of regulated monitoring and risk assessment for oil sands, mining, municipal wastewater, and contaminated sites, including a US EPA Superfund site. I develop reusable, modular workflows that make each analysis faster and easier to extend to future projects.
 :::
 
 ::: {.proof-item}
