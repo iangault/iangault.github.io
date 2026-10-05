@@ -1,6 +1,7 @@
 ---
 title: "Modelling Beyond a Straight Line"
-description: "A practical guide to modelling water-quality trends that curve, plateau, or shift, from piecewise regression to GAMs."
+description: "Many water-quality trends curve, plateau, or shift. I wrote a guide that matches each method, from piecewise regression to GAMs, to a case study."
+# TODO: add what changed as a result of this guide (outcome not stated on this page).
 author: "Ian Gault"
 date: "2026-08-20"
 categories: [Water Quality, R, statistics, environmental science, regression]

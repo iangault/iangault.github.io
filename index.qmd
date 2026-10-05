@@ -7,8 +7,8 @@ listing:
   id: featured-projects
   contents:
     - "projects/ibd-mycobiome-dashboard/index.qmd"
+    - "projects/wq-harmonization/index.qmd"
     - "projects/vignette-non-linear-trends/index.qmd"
-    - "projects/vignette-temporal-trends/index.qmd"
   sort: false
   type: grid
   grid-columns: 3
@@ -32,14 +32,12 @@ Ian Gault
 # A scientist who builds data systems. {.hero-headline .unnumbered .unlisted}
 
 ::: {.hero-credentials}
-Applied Data Scientist · MDS · MSc · RPBio
+MSc Analytical & Environmental Toxicology · Master of Data Science (UBC) · Registered Professional Biologist (RPBio)
 :::
 
 ::: {.hero-tagline}
-I turn messy scientific data into trustworthy systems, models, and decisions.
+I build pipelines, models, and dashboards for laboratory, clinical, and environmental data. I started at the bench in analytical toxicology, so I understand how the numbers were made before I model them.
 :::
-
-My background spans scientific research, six years of environmental consulting, and modern data science and machine learning. I work across the data lifecycle: understanding how measurements are generated, building reproducible pipelines, developing statistical and machine-learning models, deploying them, and communicating results to the people who depend on them.
 
 ::: {.hero-buttons}
 [See my projects](projects/index.qmd){.btn .btn-primary}
@@ -47,6 +45,28 @@ My background spans scientific research, six years of environmental consulting, 
 [Get in touch](https://www.linkedin.com/in/gaultian){.btn .btn-outline-secondary}
 :::
 
+:::
+
+:::
+
+::: {.proof-strip}
+
+::: {.proof-item}
+[30+ projects]{.proof-lead}
+
+over six years of regulated monitoring and risk assessment for oil sands, mining, municipal wastewater, and contaminated sites, including a US EPA Superfund site. Built on reusable workflows I developed, one now used across 5 projects.
+:::
+
+::: {.proof-item}
+[Research scientist training]{.proof-lead}
+
+mass spectrometry, cell culture, water chemistry, toxicology, and human research studies, with 2 peer-reviewed publications and a hospital research partnership in IBD.
+:::
+
+::: {.proof-item}
+[Modern data science]{.proof-lead}
+
+machine learning and statistical modelling, collaborative development with Git and CI/CD, cloud computing on AWS, large-scale data with PySpark and DuckDB, and LLM tools including RAG and agentic coding.
 :::
 
 :::
@@ -122,10 +142,11 @@ Communicate results clearly enough to support regulatory, environmental, and bus
 
 ## What I'm looking for
 
-I'm interested in data science and analytics roles where quantitative methods intersect with science, technology, health, natural resources, or other complex real-world systems.
+I'm looking for roles where I'm responsible for the pipelines and analysis behind scientific decisions, on teams working with lab, clinical, or environmental data.
 
 ::: {.hero-buttons}
-[Get in touch](https://www.linkedin.com/in/gaultian){.btn .btn-primary}
+[Email me](mailto:iggault@gmail.com){.btn .btn-primary}
+[LinkedIn](https://www.linkedin.com/in/gaultian){.btn .btn-outline-secondary}
 [Download Resume](media/Ian_Gault_Resume.pdf){.btn .btn-outline-secondary download="Ian_Gault_Resume.pdf"}
 :::
 

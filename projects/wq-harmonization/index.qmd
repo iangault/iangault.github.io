@@ -1,6 +1,7 @@
 ---
 title: "Water Quality Data Harmonization Pipeline"
-description: "An R pipeline that turns multi-lab water-quality data with mixed units and naming into clean, analysis-ready tables."
+description: "Multi-lab data arrive with mixed units and naming. I built a reproducible R pipeline that standardizes them, now reused across 5 projects."
+# TODO: add time saved on the annual data update (before and after hours, to be supplied by Ian).
 author: "Ian Gault"
 date: "2025-01-01"
 categories: [Water Quality, R, ETL, environmental science]

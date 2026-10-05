@@ -1,6 +1,7 @@
 ---
 title: "IBD Mycobiome Dashboard"
-description: "Shiny dashboard and statistics site linking gut fungi, diet, and inflammation in IBD, built with a hospital partner."
+description: "IBD study data sat in four separate sources. With a UBC capstone team, I built a pipeline and dashboard for BC Children's Hospital Research Institute."
+# TODO: add what changed for the research team (outcome not stated on this page).
 author: "Ian Gault"
 date: "2026-09-24"
 categories: [Dashboards, R, Shiny, Quarto, statistics, bioinformatics, data visualization]

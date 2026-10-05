@@ -243,6 +243,44 @@ h1.hero-headline {
   color: #ffffff;
 }
 
+/* Proof strip under the hero */
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+  padding: 0 1.5rem;
+}
+
+.proof-item {
+  border-left: 3px solid var(--deep-sage);
+  padding: 0.25rem 0 0.25rem 1rem;
+}
+
+.proof-item p {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.45;
+  color: #5b6b6b;
+}
+
+.proof-lead {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-dark);
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 768px) {
+  .proof-strip {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+}
+
 /* Principle statement band */
 .principle {
   background-color: var(--band-bg);

@@ -7,151 +7,95 @@
     "text": "NADA2: Accurate environmental monitoring starts with handling censored data\n\n\n\ncode\n\nanalysis\n\n\n\nWhy substituting or dropping values below the detection limit biases environmental data, and how censor-aware methods in NADA2 handle them.\n\n\n\n\n\nJan 13, 2026\n\n\nIan Gault\n\n\n\n\n\n\n\n\n\n\n\n\nMy MSc defense, in plain language: does time make oil sands water safer?\n\n\n\ntoxicology\n\nenvironmental chemistry\n\nscience communication\n\n\n\nA readable summary of my 2019 MSc defense on the toxicity of oil sands process-affected water, with the full slide deck.\n\n\n\n\n\nJan 22, 2019\n\n\nIan Gault\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "A scientist who builds data systems.",
+    "objectID": "blog/posts/NADA2/index.html",
+    "href": "blog/posts/NADA2/index.html",
+    "title": "NADA2: Accurate environmental monitoring starts with handling censored data",
     "section": "",
-    "text": "Ian Gault\n\n\n\n\nApplied Data Scientist · MDS · MSc · RPBio\n\n\nI turn messy scientific data into trustworthy systems, models, and decisions.\n\nMy background spans scientific research, six years of environmental consulting, and modern data science and machine learning. I work across the data lifecycle: understanding how measurements are generated, building reproducible pipelines, developing statistical and machine-learning models, deploying them, and communicating results to the people who depend on them.\n\nSee my projects Resume Get in touch"
+    "text": "With industrialization, humans have influenced the environment in which they live. We synthesize chemicals for specific uses and extract natural resources with chemical byproducts as waste. Exposure to chemical contaminants is unavoidable; even in environments that appear pristine and are free of human influence, such as regions of the Arctic, persistent synthetic chemicals can be detected by laboratory methods.1\nThe fields of analytical chemistry and toxicology converge to measure concentrations of chemical contaminants in the environment, in our food, water, and consumer products, and in our bodies, and to assess their associated health effects. With the backlog of chemical contaminants we are exposed to, many of whose toxicology is unknown, and the thousands of chemicals we encounter in our lives, methods in toxicology have been changing to keep up with the public health concern.2–4 However, at its root, effective chemical measurements through laboratory testing are needed to assess risk.\nEach method for measuring chemical concentrations has a lower limit, below which the instrument is not sensitive enough to detect true differences in concentrations. This inherent artifact of analytical instruments, though technology is continuously improving to get lower and lower detection limits of trace chemicals.\nEnvironmental chemistry typically follows a log-normal distribution,5 i.e., a right-skewed distribution, with fewer “hits” of hot spots with high-concentration observations relative to the majority of the dataset. Replacing the &lt;DL values with a constant cuts off the lower tail of the distribution, as shown in Figure 1. This is known as left-censored data.\n\nNote: Example figure was generated with ChatGPT5\nCommon practice in environmental monitoring is to impute observations below the detection limit (&lt;DL) to either 1 × DL or 1/2 × DL, because the data exists, but is not observable.6 This has traditionally been practical and was an accepted bias in summary statistics used in chemical evaluation. However, by doing so, you lose the data’s variability, which informs inferential techniques such as confidence intervals and hypothesis testing. And, depending on the distribution of the data and the substitution made, this can both overestimate and underestimate risk, collapsing a range of values into a single guess.\nAnother option–though, is arguably even worse!–would be to remove the censored data completely, removing that valuable information for when concentrations are low and artificially inflating the detected concentrations. Comparisons of contaminated environments that are of concern to surrounding life are usually done using summary statistics, such as upper bounds on chemical concentrations (or lower bounds for toxic effects), which can bias summary statistics used in chemical risk assessment.\nOverall, these two approaches do not incorporate modern methods for handling censored data based on probability and distributional data, and multiple options now exist to incorporate into your workflow, contributing to more accurate, measured downstream analyses.\nThree methods exist: parametric testing, which assumes a particular distribution for the data; non-parametric testing, which makes no distributional assumptions but ranks observations; or semi-parametric testing, which combines both, assuming a distribution while also ranking observations.7\nNADA2 is an R package that provides tools to handle censored data.8 It can incorporate the distribution of the data and provide a probabilistic representation of concentrations that are &lt;DL, thereby avoiding the fixed, direct substitution methods. It is aware of the censorship of the data, allowing for more explicit incorporation of uncertainty and unbiased summary statistics.\nMost commonly, a semi-parametric approach called Regression on Order Statistics (ROS) is used.8 Given that environmental chemistry data is often log-normal, ROS applies a log transformation and ranks observations with their expected normal quantiles. A regression is then used to estimate where censored observations would plausibly fall in the lower tail of the distribution. Here, the censored data is not replaced; instead, values are inferred from the distribution to avoid bias in how the data is used. In other words, the probability distribution is conditional on whether the data is censored or not, as described below:\n\\[\nX_i = \\begin{cases} x_i, & \\text{if detected} \\\\ &lt; DL_i, & \\text{if censored} \\end{cases}\n\\] For censored observations: \\[\nP(X \\le x \\mid X &lt; DL)\n\\] For detected observations: \\[\nP(X \\le x \\mid X \\ge DL_{\\min})\n\\] Note: Equations generated by ChatGPT5\nThis is what’s going on under the hood for the following example code:\n\n# Toy dataframe\ndf &lt;- data.frame(\n  concentration = c(0.2, 0.5, 1.0, 0.4, 2.0, 0.3),\n  censored = c(TRUE, TRUE, FALSE, TRUE, FALSE, TRUE)\n)\n# Created the log-normal estimated distribution\nestimated_distribution &lt;- NADA2::ros(df$concentration, df$censored)\n# Calculated unbiased summary statistics\nmean(estimated_distribution)\nmedian(estimated_distribution)\n# Test to evaluate guideline exceedances for an example contaminated site based on a censor-aware concentration point estimate\npoint_estimate &lt;- quantile(fit, 0.95)\nguideline &lt;- 0.35\nexceedance &lt;- point_estimate &gt; guideline\n\nThe semi-parametric ROS approach is best used when the distribution of data may not fully fit a log-normal distribution, which is often the case in real-world scenarios. It is also reasonably defensible for a high degree of censored data, with a frequency of 30%-50%.7 It is effective for summary statistics, trends, and guideline comparisons; however, it is not a predictive model.\nThe choice of approach depends on the assessment’s goal. If a predictive model is needed, such as estimating concentrations of chemicals in a lake based on the current outflow and concentrations, and a distribution assumption is defensible, then parametric testing would be needed. In this case, NADA provides parametric testing that assigns a distribution and uses Maximum Likelihood Estimates (MLE) to predict concentrations.7,8 An example of the code is below:\n\n# NOTE: this function is from the older package NADA\nparametric_distribution &lt;- NADA::cenmle(df$concentration, df$censored, dist = \"lognormal\")\n\nNon-parametric metrics, such as the Kaplan-Meier estimator, make minimal distributional assumptions; this can be suitable depending on how your data looks, allowing you to still extract valuable information. However, the representations of left-censored data are poorer compared to semi-parametric and parametric methods, with limited extrapolation from observed values and no smoothing.9 Therefore, it is less sensitive.\nThe incorporation of NADA2 or similar packages into an environmental data science workflow is not too much additional work, but does require a shift in perspective. There may be an initial learning curve to understand what’s happening, but the coding is minimal and defensible. Environmental scientists may be resistant to turning to a coding-based workflow and to changing their approach based on what has always been done or what has previously been accepted, but the benefits outweigh the initial discomfort.\nThis is needed because some chemical contaminants have very low recommended safe doses that are approaching the detection limit of our best laboratory methods. As a result, small biases in our imputed values, which may be minor when chemical concentrations are well above the detection limit, can have a much greater impact as measured concentrations approach the detection limit. As environmental scientists, we now have the tools to do better: to accurately represent the data in our studies, make inferences, and have measured remediation strategies and protections for the environment and the life within it.\n\nReferences\nImage taken from: A global agreement to tame chemical pollution | United Nations. https://www.un.org/en/climatechange/global-agreement-tame-chemical-pollution. Accessed January 17, 2026.\n\nPersistent Organic Pollutants: A Global Issue, A Global Response | US EPA. https://www.epa.gov/international-cooperation/persistent-organic-pollutants-global-issue-global-response. Accessed January 13, 2026.\nKrewski D, Westphal M, Andersen ME, et al. A framework for the next generation of risk science. Environ Health Perspect. 2014;122(8):796-805. doi:10.1289/ehp.1307260\nBell SM, Chang X, Wambaugh JF, et al. in vitro to in vivo extrapolation for high throughput prioritization and decision making. Toxicol Vitr. 2018;47(December 2017):213-227. doi:10.1016/j.tiv.2017.11.016\nTox21. Toxicology in the 21st Century. https://tox21.gov/overview/about-tox21/. Accessed January 8, 2025.\nAndersson A. Mechanisms for log normal concentration distributions in the environment. Sci Reports 2021 111. 2021;11(1):16418-. doi:10.1038/s41598-021-96010-6\nMihalache OA, Dall’Asta C. Left-censored data and where to find them: Current implications in mycotoxin-related risk assessment, legislative and economic impacts. Trends Food Sci Technol. 2023;136:112-119. doi:10.1016/J.TIFS.2023.04.011\nHolbert C. How to Calculate Summary Statistics for Left-Censored Data. https://www.cfholbert.com/blog/summary-statistics-censored-data/. Published 2022. Accessed January 17, 2026.\nNADA2 package - RDocumentation. https://www.rdocumentation.org/packages/NADA2/versions/2.0.1. Accessed January 8, 2026.\nWey A, Connett J, Rudser K. Combining parametric, semi-parametric, and non-parametric survival models with stacked survival models. Biostatistics. 2015;16(3):537. doi:10.1093/BIOSTATISTICS/KXV001"
   },
   {
-    "objectID": "index.html#how-i-work",
-    "href": "index.html#how-i-work",
-    "title": "A scientist who builds data systems.",
-    "section": "How I work",
-    "text": "How I work\nFrom how the data were generated to the decisions they support.\n\n\nMeasure\nStart with how the data were generated: instruments, detection limits, and sampling design.\nFor example MSc research in analytical toxicology\n\n\nEngineer\nTurn messy, multi-source data into reproducible, tested pipelines.\nFor example Water Quality Harmonization\n\n\nModel\nMatch the model to the data and check its assumptions before trusting the result.\nFor example Modelling Beyond a Straight Line\n\n\nDeploy\nBuild reports, dashboards, and apps.\nFor example IBD Mycobiome Dashboard\n\n\nDecide\nCommunicate results clearly enough to support regulatory, environmental, and business decisions.\nFor example Six years of consulting"
-  },
-  {
-    "objectID": "index.html#featured-projects",
-    "href": "index.html#featured-projects",
-    "title": "A scientist who builds data systems.",
-    "section": "Featured projects",
-    "text": "Featured projects\n\n\n\n\n\n\n\n\n\n\nIBD Mycobiome Dashboard\n\n\nShiny dashboard and statistics site linking gut fungi, diet, and inflammation in IBD, built with a hospital partner.\n\n\n\n\n\n\n\n\n\n\n\n\nModelling Beyond a Straight Line\n\n\nA practical guide to modelling water-quality trends that curve, plateau, or shift, from piecewise regression to GAMs.\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\nA reproducible R workflow for detecting linear, monotonic water-quality trends and comparing them across monitoring areas.\n\n\n\n\n\nNo matching items\n\nSee all projects →"
-  },
-  {
-    "objectID": "index.html#what-im-looking-for",
-    "href": "index.html#what-im-looking-for",
-    "title": "A scientist who builds data systems.",
-    "section": "What I’m looking for",
-    "text": "What I’m looking for\nI’m interested in data science and analytics roles where quantitative methods intersect with science, technology, health, natural resources, or other complex real-world systems.\n\nGet in touch Download Resume"
-  },
-  {
-    "objectID": "projects/ibd-mycobiome-dashboard/index.html",
-    "href": "projects/ibd-mycobiome-dashboard/index.html",
-    "title": "IBD Mycobiome Dashboard",
+    "objectID": "projects/vignette-non-linear-trends/index.html",
+    "href": "projects/vignette-non-linear-trends/index.html",
+    "title": "Modelling Beyond a Straight Line",
     "section": "",
-    "text": "Live Dashboard Statistics Site View on GitHub\nThis project explores how the gut mycobiome (the fungal community in the gut), diet, and inflammatory biomarkers relate to inflammatory bowel disease (IBD). It combines a data pipeline, an interactive Shiny dashboard with participant-level and cohort-level views, and a Quarto site with one post per statistical analysis.\nThe original work was a 2026 UBC Master of Data Science capstone built with a hospital research partner by Tiffany Chu, Victoria Farkas, Ian Gault, and Derrick Jaskiel. The original used real patient data under a data-use agreement and is kept private. This public version runs the same code on synthetic data, so the numbers and figures are not real findings."
+    "text": "View Vignette View on GitHub\nNot every water-quality trend is a straight line. This vignette works through the toolkit for series that curve, plateau, break, or shift level, building from OLS assumptions up to semi-parametric models, with each method paired to a case study analyte that actually needs it."
   },
   {
-    "objectID": "projects/ibd-mycobiome-dashboard/index.html#what-it-does",
-    "href": "projects/ibd-mycobiome-dashboard/index.html#what-it-does",
-    "title": "IBD Mycobiome Dashboard",
-    "section": "What it does",
-    "text": "What it does\n\nData pipeline - R scripts that clean and merge four sources (stool mycobiome relative abundance, dietary intake, inflammatory biomarkers, and participant characteristics) into analysis-ready files, orchestrated with GNU Make\nShiny dashboard - participant-level and cohort-level views of fungal composition, diet, and biomarkers\nStatistics site - alpha diversity (Kruskal-Wallis), beta diversity (PERMANOVA at four taxonomic levels), symptom and nutrient associations, PCA and clustering, and an evidence-ranking matrix"
+    "objectID": "projects/vignette-non-linear-trends/index.html#what-it-covers",
+    "href": "projects/vignette-non-linear-trends/index.html#what-it-covers",
+    "title": "Modelling Beyond a Straight Line",
+    "section": "What it covers",
+    "text": "What it covers\n\nThe regression framework: estimand, link, systematic component, and how OLS sits inside it as the identity-link/Gaussian special case\nDiagnosing which kind of nonlinearity a series needs: a log-response transform, a feature-engineered regressor, or a link function\nPiecewise / segmented linear regression for a slope break at an unknown location\nChangepoint detection for a level shift at an unknown location\nk-NN regression and LOESS smoothing for a rise-then-plateau shape, compared side by side on the same data\nGAMs (mgcv) for step-like, non-monotonic change with no periodic or polynomial pattern\nGAMMs for a seasonal cycle plus trend, with autocorrelated residuals\nA closing comparison of linear vs. nonlinear fits on two control analytes"
   },
   {
-    "objectID": "projects/ibd-mycobiome-dashboard/index.html#technical-stack",
-    "href": "projects/ibd-mycobiome-dashboard/index.html#technical-stack",
-    "title": "IBD Mycobiome Dashboard",
-    "section": "Technical stack",
-    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nData pipeline\nR (tidyverse), GNU Make\n\n\nStatistics\nPERMANOVA and Bray-Curtis distances (vegan), Kruskal-Wallis, PCA, clustering\n\n\nApp framework\nShiny\n\n\nReporting\nQuarto\n\n\nReproducibility\nrenv, testthat unit tests\n\n\nCI/CD\nGitHub Actions (rebuilds and publishes the statistics site to GitHub Pages)\n\n\nDeployment\nPosit Connect Cloud\n\n\nSynthetic data\nPython (pandas, numpy)"
-  },
-  {
-    "objectID": "projects/ibd-mycobiome-dashboard/index.html#what-i-changed-for-the-public-version",
-    "href": "projects/ibd-mycobiome-dashboard/index.html#what-i-changed-for-the-public-version",
-    "title": "IBD Mycobiome Dashboard",
-    "section": "What I changed for the public version",
-    "text": "What I changed for the public version\n\nWrote a synthetic data generator that matches the original raw file schemas, so the full pipeline runs end to end\nRemoved the dashboard login (shinymanager), since there is no real data to protect\nAdded a GitHub Actions workflow that rebuilds and publishes the statistics site\nRemoved patient data, results, and the capstone report"
-  },
-  {
-    "objectID": "projects/MIT_capstone/index.html",
-    "href": "projects/MIT_capstone/index.html",
-    "title": "MIT Capstone: Applied Data Science — Leveraging AI for Decision-making",
-    "section": "",
-    "text": "Capstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).\n\n\nOpen PDF in new tab"
-  },
-  {
-    "objectID": "projects/TempTales/index.html",
-    "href": "projects/TempTales/index.html",
-    "title": "TempTales: Global Temperature Explorer",
-    "section": "",
-    "text": "Live Dashboard View on GitHub\nTempTales is an interactive dashboard for exploring global and country-level temperature trends from 1860 to 2012. Users can select a country, compare two years side-by-side, view seasonal and monthly patterns, and see temperature shifts on a world heatmap. An AI assistant tab lets users query the data in natural language.\nThis project started as a UBC MDS group project (DSCI 532, 2026). This fork is a solo rebuild and improvement focused on production-readiness: adding CI, fixing test infrastructure, improving code quality, improving visualizations, and preparing for cloud redeployment on Posit Connect."
-  },
-  {
-    "objectID": "projects/TempTales/index.html#features",
-    "href": "projects/TempTales/index.html#features",
-    "title": "TempTales: Global Temperature Explorer",
-    "section": "Features",
-    "text": "Features\n\nCountry explorer — select any country and view its full temperature history with trend overlay\nYear comparison — pick two years and compare monthly/seasonal temperature profiles side-by-side\nWorld heatmap — Plotly choropleth showing global average temperatures by year\nAI assistant — natural-language querying of the dataset via GitHub Models API (GPT-4.1-mini) using chatlas + querychat"
-  },
-  {
-    "objectID": "projects/TempTales/index.html#technical-stack",
-    "href": "projects/TempTales/index.html#technical-stack",
-    "title": "TempTales: Global Temperature Explorer",
-    "section": "Technical stack",
-    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nApp framework\nPython Shiny (reactive server/UI separation)\n\n\nData backend\nDuckDB + ibis lazy expressions\n\n\nVisualizations\nAltair (time-series, comparison charts), Plotly (choropleth map)\n\n\nTesting\npytest (62 unit tests) + Playwright (6 end-to-end UI tests)\n\n\nCI/CD\nGitHub Actions — unit tests → Playwright UI tests on every push/PR\n\n\nLLM integration\nGitHub Models API (gpt-4.1-mini) via chatlas + querychat\n\n\nDeployment\nPosit Connect Cloud via GitHub integration"
-  },
-  {
-    "objectID": "projects/TempTales/index.html#what-i-improved",
-    "href": "projects/TempTales/index.html#what-i-improved",
-    "title": "TempTales: Global Temperature Explorer",
-    "section": "What I improved",
-    "text": "What I improved\nStarting from the group’s original codebase, the solo rebuild focused on:\n\nWiring up a full GitHub Actions CI pipeline (unit + Playwright UI tests)\nFixing broken test infrastructure and expanding coverage to 62 unit + 6 UI tests\nRefactoring server/UI separation for maintainability\nConfiguring cloud deployment on Posit Connect"
-  },
-  {
-    "objectID": "projects/wq-harmonization/index.html",
-    "href": "projects/wq-harmonization/index.html",
-    "title": "Water Quality Data Harmonization Pipeline",
-    "section": "",
-    "text": "View Vignette View on GitHub\nEnvironmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end."
-  },
-  {
-    "objectID": "projects/wq-harmonization/index.html#what-it-does",
-    "href": "projects/wq-harmonization/index.html#what-it-does",
-    "title": "Water Quality Data Harmonization Pipeline",
-    "section": "What it does",
-    "text": "What it does\nThe pipeline ingests raw multi-lab water quality submissions and produces a clean, standardized dataset ready for analysis or reporting. Key steps include:\n\nAnalyte name standardization — resolves lab-specific submission codes to a common naming convention\nFraction parsing — extracts dissolved/total fractionation from analyte suffixes\nClassification — groups analytes into analysis categories (Nutrients, Major Ions, Metals, etc.)\nWater type detection — distinguishes freshwater from seawater samples to apply appropriate thresholds\nUnit conversion — converts mixed units with correct scaling of associated detection limits\nDetection limit handling — flags and substitutes values below detection using consistent conventions\nQAQC checks — automated screening for field blanks, field duplicates, holding time exceedances, and metals ratio verification"
-  },
-  {
-    "objectID": "projects/wq-harmonization/index.html#design",
-    "href": "projects/wq-harmonization/index.html#design",
-    "title": "Water Quality Data Harmonization Pipeline",
+    "objectID": "projects/vignette-non-linear-trends/index.html#design",
+    "href": "projects/vignette-non-linear-trends/index.html#design",
+    "title": "Modelling Beyond a Straight Line",
     "section": "Design",
-    "text": "Design\nThe pipeline is organized into modular R functions (harmonize.R, units.R, qaqc.R, database.R, utils.R) and documented via an R Markdown vignette. Synthetic test data is included so the vignette runs standalone without proprietary lab submissions.\nAll program names and site identifiers in the repository have been anonymized."
+    "text": "Design\nThe site is organized as one method per chapter, each grounded in a specific case study rather than a generic worked example, and framed around inference on the observed record rather than forecasting."
   },
   {
-    "objectID": "scientific-communication.html",
-    "href": "scientific-communication.html",
-    "title": "Publications",
+    "objectID": "projects/vignette-temporal-trends/index.html",
+    "href": "projects/vignette-temporal-trends/index.html",
+    "title": "Temporal Trend Analysis",
     "section": "",
-    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
+    "text": "View Vignette View on GitHub\nLong-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.\nAll program names and site identifiers have been replaced with generic labels; synthetic data is used so the vignette runs standalone."
   },
   {
-    "objectID": "scientific-communication.html#peer-reviewed-publications",
-    "href": "scientific-communication.html#peer-reviewed-publications",
-    "title": "Publications",
+    "objectID": "projects/vignette-temporal-trends/index.html#what-it-does",
+    "href": "projects/vignette-temporal-trends/index.html#what-it-does",
+    "title": "Temporal Trend Analysis",
+    "section": "What it does",
+    "text": "What it does\n\nMulti-year time-series overview figures across analytes and monitoring areas\nTwo-way ANOVA (result ~ year * area) with iterative studentized-residual outlier removal\nAssumption checks: Breusch-Pagan heteroscedasticity test, Shapiro-Wilk normality test\nInteraction significance testing that decides between the additive model and emmeans post-hoc pairwise comparisons\nSlope extraction and back-transformation to a %/year rate of change, since a significant year effect only says a trend exists, not how big it is\nMann-Kendall trend test and Sen’s slope estimator, run per monitoring area, as an assumption-light cross-check on both the direction and magnitude of the ANOVA trend\nSignificance annotation on post-hoc comparison figures, driven by the actual model p-values"
+  },
+  {
+    "objectID": "projects/vignette-temporal-trends/index.html#design",
+    "href": "projects/vignette-temporal-trends/index.html#design",
+    "title": "Temporal Trend Analysis",
+    "section": "Design",
+    "text": "Design\nThe pipeline is organized into modular R functions (trend_model.R, mann_kendall.R, plot_trend.R, utils.R) and documented via an R Markdown vignette, including a flowchart figure of the model’s decision path (outlier removal → assumptions → interaction test → additive/interaction branch). Four case-study analytes exercise different branches of the pipeline: a shared real trend, a flat null case, a trend confined to one area, and a flat case with injected high-leverage outliers."
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
     "section": "",
-    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
+    "text": "All\n  Water Quality\n  Dashboards\n  Machine Learning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIBD Mycobiome Dashboard\n\n\n\nDashboards\n\nR\n\nShiny\n\nQuarto\n\nstatistics\n\nbioinformatics\n\ndata visualization\n\n\n\nIBD study data sat in four separate sources. With a UBC capstone team, I built a pipeline and dashboard for BC Children’s Hospital Research Institute.\n\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nProduct Search RAG\n\n\n\nMachine Learning\n\nPython\n\nNLP\n\ninformation retrieval\n\nRAG\n\nLLM\n\nStreamlit\n\n\n\nA Streamlit app comparing keyword, semantic, and hybrid product search, with RAG answers from product reviews.\n\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nModelling Beyond a Straight Line\n\n\n\nWater Quality\n\nR\n\nstatistics\n\nenvironmental science\n\nregression\n\n\n\nMany water-quality trends curve, plateau, or shift. I wrote a guide that matches each method, from piecewise regression to GAMs, to a case study.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\n\nWater Quality\n\nR\n\nstatistics\n\nenvironmental science\n\ntime series\n\n\n\nA reproducible R workflow for detecting linear, monotonic water-quality trends and comparing them across monitoring areas.\n\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTempTales: Global Temperature Explorer\n\n\n\nDashboards\n\nPython\n\nShiny\n\nDuckDB\n\nAltair\n\nPlotly\n\nCI/CD\n\nLLM\n\ndata visualization\n\n\n\nAn interactive Python Shiny dashboard for exploring 150 years of global temperature trends, with an AI assistant.\n\n\n\nMay 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\n\nWater Quality\n\nR\n\nETL\n\nenvironmental science\n\n\n\nMulti-lab data arrive with mixed units and naming. I built a reproducible R pipeline that standardizes them, now reused across 5 projects.\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\n\nMachine Learning\n\ndata science\n\npresentation\n\n\n\nCustomer segmentation using PCA, t-SNE, and five clustering methods, compared by silhouette score.\n\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "scientific-communication.html#thesis",
-    "href": "scientific-communication.html#thesis",
-    "title": "Publications",
-    "section": "Thesis",
-    "text": "Thesis\nGault IGM. Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry. MSc Thesis, University of Alberta, 2019. University of Alberta Scholaris · Defense presentation, in plain language"
+    "objectID": "projects/product-search-rag/index.html",
+    "href": "projects/product-search-rag/index.html",
+    "title": "Product Search RAG",
+    "section": "",
+    "text": "Live App View on GitHub Data on Hugging Face\n The live app is on a free tier. If it has been idle, it can take 1 to 2 minutes to start.\nThis project is a product search assistant built on the Appliances category of the Amazon Reviews 2023 dataset from McAuley Lab. It compares keyword, semantic, and hybrid retrieval side by side, and adds two RAG modes that answer natural language questions using retrieved product details and reviews.\nIt started as a team project by Christine Chow and Ian Gault for DSCI 575 (Advanced Machine Learning) in the UBC Master of Data Science program. The public repository is my continuation of that work."
   },
   {
-    "objectID": "scientific-communication.html#conference-presentations",
-    "href": "scientific-communication.html#conference-presentations",
-    "title": "Publications",
-    "section": "Conference Presentations",
-    "text": "Conference Presentations\nFour oral presentations and one poster on oil sands process-affected water (OSPW) toxicity, 2017–2018.\nSETAC North America — Sacramento, CA (Nov 2018) Oral: Endocrine Activity of Oil Sands Process-Affected Water: Evaluating Ageing as a Remediation Strategy.\nSETAC-Prairie Northern Chapter Conference — Edmonton, AB (Jun 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nCanadian Chemistry Conference — Edmonton, AB (May 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nDRIvE Days — Laboratory Medicine & Pathology Conference — Edmonton, AB (Apr 2018) Poster: Process-Affected Water in the Oil Sands: Attributing Toxicity within the Organic Chemical Mixture.\n\n\n\nDRIvE Days 2018 Poster\n\n\nCanadian Chemistry Conference — Toronto, ON (May 2017) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy."
+    "objectID": "projects/product-search-rag/index.html#what-it-does",
+    "href": "projects/product-search-rag/index.html#what-it-does",
+    "title": "Product Search RAG",
+    "section": "What it does",
+    "text": "What it does\n\nBM25 search - keyword ranking with rank_bm25 over product titles, features, descriptions, categories, details, and review text\nSemantic search - all-MiniLM-L6-v2 sentence embeddings indexed with FAISS, matching queries by meaning rather than exact words\nHybrid search - combines BM25 and semantic results with Reciprocal Rank Fusion\nRAG and Hybrid RAG - retrieved products and review text are passed as context to a Qwen model via the Groq API, which writes a grounded answer shown alongside the supporting products\nQuery guardrail - an LLM-based check rejects questions unrelated to appliances or product shopping"
   },
   {
-    "objectID": "scientific-communication.html#presentation-awards",
-    "href": "scientific-communication.html#presentation-awards",
-    "title": "Publications",
-    "section": "Presentation Awards",
-    "text": "Presentation Awards\n\n\n\n\n\n\n\n\nYear\nConference\nAward\n\n\n\n\n2018\nSETAC North America\n3rd Place, Best Student Presentation (Masters category)\n\n\n2018\nSETAC-Prairie Northern Chapter\n1st Place, Best Student/PDF Oral Presentation\n\n\n2018\nCanadian Chemistry Conference\nOutstanding Graduate Oral Presentation\n\n\n2017\nCanadian Chemistry Conference\nBell McLeod Educational Fund Award; GSA Academic Travel Award"
+    "objectID": "projects/product-search-rag/index.html#retrieval-evaluation",
+    "href": "projects/product-search-rag/index.html#retrieval-evaluation",
+    "title": "Product Search RAG",
+    "section": "Retrieval evaluation",
+    "text": "Retrieval evaluation\nEach retriever was scored on 10 test queries against human relevance labels (k = 5):\n\n\n\nRetriever\nMean Precision@5\nMean Recall@5\nMRR\n\n\n\n\nBM25\n0.54\n0.33\n0.73\n\n\nSemantic\n0.68\n0.39\n0.85\n\n\nHybrid\n0.58\n0.36\n0.85\n\n\n\nSemantic search scored highest on this query set and tied with hybrid search on MRR. Some queries were written to favour semantic interpretation (for example, misspellings), which may explain part of the gap."
+  },
+  {
+    "objectID": "projects/product-search-rag/index.html#technical-stack",
+    "href": "projects/product-search-rag/index.html#technical-stack",
+    "title": "Product Search RAG",
+    "section": "Technical stack",
+    "text": "Technical stack\n\n\n\nArea\nTools\n\n\n\n\nData processing\nDuckDB, pandas, NLTK\n\n\nKeyword retrieval\nrank_bm25\n\n\nSemantic retrieval\nsentence-transformers, FAISS\n\n\nRAG\nLangChain, Groq API (Qwen)\n\n\nApp framework\nStreamlit\n\n\nData hosting\nHugging Face Hub\n\n\nDeployment\nStreamlit Community Cloud\n\n\nReproducibility\nconda, GNU Make"
+  },
+  {
+    "objectID": "projects/product-search-rag/index.html#what-i-changed-for-the-public-version",
+    "href": "projects/product-search-rag/index.html#what-i-changed-for-the-public-version",
+    "title": "Product Search RAG",
+    "section": "What I changed for the public version",
+    "text": "What I changed for the public version\n\nReworked the project into a standalone repository with a new README\nSwitched the LLM to qwen/qwen3.8-27b after Groq retired the original qwen/qwen3-32b\nMoved the processed data and search indexes (about 207 MB) to a public Hugging Face dataset, so the git repository stays small and the app downloads them at startup\nDeployed the app to Streamlit Community Cloud"
   },
   {
     "objectID": "resume.html",
@@ -224,95 +168,151 @@
     "text": "Community Service\nStandards & Guidance Committee, Public Member | BC College of Oral Health Professionals | Apr 2025 – Apr 2026\nReviewed professional standards and guidance during the consolidation of multiple health professions under a unified regulatory body; engaged with governance structures, working groups of subject-matter experts, and the rollout of new enforceable professional standards.\nBoard Member (Secretary) & Mental Health Team Lead | Edmonton Men’s Health Collective | 2015 – 2019\nExecutive board member of a collective dedicated to improving health outcomes of sexual and gender minority men; bridged community members with stakeholders, subject-matter experts, and the board; led a 6-month harm reduction campaign of community naloxone trainings paired with a web series.\nTreasurer, LMP Student Group | University of Alberta | 2016 – 2019\nManaged budget and provided input on departmental policies for the Laboratory Medicine & Pathology student group."
   },
   {
-    "objectID": "projects/product-search-rag/index.html",
-    "href": "projects/product-search-rag/index.html",
-    "title": "Product Search RAG",
+    "objectID": "scientific-communication.html",
+    "href": "scientific-communication.html",
+    "title": "Publications",
     "section": "",
-    "text": "Live App View on GitHub Data on Hugging Face\n The live app is on a free tier. If it has been idle, it can take 1 to 2 minutes to start.\nThis project is a product search assistant built on the Appliances category of the Amazon Reviews 2023 dataset from McAuley Lab. It compares keyword, semantic, and hybrid retrieval side by side, and adds two RAG modes that answer natural language questions using retrieved product details and reviews.\nIt started as a team project by Christine Chow and Ian Gault for DSCI 575 (Advanced Machine Learning) in the UBC Master of Data Science program. The public repository is my continuation of that work."
+    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
   },
   {
-    "objectID": "projects/product-search-rag/index.html#what-it-does",
-    "href": "projects/product-search-rag/index.html#what-it-does",
-    "title": "Product Search RAG",
+    "objectID": "scientific-communication.html#peer-reviewed-publications",
+    "href": "scientific-communication.html#peer-reviewed-publications",
+    "title": "Publications",
+    "section": "",
+    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
+  },
+  {
+    "objectID": "scientific-communication.html#thesis",
+    "href": "scientific-communication.html#thesis",
+    "title": "Publications",
+    "section": "Thesis",
+    "text": "Thesis\nGault IGM. Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry. MSc Thesis, University of Alberta, 2019. University of Alberta Scholaris · Defense presentation, in plain language"
+  },
+  {
+    "objectID": "scientific-communication.html#conference-presentations",
+    "href": "scientific-communication.html#conference-presentations",
+    "title": "Publications",
+    "section": "Conference Presentations",
+    "text": "Conference Presentations\nFour oral presentations and one poster on oil sands process-affected water (OSPW) toxicity, 2017–2018.\nSETAC North America — Sacramento, CA (Nov 2018) Oral: Endocrine Activity of Oil Sands Process-Affected Water: Evaluating Ageing as a Remediation Strategy.\nSETAC-Prairie Northern Chapter Conference — Edmonton, AB (Jun 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nCanadian Chemistry Conference — Edmonton, AB (May 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nDRIvE Days — Laboratory Medicine & Pathology Conference — Edmonton, AB (Apr 2018) Poster: Process-Affected Water in the Oil Sands: Attributing Toxicity within the Organic Chemical Mixture.\n\n\n\nDRIvE Days 2018 Poster\n\n\nCanadian Chemistry Conference — Toronto, ON (May 2017) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy."
+  },
+  {
+    "objectID": "scientific-communication.html#presentation-awards",
+    "href": "scientific-communication.html#presentation-awards",
+    "title": "Publications",
+    "section": "Presentation Awards",
+    "text": "Presentation Awards\n\n\n\n\n\n\n\n\nYear\nConference\nAward\n\n\n\n\n2018\nSETAC North America\n3rd Place, Best Student Presentation (Masters category)\n\n\n2018\nSETAC-Prairie Northern Chapter\n1st Place, Best Student/PDF Oral Presentation\n\n\n2018\nCanadian Chemistry Conference\nOutstanding Graduate Oral Presentation\n\n\n2017\nCanadian Chemistry Conference\nBell McLeod Educational Fund Award; GSA Academic Travel Award"
+  },
+  {
+    "objectID": "projects/wq-harmonization/index.html",
+    "href": "projects/wq-harmonization/index.html",
+    "title": "Water Quality Data Harmonization Pipeline",
+    "section": "",
+    "text": "View Vignette View on GitHub\nEnvironmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end."
+  },
+  {
+    "objectID": "projects/wq-harmonization/index.html#what-it-does",
+    "href": "projects/wq-harmonization/index.html#what-it-does",
+    "title": "Water Quality Data Harmonization Pipeline",
     "section": "What it does",
-    "text": "What it does\n\nBM25 search - keyword ranking with rank_bm25 over product titles, features, descriptions, categories, details, and review text\nSemantic search - all-MiniLM-L6-v2 sentence embeddings indexed with FAISS, matching queries by meaning rather than exact words\nHybrid search - combines BM25 and semantic results with Reciprocal Rank Fusion\nRAG and Hybrid RAG - retrieved products and review text are passed as context to a Qwen model via the Groq API, which writes a grounded answer shown alongside the supporting products\nQuery guardrail - an LLM-based check rejects questions unrelated to appliances or product shopping"
+    "text": "What it does\nThe pipeline ingests raw multi-lab water quality submissions and produces a clean, standardized dataset ready for analysis or reporting. Key steps include:\n\nAnalyte name standardization — resolves lab-specific submission codes to a common naming convention\nFraction parsing — extracts dissolved/total fractionation from analyte suffixes\nClassification — groups analytes into analysis categories (Nutrients, Major Ions, Metals, etc.)\nWater type detection — distinguishes freshwater from seawater samples to apply appropriate thresholds\nUnit conversion — converts mixed units with correct scaling of associated detection limits\nDetection limit handling — flags and substitutes values below detection using consistent conventions\nQAQC checks — automated screening for field blanks, field duplicates, holding time exceedances, and metals ratio verification"
   },
   {
-    "objectID": "projects/product-search-rag/index.html#retrieval-evaluation",
-    "href": "projects/product-search-rag/index.html#retrieval-evaluation",
-    "title": "Product Search RAG",
-    "section": "Retrieval evaluation",
-    "text": "Retrieval evaluation\nEach retriever was scored on 10 test queries against human relevance labels (k = 5):\n\n\n\nRetriever\nMean Precision@5\nMean Recall@5\nMRR\n\n\n\n\nBM25\n0.54\n0.33\n0.73\n\n\nSemantic\n0.68\n0.39\n0.85\n\n\nHybrid\n0.58\n0.36\n0.85\n\n\n\nSemantic search scored highest on this query set and tied with hybrid search on MRR. Some queries were written to favour semantic interpretation (for example, misspellings), which may explain part of the gap."
+    "objectID": "projects/wq-harmonization/index.html#design",
+    "href": "projects/wq-harmonization/index.html#design",
+    "title": "Water Quality Data Harmonization Pipeline",
+    "section": "Design",
+    "text": "Design\nThe pipeline is organized into modular R functions (harmonize.R, units.R, qaqc.R, database.R, utils.R) and documented via an R Markdown vignette. Synthetic test data is included so the vignette runs standalone without proprietary lab submissions.\nAll program names and site identifiers in the repository have been anonymized."
   },
   {
-    "objectID": "projects/product-search-rag/index.html#technical-stack",
-    "href": "projects/product-search-rag/index.html#technical-stack",
-    "title": "Product Search RAG",
+    "objectID": "projects/TempTales/index.html",
+    "href": "projects/TempTales/index.html",
+    "title": "TempTales: Global Temperature Explorer",
+    "section": "",
+    "text": "Live Dashboard View on GitHub\nTempTales is an interactive dashboard for exploring global and country-level temperature trends from 1860 to 2012. Users can select a country, compare two years side-by-side, view seasonal and monthly patterns, and see temperature shifts on a world heatmap. An AI assistant tab lets users query the data in natural language.\nThis project started as a UBC MDS group project (DSCI 532, 2026). This fork is a solo rebuild and improvement focused on production-readiness: adding CI, fixing test infrastructure, improving code quality, improving visualizations, and preparing for cloud redeployment on Posit Connect."
+  },
+  {
+    "objectID": "projects/TempTales/index.html#features",
+    "href": "projects/TempTales/index.html#features",
+    "title": "TempTales: Global Temperature Explorer",
+    "section": "Features",
+    "text": "Features\n\nCountry explorer — select any country and view its full temperature history with trend overlay\nYear comparison — pick two years and compare monthly/seasonal temperature profiles side-by-side\nWorld heatmap — Plotly choropleth showing global average temperatures by year\nAI assistant — natural-language querying of the dataset via GitHub Models API (GPT-4.1-mini) using chatlas + querychat"
+  },
+  {
+    "objectID": "projects/TempTales/index.html#technical-stack",
+    "href": "projects/TempTales/index.html#technical-stack",
+    "title": "TempTales: Global Temperature Explorer",
     "section": "Technical stack",
-    "text": "Technical stack\n\n\n\nArea\nTools\n\n\n\n\nData processing\nDuckDB, pandas, NLTK\n\n\nKeyword retrieval\nrank_bm25\n\n\nSemantic retrieval\nsentence-transformers, FAISS\n\n\nRAG\nLangChain, Groq API (Qwen)\n\n\nApp framework\nStreamlit\n\n\nData hosting\nHugging Face Hub\n\n\nDeployment\nStreamlit Community Cloud\n\n\nReproducibility\nconda, GNU Make"
+    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nApp framework\nPython Shiny (reactive server/UI separation)\n\n\nData backend\nDuckDB + ibis lazy expressions\n\n\nVisualizations\nAltair (time-series, comparison charts), Plotly (choropleth map)\n\n\nTesting\npytest (62 unit tests) + Playwright (6 end-to-end UI tests)\n\n\nCI/CD\nGitHub Actions — unit tests → Playwright UI tests on every push/PR\n\n\nLLM integration\nGitHub Models API (gpt-4.1-mini) via chatlas + querychat\n\n\nDeployment\nPosit Connect Cloud via GitHub integration"
   },
   {
-    "objectID": "projects/product-search-rag/index.html#what-i-changed-for-the-public-version",
-    "href": "projects/product-search-rag/index.html#what-i-changed-for-the-public-version",
-    "title": "Product Search RAG",
-    "section": "What I changed for the public version",
-    "text": "What I changed for the public version\n\nReworked the project into a standalone repository with a new README\nSwitched the LLM to qwen/qwen3.8-27b after Groq retired the original qwen/qwen3-32b\nMoved the processed data and search indexes (about 207 MB) to a public Hugging Face dataset, so the git repository stays small and the app downloads them at startup\nDeployed the app to Streamlit Community Cloud"
+    "objectID": "projects/TempTales/index.html#what-i-improved",
+    "href": "projects/TempTales/index.html#what-i-improved",
+    "title": "TempTales: Global Temperature Explorer",
+    "section": "What I improved",
+    "text": "What I improved\nStarting from the group’s original codebase, the solo rebuild focused on:\n\nWiring up a full GitHub Actions CI pipeline (unit + Playwright UI tests)\nFixing broken test infrastructure and expanding coverage to 62 unit + 6 UI tests\nRefactoring server/UI separation for maintainability\nConfiguring cloud deployment on Posit Connect"
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
+    "objectID": "projects/MIT_capstone/index.html",
+    "href": "projects/MIT_capstone/index.html",
+    "title": "MIT Capstone: Applied Data Science — Leveraging AI for Decision-making",
     "section": "",
-    "text": "All\n  Water Quality\n  Dashboards\n  Machine Learning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIBD Mycobiome Dashboard\n\n\n\nDashboards\n\nR\n\nShiny\n\nQuarto\n\nstatistics\n\nbioinformatics\n\ndata visualization\n\n\n\nShiny dashboard and statistics site linking gut fungi, diet, and inflammation in IBD, built with a hospital partner.\n\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nProduct Search RAG\n\n\n\nMachine Learning\n\nPython\n\nNLP\n\ninformation retrieval\n\nRAG\n\nLLM\n\nStreamlit\n\n\n\nA Streamlit app comparing keyword, semantic, and hybrid product search, with RAG answers from product reviews.\n\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nModelling Beyond a Straight Line\n\n\n\nWater Quality\n\nR\n\nstatistics\n\nenvironmental science\n\nregression\n\n\n\nA practical guide to modelling water-quality trends that curve, plateau, or shift, from piecewise regression to GAMs.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\n\nWater Quality\n\nR\n\nstatistics\n\nenvironmental science\n\ntime series\n\n\n\nA reproducible R workflow for detecting linear, monotonic water-quality trends and comparing them across monitoring areas.\n\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTempTales: Global Temperature Explorer\n\n\n\nDashboards\n\nPython\n\nShiny\n\nDuckDB\n\nAltair\n\nPlotly\n\nCI/CD\n\nLLM\n\ndata visualization\n\n\n\nAn interactive Python Shiny dashboard for exploring 150 years of global temperature trends, with an AI assistant.\n\n\n\nMay 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\n\nWater Quality\n\nR\n\nETL\n\nenvironmental science\n\n\n\nAn R pipeline that turns multi-lab water-quality data with mixed units and naming into clean, analysis-ready tables.\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\n\nMachine Learning\n\ndata science\n\npresentation\n\n\n\nCustomer segmentation using PCA, t-SNE, and five clustering methods, compared by silhouette score.\n\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Capstone presentation for the MIT Certificate in Applied Data Science: Leveraging AI for Decision-making (2023).\n\n\nOpen PDF in new tab"
   },
   {
-    "objectID": "projects/vignette-temporal-trends/index.html",
-    "href": "projects/vignette-temporal-trends/index.html",
-    "title": "Temporal Trend Analysis",
+    "objectID": "projects/ibd-mycobiome-dashboard/index.html",
+    "href": "projects/ibd-mycobiome-dashboard/index.html",
+    "title": "IBD Mycobiome Dashboard",
     "section": "",
-    "text": "View Vignette View on GitHub\nLong-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.\nAll program names and site identifiers have been replaced with generic labels; synthetic data is used so the vignette runs standalone."
+    "text": "Live Dashboard Statistics Site View on GitHub\nThis project explores how the gut mycobiome (the fungal community in the gut), diet, and inflammatory biomarkers relate to inflammatory bowel disease (IBD). It combines a data pipeline, an interactive Shiny dashboard with participant-level and cohort-level views, and a Quarto site with one post per statistical analysis.\nThe original work was a 2026 UBC Master of Data Science capstone built with a hospital research partner by Tiffany Chu, Victoria Farkas, Ian Gault, and Derrick Jaskiel. The original used real patient data under a data-use agreement and is kept private. This public version runs the same code on synthetic data, so the numbers and figures are not real findings."
   },
   {
-    "objectID": "projects/vignette-temporal-trends/index.html#what-it-does",
-    "href": "projects/vignette-temporal-trends/index.html#what-it-does",
-    "title": "Temporal Trend Analysis",
+    "objectID": "projects/ibd-mycobiome-dashboard/index.html#what-it-does",
+    "href": "projects/ibd-mycobiome-dashboard/index.html#what-it-does",
+    "title": "IBD Mycobiome Dashboard",
     "section": "What it does",
-    "text": "What it does\n\nMulti-year time-series overview figures across analytes and monitoring areas\nTwo-way ANOVA (result ~ year * area) with iterative studentized-residual outlier removal\nAssumption checks: Breusch-Pagan heteroscedasticity test, Shapiro-Wilk normality test\nInteraction significance testing that decides between the additive model and emmeans post-hoc pairwise comparisons\nSlope extraction and back-transformation to a %/year rate of change, since a significant year effect only says a trend exists, not how big it is\nMann-Kendall trend test and Sen’s slope estimator, run per monitoring area, as an assumption-light cross-check on both the direction and magnitude of the ANOVA trend\nSignificance annotation on post-hoc comparison figures, driven by the actual model p-values"
+    "text": "What it does\n\nData pipeline - R scripts that clean and merge four sources (stool mycobiome relative abundance, dietary intake, inflammatory biomarkers, and participant characteristics) into analysis-ready files, orchestrated with GNU Make\nShiny dashboard - participant-level and cohort-level views of fungal composition, diet, and biomarkers\nStatistics site - alpha diversity (Kruskal-Wallis), beta diversity (PERMANOVA at four taxonomic levels), symptom and nutrient associations, PCA and clustering, and an evidence-ranking matrix"
   },
   {
-    "objectID": "projects/vignette-temporal-trends/index.html#design",
-    "href": "projects/vignette-temporal-trends/index.html#design",
-    "title": "Temporal Trend Analysis",
-    "section": "Design",
-    "text": "Design\nThe pipeline is organized into modular R functions (trend_model.R, mann_kendall.R, plot_trend.R, utils.R) and documented via an R Markdown vignette, including a flowchart figure of the model’s decision path (outlier removal → assumptions → interaction test → additive/interaction branch). Four case-study analytes exercise different branches of the pipeline: a shared real trend, a flat null case, a trend confined to one area, and a flat case with injected high-leverage outliers."
+    "objectID": "projects/ibd-mycobiome-dashboard/index.html#technical-stack",
+    "href": "projects/ibd-mycobiome-dashboard/index.html#technical-stack",
+    "title": "IBD Mycobiome Dashboard",
+    "section": "Technical stack",
+    "text": "Technical stack\n\n\n\n\n\n\n\nArea\nTools\n\n\n\n\nData pipeline\nR (tidyverse), GNU Make\n\n\nStatistics\nPERMANOVA and Bray-Curtis distances (vegan), Kruskal-Wallis, PCA, clustering\n\n\nApp framework\nShiny\n\n\nReporting\nQuarto\n\n\nReproducibility\nrenv, testthat unit tests\n\n\nCI/CD\nGitHub Actions (rebuilds and publishes the statistics site to GitHub Pages)\n\n\nDeployment\nPosit Connect Cloud\n\n\nSynthetic data\nPython (pandas, numpy)"
   },
   {
-    "objectID": "projects/vignette-non-linear-trends/index.html",
-    "href": "projects/vignette-non-linear-trends/index.html",
-    "title": "Modelling Beyond a Straight Line",
+    "objectID": "projects/ibd-mycobiome-dashboard/index.html#what-i-changed-for-the-public-version",
+    "href": "projects/ibd-mycobiome-dashboard/index.html#what-i-changed-for-the-public-version",
+    "title": "IBD Mycobiome Dashboard",
+    "section": "What I changed for the public version",
+    "text": "What I changed for the public version\n\nWrote a synthetic data generator that matches the original raw file schemas, so the full pipeline runs end to end\nRemoved the dashboard login (shinymanager), since there is no real data to protect\nAdded a GitHub Actions workflow that rebuilds and publishes the statistics site\nRemoved patient data, results, and the capstone report"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "A scientist who builds data systems.",
     "section": "",
-    "text": "View Vignette View on GitHub\nNot every water-quality trend is a straight line. This vignette works through the toolkit for series that curve, plateau, break, or shift level, building from OLS assumptions up to semi-parametric models, with each method paired to a case study analyte that actually needs it."
+    "text": "Ian Gault\n\n\n\n\nMSc Analytical & Environmental Toxicology · Master of Data Science (UBC) · Registered Professional Biologist (RPBio)\n\n\nI build pipelines, models, and dashboards for laboratory, clinical, and environmental data. I started at the bench in analytical toxicology, so I understand how the numbers were made before I model them.\n\n\nSee my projects Resume Get in touch"
   },
   {
-    "objectID": "projects/vignette-non-linear-trends/index.html#what-it-covers",
-    "href": "projects/vignette-non-linear-trends/index.html#what-it-covers",
-    "title": "Modelling Beyond a Straight Line",
-    "section": "What it covers",
-    "text": "What it covers\n\nThe regression framework: estimand, link, systematic component, and how OLS sits inside it as the identity-link/Gaussian special case\nDiagnosing which kind of nonlinearity a series needs: a log-response transform, a feature-engineered regressor, or a link function\nPiecewise / segmented linear regression for a slope break at an unknown location\nChangepoint detection for a level shift at an unknown location\nk-NN regression and LOESS smoothing for a rise-then-plateau shape, compared side by side on the same data\nGAMs (mgcv) for step-like, non-monotonic change with no periodic or polynomial pattern\nGAMMs for a seasonal cycle plus trend, with autocorrelated residuals\nA closing comparison of linear vs. nonlinear fits on two control analytes"
+    "objectID": "index.html#how-i-work",
+    "href": "index.html#how-i-work",
+    "title": "A scientist who builds data systems.",
+    "section": "How I work",
+    "text": "How I work\nFrom how the data were generated to the decisions they support.\n\n\nMeasure\nStart with how the data were generated: instruments, detection limits, and sampling design.\nFor example MSc research in analytical toxicology\n\n\nEngineer\nTurn messy, multi-source data into reproducible, tested pipelines.\nFor example Water Quality Harmonization\n\n\nModel\nMatch the model to the data and check its assumptions before trusting the result.\nFor example Modelling Beyond a Straight Line\n\n\nDeploy\nBuild reports, dashboards, and apps.\nFor example IBD Mycobiome Dashboard\n\n\nDecide\nCommunicate results clearly enough to support regulatory, environmental, and business decisions.\nFor example Six years of consulting"
   },
   {
-    "objectID": "projects/vignette-non-linear-trends/index.html#design",
-    "href": "projects/vignette-non-linear-trends/index.html#design",
-    "title": "Modelling Beyond a Straight Line",
-    "section": "Design",
-    "text": "Design\nThe site is organized as one method per chapter, each grounded in a specific case study rather than a generic worked example, and framed around inference on the observed record rather than forecasting."
+    "objectID": "index.html#featured-projects",
+    "href": "index.html#featured-projects",
+    "title": "A scientist who builds data systems.",
+    "section": "Featured projects",
+    "text": "Featured projects\n\n\n\n\n\n\n\n\n\n\nIBD Mycobiome Dashboard\n\n\nIBD study data sat in four separate sources. With a UBC capstone team, I built a pipeline and dashboard for BC Children’s Hospital Research Institute.\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\nMulti-lab data arrive with mixed units and naming. I built a reproducible R pipeline that standardizes them, now reused across 5 projects.\n\n\n\n\n\n\n\n\n\n\n\n\nModelling Beyond a Straight Line\n\n\nMany water-quality trends curve, plateau, or shift. I wrote a guide that matches each method, from piecewise regression to GAMs, to a case study.\n\n\n\n\n\nNo matching items\n\nSee all projects →"
   },
   {
-    "objectID": "blog/posts/NADA2/index.html",
-    "href": "blog/posts/NADA2/index.html",
-    "title": "NADA2: Accurate environmental monitoring starts with handling censored data",
-    "section": "",
-    "text": "With industrialization, humans have influenced the environment in which they live. We synthesize chemicals for specific uses and extract natural resources with chemical byproducts as waste. Exposure to chemical contaminants is unavoidable; even in environments that appear pristine and are free of human influence, such as regions of the Arctic, persistent synthetic chemicals can be detected by laboratory methods.1\nThe fields of analytical chemistry and toxicology converge to measure concentrations of chemical contaminants in the environment, in our food, water, and consumer products, and in our bodies, and to assess their associated health effects. With the backlog of chemical contaminants we are exposed to, many of whose toxicology is unknown, and the thousands of chemicals we encounter in our lives, methods in toxicology have been changing to keep up with the public health concern.2–4 However, at its root, effective chemical measurements through laboratory testing are needed to assess risk.\nEach method for measuring chemical concentrations has a lower limit, below which the instrument is not sensitive enough to detect true differences in concentrations. This inherent artifact of analytical instruments, though technology is continuously improving to get lower and lower detection limits of trace chemicals.\nEnvironmental chemistry typically follows a log-normal distribution,5 i.e., a right-skewed distribution, with fewer “hits” of hot spots with high-concentration observations relative to the majority of the dataset. Replacing the &lt;DL values with a constant cuts off the lower tail of the distribution, as shown in Figure 1. This is known as left-censored data.\n\nNote: Example figure was generated with ChatGPT5\nCommon practice in environmental monitoring is to impute observations below the detection limit (&lt;DL) to either 1 × DL or 1/2 × DL, because the data exists, but is not observable.6 This has traditionally been practical and was an accepted bias in summary statistics used in chemical evaluation. However, by doing so, you lose the data’s variability, which informs inferential techniques such as confidence intervals and hypothesis testing. And, depending on the distribution of the data and the substitution made, this can both overestimate and underestimate risk, collapsing a range of values into a single guess.\nAnother option–though, is arguably even worse!–would be to remove the censored data completely, removing that valuable information for when concentrations are low and artificially inflating the detected concentrations. Comparisons of contaminated environments that are of concern to surrounding life are usually done using summary statistics, such as upper bounds on chemical concentrations (or lower bounds for toxic effects), which can bias summary statistics used in chemical risk assessment.\nOverall, these two approaches do not incorporate modern methods for handling censored data based on probability and distributional data, and multiple options now exist to incorporate into your workflow, contributing to more accurate, measured downstream analyses.\nThree methods exist: parametric testing, which assumes a particular distribution for the data; non-parametric testing, which makes no distributional assumptions but ranks observations; or semi-parametric testing, which combines both, assuming a distribution while also ranking observations.7\nNADA2 is an R package that provides tools to handle censored data.8 It can incorporate the distribution of the data and provide a probabilistic representation of concentrations that are &lt;DL, thereby avoiding the fixed, direct substitution methods. It is aware of the censorship of the data, allowing for more explicit incorporation of uncertainty and unbiased summary statistics.\nMost commonly, a semi-parametric approach called Regression on Order Statistics (ROS) is used.8 Given that environmental chemistry data is often log-normal, ROS applies a log transformation and ranks observations with their expected normal quantiles. A regression is then used to estimate where censored observations would plausibly fall in the lower tail of the distribution. Here, the censored data is not replaced; instead, values are inferred from the distribution to avoid bias in how the data is used. In other words, the probability distribution is conditional on whether the data is censored or not, as described below:\n\\[\nX_i = \\begin{cases} x_i, & \\text{if detected} \\\\ &lt; DL_i, & \\text{if censored} \\end{cases}\n\\] For censored observations: \\[\nP(X \\le x \\mid X &lt; DL)\n\\] For detected observations: \\[\nP(X \\le x \\mid X \\ge DL_{\\min})\n\\] Note: Equations generated by ChatGPT5\nThis is what’s going on under the hood for the following example code:\n\n# Toy dataframe\ndf &lt;- data.frame(\n  concentration = c(0.2, 0.5, 1.0, 0.4, 2.0, 0.3),\n  censored = c(TRUE, TRUE, FALSE, TRUE, FALSE, TRUE)\n)\n# Created the log-normal estimated distribution\nestimated_distribution &lt;- NADA2::ros(df$concentration, df$censored)\n# Calculated unbiased summary statistics\nmean(estimated_distribution)\nmedian(estimated_distribution)\n# Test to evaluate guideline exceedances for an example contaminated site based on a censor-aware concentration point estimate\npoint_estimate &lt;- quantile(fit, 0.95)\nguideline &lt;- 0.35\nexceedance &lt;- point_estimate &gt; guideline\n\nThe semi-parametric ROS approach is best used when the distribution of data may not fully fit a log-normal distribution, which is often the case in real-world scenarios. It is also reasonably defensible for a high degree of censored data, with a frequency of 30%-50%.7 It is effective for summary statistics, trends, and guideline comparisons; however, it is not a predictive model.\nThe choice of approach depends on the assessment’s goal. If a predictive model is needed, such as estimating concentrations of chemicals in a lake based on the current outflow and concentrations, and a distribution assumption is defensible, then parametric testing would be needed. In this case, NADA provides parametric testing that assigns a distribution and uses Maximum Likelihood Estimates (MLE) to predict concentrations.7,8 An example of the code is below:\n\n# NOTE: this function is from the older package NADA\nparametric_distribution &lt;- NADA::cenmle(df$concentration, df$censored, dist = \"lognormal\")\n\nNon-parametric metrics, such as the Kaplan-Meier estimator, make minimal distributional assumptions; this can be suitable depending on how your data looks, allowing you to still extract valuable information. However, the representations of left-censored data are poorer compared to semi-parametric and parametric methods, with limited extrapolation from observed values and no smoothing.9 Therefore, it is less sensitive.\nThe incorporation of NADA2 or similar packages into an environmental data science workflow is not too much additional work, but does require a shift in perspective. There may be an initial learning curve to understand what’s happening, but the coding is minimal and defensible. Environmental scientists may be resistant to turning to a coding-based workflow and to changing their approach based on what has always been done or what has previously been accepted, but the benefits outweigh the initial discomfort.\nThis is needed because some chemical contaminants have very low recommended safe doses that are approaching the detection limit of our best laboratory methods. As a result, small biases in our imputed values, which may be minor when chemical concentrations are well above the detection limit, can have a much greater impact as measured concentrations approach the detection limit. As environmental scientists, we now have the tools to do better: to accurately represent the data in our studies, make inferences, and have measured remediation strategies and protections for the environment and the life within it.\n\nReferences\nImage taken from: A global agreement to tame chemical pollution | United Nations. https://www.un.org/en/climatechange/global-agreement-tame-chemical-pollution. Accessed January 17, 2026.\n\nPersistent Organic Pollutants: A Global Issue, A Global Response | US EPA. https://www.epa.gov/international-cooperation/persistent-organic-pollutants-global-issue-global-response. Accessed January 13, 2026.\nKrewski D, Westphal M, Andersen ME, et al. A framework for the next generation of risk science. Environ Health Perspect. 2014;122(8):796-805. doi:10.1289/ehp.1307260\nBell SM, Chang X, Wambaugh JF, et al. in vitro to in vivo extrapolation for high throughput prioritization and decision making. Toxicol Vitr. 2018;47(December 2017):213-227. doi:10.1016/j.tiv.2017.11.016\nTox21. Toxicology in the 21st Century. https://tox21.gov/overview/about-tox21/. Accessed January 8, 2025.\nAndersson A. Mechanisms for log normal concentration distributions in the environment. Sci Reports 2021 111. 2021;11(1):16418-. doi:10.1038/s41598-021-96010-6\nMihalache OA, Dall’Asta C. Left-censored data and where to find them: Current implications in mycotoxin-related risk assessment, legislative and economic impacts. Trends Food Sci Technol. 2023;136:112-119. doi:10.1016/J.TIFS.2023.04.011\nHolbert C. How to Calculate Summary Statistics for Left-Censored Data. https://www.cfholbert.com/blog/summary-statistics-censored-data/. Published 2022. Accessed January 17, 2026.\nNADA2 package - RDocumentation. https://www.rdocumentation.org/packages/NADA2/versions/2.0.1. Accessed January 8, 2026.\nWey A, Connett J, Rudser K. Combining parametric, semi-parametric, and non-parametric survival models with stacked survival models. Biostatistics. 2015;16(3):537. doi:10.1093/BIOSTATISTICS/KXV001"
+    "objectID": "index.html#what-im-looking-for",
+    "href": "index.html#what-im-looking-for",
+    "title": "A scientist who builds data systems.",
+    "section": "What I’m looking for",
+    "text": "What I’m looking for\nI’m looking for roles where I’m responsible for the pipelines and analysis behind scientific decisions, on teams working with lab, clinical, or environmental data.\n\nEmail me LinkedIn Download Resume"
   },
   {
     "objectID": "blog/posts/msc-defense/index.html",
