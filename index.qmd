@@ -66,7 +66,7 @@ study design, biotic and abiotic environmental field sampling, sample extraction
 ::: {.proof-item}
 [Modern data science]{.proof-lead}
 
-descriptive, inferential, and Bayesian statistical modelling, machine learning, and data visualization, plus collaborative development with Git and CI/CD, cloud computing on AWS, large-scale data with PySpark and DuckDB, and LLM tools including RAG and agentic coding.
+statistical modelling (descriptive, inferential, and Bayesian), machine learning (classification, clustering, and deep learning), spatial and temporal analysis, data visualization, data infrastructure (cloud computing on AWS, CI/CD, PySpark, and DuckDB), and LLM tooling.
 :::
 
 :::
