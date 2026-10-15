@@ -13,6 +13,10 @@
   <path d="M30,130 C60,129 80,120 100,104 C124,86 138,80 150,82 C170,86 200,116 240,128 L240,130 Z"
         fill="#d9a441" opacity="0.7"/>
 
+  <!-- legend: each group's name in its own color, top right, clear of the curves -->
+  <text x="235" y="45" text-anchor="end" font-family="sans-serif" font-size="11" font-weight="600" fill="#9cc0ac">paid</text>
+  <text x="235" y="60" text-anchor="end" font-family="sans-serif" font-size="11" font-weight="600" fill="#d9a441">defaulted</text>
+
   <!-- the usual 0.5 cutoff, faint -->
   <line x1="135" y1="30" x2="135" y2="130" stroke="#e8ddd0" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
   <text x="135" y="25" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#e8ddd0" opacity="0.5">0.5</text>
