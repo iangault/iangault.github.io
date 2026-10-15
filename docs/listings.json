@@ -9,6 +9,7 @@
   {
     "listing": "/projects/index.html",
     "items": [
+      "/projects/credit-default-risk/index.html",
       "/projects/ibd-mycobiome-dashboard/index.html",
       "/projects/product-search-rag/index.html",
       "/projects/vignette-non-linear-trends/index.html",

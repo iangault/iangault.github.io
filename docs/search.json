@@ -60,7 +60,7 @@
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "All\n  Water Quality\n  Dashboards\n  Machine Learning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIBD Mycobiome Dashboard\n\n\n\nDashboards\n\nR\n\nShiny\n\nQuarto\n\nstatistics\n\nbioinformatics\n\ndata visualization\n\n\n\nIBD study data sat in four separate sources. With a UBC capstone team, I built a pipeline and dashboard for BC Children’s Hospital Research Institute.\n\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nProduct Search RAG\n\n\n\nMachine Learning\n\nPython\n\nNLP\n\ninformation retrieval\n\nRAG\n\nLLM\n\nStreamlit\n\n\n\nA Streamlit app comparing keyword, semantic, and hybrid product search, with RAG answers from product reviews.\n\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nModelling Beyond a Straight Line\n\n\n\nWater Quality\n\nR\n\nstatistics\n\nenvironmental science\n\nregression\n\n\n\nMany water-quality trends curve, plateau, or shift. I wrote a guide that matches each method, from piecewise regression to GAMs, to a case study.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\n\nWater Quality\n\nR\n\nstatistics\n\nenvironmental science\n\ntime series\n\n\n\nA reproducible R workflow for detecting linear, monotonic water-quality trends and comparing them across monitoring areas.\n\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTempTales: Global Temperature Explorer\n\n\n\nDashboards\n\nPython\n\nShiny\n\nDuckDB\n\nAltair\n\nPlotly\n\nCI/CD\n\nLLM\n\ndata visualization\n\n\n\nAn interactive Python Shiny dashboard for exploring 150 years of global temperature trends, with an AI assistant.\n\n\n\nMay 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\n\nWater Quality\n\nR\n\nETL\n\nenvironmental science\n\n\n\nMulti-lab data arrive with mixed units and naming. I built a reproducible R pipeline that standardizes them, now reused across 5 projects.\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\n\nMachine Learning\n\ndata science\n\npresentation\n\n\n\nCustomer segmentation using PCA, t-SNE, and five clustering methods, compared by silhouette score.\n\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "All\n  Water Quality\n  Dashboards\n  Machine Learning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCredit Card Default Risk\n\n\n\nMachine Learning\n\nPython\n\nClassification\n\nCost-sensitive learning\n\nSHAP\n\nStreamlit\n\n\n\nA model that predicts which credit card clients will miss a payment, with a cutoff chosen from what each kind of mistake costs, and a Streamlit app to try it.\n\n\n\nOct 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nIBD Mycobiome Dashboard\n\n\n\nDashboards\n\nR\n\nShiny\n\nQuarto\n\nstatistics\n\nbioinformatics\n\ndata visualization\n\n\n\nIBD study data sat in four separate sources. With a UBC capstone team, I built a pipeline and dashboard for BC Children’s Hospital Research Institute.\n\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nProduct Search RAG\n\n\n\nMachine Learning\n\nPython\n\nNLP\n\ninformation retrieval\n\nRAG\n\nLLM\n\nStreamlit\n\n\n\nA Streamlit app comparing keyword, semantic, and hybrid product search, with RAG answers from product reviews.\n\n\n\nSep 24, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nModelling Beyond a Straight Line\n\n\n\nWater Quality\n\nR\n\nstatistics\n\nenvironmental science\n\nregression\n\n\n\nMany water-quality trends curve, plateau, or shift. I wrote a guide that matches each method, from piecewise regression to GAMs, to a case study.\n\n\n\nAug 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemporal Trend Analysis\n\n\n\nWater Quality\n\nR\n\nstatistics\n\nenvironmental science\n\ntime series\n\n\n\nA reproducible R workflow for detecting linear, monotonic water-quality trends and comparing them across monitoring areas.\n\n\n\nAug 14, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nTempTales: Global Temperature Explorer\n\n\n\nDashboards\n\nPython\n\nShiny\n\nDuckDB\n\nAltair\n\nPlotly\n\nCI/CD\n\nLLM\n\ndata visualization\n\n\n\nAn interactive Python Shiny dashboard for exploring 150 years of global temperature trends, with an AI assistant.\n\n\n\nMay 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nWater Quality Data Harmonization Pipeline\n\n\n\nWater Quality\n\nR\n\nETL\n\nenvironmental science\n\n\n\nMulti-lab data arrive with mixed units and naming. I built a reproducible R pipeline that standardizes them, now reused across 5 projects.\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMIT Capstone: Applied Data Science — Leveraging AI for Decision-making\n\n\n\nMachine Learning\n\ndata science\n\npresentation\n\n\n\nCustomer segmentation using PCA, t-SNE, and five clustering methods, compared by silhouette score.\n\n\n\nDec 1, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/product-search-rag/index.html",
@@ -96,6 +96,83 @@
     "title": "Product Search RAG",
     "section": "What I changed for the public version",
     "text": "What I changed for the public version\n\nReworked the project into a standalone repository with a new README\nSwitched the LLM to qwen/qwen3.8-27b after Groq retired the original qwen/qwen3-32b\nMoved the processed data and search indexes (about 207 MB) to a public Hugging Face dataset, so the git repository stays small and the app downloads them at startup\nDeployed the app to Streamlit Community Cloud"
+  },
+  {
+    "objectID": "projects/credit-default-risk/index.html",
+    "href": "projects/credit-default-risk/index.html",
+    "title": "Credit Card Default Risk",
+    "section": "",
+    "text": "Live App View on GitHub\n The live app is on a free tier. If it has been idle, it can take up to a minute to start.\nThis project predicts which credit card clients will miss next month’s payment, using the Default of Credit Card Clients dataset: 30,000 clients of a Taiwanese bank in 2005, of whom about 22% defaulted. The model ranks clients by risk, and the cutoff for flagging a client comes from what each kind of mistake costs rather than the usual 0.5.\nIt grew out of a group lab by Vy, Christine, and Ian Gault for DSCI 573 (Feature and Model Selection) in the UBC Master of Data Science program. The pipeline, experiments, app, and write-up in the public repository are a separate, individual rebuild. It was built with Claude Code as an AI-assisted project: I set the goals and made the design and modelling decisions (how it was built)."
+  },
+  {
+    "objectID": "projects/credit-default-risk/index.html#what-it-does",
+    "href": "projects/credit-default-risk/index.html#what-it-does",
+    "title": "Credit Card Default Risk",
+    "section": "What it does",
+    "text": "What it does\n\nTry a client - pick a real test client (a defaulter the model caught or missed, a false alarm, or a correctly cleared client), change their payment behavior, credit limit, or demographics, and see the prediction and the columns that moved it most\nCost ratio - change how much a missed defaulter costs compared with a false alarm, and see how the cutoff, the counts on 6,000 test clients, and the point on the ROC and precision-recall curves move\nAbout - the headline results and a short explanation of the approach"
+  },
+  {
+    "objectID": "projects/credit-default-risk/index.html#how-it-works",
+    "href": "projects/credit-default-risk/index.html#how-it-works",
+    "title": "Credit Card Default Risk",
+    "section": "How it works",
+    "text": "How it works\n\nModel comparison - four model types compared with 5-fold cross-validation on the training data; LightGBM ranked clients best (ROC-AUC 0.776)\nClass imbalance and engineered features - weighting defaulters, resampling (fewer paying clients, or synthetic defaulters), and engineered columns each changed ROC-AUC by about 0.01 or less, so the final model uses none of them\nCalibration - a calibration step corrects the model’s numbers so that a 30% score means about 30% of such clients default\nCost-based cutoff - if a missed defaulter costs 5 times a false alarm, flagging is the cheaper choice above a probability of 1 / (1 + 5), about 0.17; a search over cutoffs on the training data found the same value\nTest set - 6,000 clients set aside at the start and scored once at the end; no choice about the model was made from them\nExplanations - SHAP values show which columns drive each prediction; last month’s repayment status matters most\n\nThe full walkthrough, with figures, is in docs/results.md."
+  },
+  {
+    "objectID": "projects/credit-default-risk/index.html#results",
+    "href": "projects/credit-default-risk/index.html#results",
+    "title": "Credit Card Default Risk",
+    "section": "Results",
+    "text": "Results\nOn the 6,000 test clients:\n\n\n\n\n\n\n\n\n\n\nCutoff 0.17 (cost-based)\nCutoff 0.5 (default)\nFlag everyone\n\n\n\n\nDefaulters caught (of 1,327)\n1,016 (77%)\n472 (36%)\n1,327\n\n\nFalse alarms (of 4,673 who paid)\n1,650 (35%)\n229 (5%)\n4,673\n\n\nCost per client (miss = 5, false alarm = 1)\n0.534\n0.751\n0.779\n\n\n\nChoosing the cutoff from the costs lowers the cost of mistakes per client by 29%, with the same model. Ranking quality (ROC-AUC 0.788) is in the range published for this dataset."
+  },
+  {
+    "objectID": "projects/credit-default-risk/index.html#technical-stack",
+    "href": "projects/credit-default-risk/index.html#technical-stack",
+    "title": "Credit Card Default Risk",
+    "section": "Technical stack",
+    "text": "Technical stack\n\n\n\nArea\nTools\n\n\n\n\nModelling\nscikit-learn, LightGBM, XGBoost, imbalanced-learn\n\n\nExplanations\nSHAP\n\n\nCharts\nAltair\n\n\nApp\nStreamlit\n\n\nDeployment\nStreamlit Community Cloud\n\n\nReproducibility\nconda, GNU Make, pytest, Ruff, GitHub Actions"
+  },
+  {
+    "objectID": "projects/credit-default-risk/index.html#fairness-note",
+    "href": "projects/credit-default-risk/index.html#fairness-note",
+    "title": "Credit Card Default Risk",
+    "section": "Fairness note",
+    "text": "Fairness note\nThe model uses sex, marital status, and age, which is a fairness concern. In many places a lender could not base a decision on some of them. Checking error rates by group, and comparing the model with and without these columns, is listed as future work."
+  },
+  {
+    "objectID": "scientific-communication.html",
+    "href": "scientific-communication.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
+  },
+  {
+    "objectID": "scientific-communication.html#peer-reviewed-publications",
+    "href": "scientific-communication.html#peer-reviewed-publications",
+    "title": "Publications",
+    "section": "",
+    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
+  },
+  {
+    "objectID": "scientific-communication.html#thesis",
+    "href": "scientific-communication.html#thesis",
+    "title": "Publications",
+    "section": "Thesis",
+    "text": "Thesis\nGault IGM. Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry. MSc Thesis, University of Alberta, 2019. University of Alberta Scholaris · Defense presentation, in plain language"
+  },
+  {
+    "objectID": "scientific-communication.html#conference-presentations",
+    "href": "scientific-communication.html#conference-presentations",
+    "title": "Publications",
+    "section": "Conference Presentations",
+    "text": "Conference Presentations\nFour oral presentations and one poster on oil sands process-affected water (OSPW) toxicity, 2017–2018.\nSETAC North America — Sacramento, CA (Nov 2018) Oral: Endocrine Activity of Oil Sands Process-Affected Water: Evaluating Ageing as a Remediation Strategy.\nSETAC-Prairie Northern Chapter Conference — Edmonton, AB (Jun 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nCanadian Chemistry Conference — Edmonton, AB (May 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nDRIvE Days — Laboratory Medicine & Pathology Conference — Edmonton, AB (Apr 2018) Poster: Process-Affected Water in the Oil Sands: Attributing Toxicity within the Organic Chemical Mixture.\n\n\n\nDRIvE Days 2018 Poster\n\n\nCanadian Chemistry Conference — Toronto, ON (May 2017) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy."
+  },
+  {
+    "objectID": "scientific-communication.html#presentation-awards",
+    "href": "scientific-communication.html#presentation-awards",
+    "title": "Publications",
+    "section": "Presentation Awards",
+    "text": "Presentation Awards\n\n\n\n\n\n\n\n\nYear\nConference\nAward\n\n\n\n\n2018\nSETAC North America\n3rd Place, Best Student Presentation (Masters category)\n\n\n2018\nSETAC-Prairie Northern Chapter\n1st Place, Best Student/PDF Oral Presentation\n\n\n2018\nCanadian Chemistry Conference\nOutstanding Graduate Oral Presentation\n\n\n2017\nCanadian Chemistry Conference\nBell McLeod Educational Fund Award; GSA Academic Travel Award"
   },
   {
     "objectID": "resume.html",
@@ -166,41 +243,6 @@
     "title": "Resume",
     "section": "Community Service",
     "text": "Community Service\nStandards & Guidance Committee, Public Member | BC College of Oral Health Professionals | Apr 2025 – Apr 2026\nReviewed professional standards and guidance during the consolidation of multiple health professions under a unified regulatory body; engaged with governance structures, working groups of subject-matter experts, and the rollout of new enforceable professional standards.\nBoard Member (Secretary) & Mental Health Team Lead | Edmonton Men’s Health Collective | 2015 – 2019\nExecutive board member of a collective dedicated to improving health outcomes of sexual and gender minority men; bridged community members with stakeholders, subject-matter experts, and the board; led a 6-month harm reduction campaign of community naloxone trainings paired with a web series.\nTreasurer, LMP Student Group | University of Alberta | 2016 – 2019\nManaged budget and provided input on departmental policies for the Laboratory Medicine & Pathology student group."
-  },
-  {
-    "objectID": "scientific-communication.html",
-    "href": "scientific-communication.html",
-    "title": "Publications",
-    "section": "",
-    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
-  },
-  {
-    "objectID": "scientific-communication.html#peer-reviewed-publications",
-    "href": "scientific-communication.html#peer-reviewed-publications",
-    "title": "Publications",
-    "section": "",
-    "text": "Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. ACS EST Water 2023, 3(2), 366–376. DOI: 10.1021/acsestwater.2c00430\nMorandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Geisy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water (OSPW). Environmental Science & Technology 2015, 49(20), 12395–12404. DOI: 10.1021/acs.est.5b02586"
-  },
-  {
-    "objectID": "scientific-communication.html#thesis",
-    "href": "scientific-communication.html#thesis",
-    "title": "Publications",
-    "section": "Thesis",
-    "text": "Thesis\nGault IGM. Toxicity and Chemical Characterization of Oil Sands Process-Affected Water Using Cell-Based Assays and Orbitrap Mass Spectrometry. MSc Thesis, University of Alberta, 2019. University of Alberta Scholaris · Defense presentation, in plain language"
-  },
-  {
-    "objectID": "scientific-communication.html#conference-presentations",
-    "href": "scientific-communication.html#conference-presentations",
-    "title": "Publications",
-    "section": "Conference Presentations",
-    "text": "Conference Presentations\nFour oral presentations and one poster on oil sands process-affected water (OSPW) toxicity, 2017–2018.\nSETAC North America — Sacramento, CA (Nov 2018) Oral: Endocrine Activity of Oil Sands Process-Affected Water: Evaluating Ageing as a Remediation Strategy.\nSETAC-Prairie Northern Chapter Conference — Edmonton, AB (Jun 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nCanadian Chemistry Conference — Edmonton, AB (May 2018) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy.\nDRIvE Days — Laboratory Medicine & Pathology Conference — Edmonton, AB (Apr 2018) Poster: Process-Affected Water in the Oil Sands: Attributing Toxicity within the Organic Chemical Mixture.\n\n\n\nDRIvE Days 2018 Poster\n\n\nCanadian Chemistry Conference — Toronto, ON (May 2017) Oral: Process-Affected Water in the Oil Sands Industry: Toxicity Attribution and Evaluating Ageing as a Remediation Strategy."
-  },
-  {
-    "objectID": "scientific-communication.html#presentation-awards",
-    "href": "scientific-communication.html#presentation-awards",
-    "title": "Publications",
-    "section": "Presentation Awards",
-    "text": "Presentation Awards\n\n\n\n\n\n\n\n\nYear\nConference\nAward\n\n\n\n\n2018\nSETAC North America\n3rd Place, Best Student Presentation (Masters category)\n\n\n2018\nSETAC-Prairie Northern Chapter\n1st Place, Best Student/PDF Oral Presentation\n\n\n2018\nCanadian Chemistry Conference\nOutstanding Graduate Oral Presentation\n\n\n2017\nCanadian Chemistry Conference\nBell McLeod Educational Fund Award; GSA Academic Travel Award"
   },
   {
     "objectID": "projects/wq-harmonization/index.html",
