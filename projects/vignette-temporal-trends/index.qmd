@@ -13,9 +13,11 @@ toc: true
 [View on GitHub](https://github.com/iangault/vignette-temporal-trends){.btn .btn-secondary style="font-size: 1rem;"}
 </div>
 
-Long-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.
+::: {.callout-note title="About the data"}
+This project uses synthetic data. The workflow reflects practices commonly used across many water quality monitoring programs of this type.
+:::
 
-All program names and site identifiers have been replaced with generic labels; synthetic data is used so the vignette runs standalone.
+Long-running water quality monitoring programs accumulate years of results across multiple sampling areas. This vignette demonstrates a reproducible pipeline for assessing whether an analyte is trending over time, and whether that trend differs by monitoring area.
 
 ## What it does
 

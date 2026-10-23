@@ -8,7 +8,7 @@
 
 <meta name="author" content="Ian Gault">
 <meta name="dcterms.date" content="2025-01-01">
-<meta name="description" content="Multi-lab data arrive with mixed units and naming. I built a reproducible R pipeline that standardizes them, now reused across 5 projects.">
+<meta name="description" content="Multi-lab data arrive with mixed units and naming. I built a reproducible R pipeline that standardizes them. It reflects a pipeline pattern I’ve applied across multiple projects.">
 
 <title>Water Quality Data Harmonization Pipeline – Ian Gault</title>
 <style>
@@ -157,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Multi-lab data arrive with mixed units and naming. I built a reproducible R pipeline that standardizes them, now reused across 5 projects.
+    Multi-lab data arrive with mixed units and naming. I built a reproducible R pipeline that standardizes them. It reflects a pipeline pattern I’ve applied across multiple projects.
   </div>
 </div>
 
@@ -189,6 +189,19 @@ ul.task-list li input[type="checkbox"] {
 <div style="margin-bottom: 1.5rem;">
 <p><a href="https://iangault.github.io/vignette-wq-harmonization/" class="btn btn-primary" style="margin-right: 0.5rem; font-size: 1rem;">View Vignette</a> <a href="https://github.com/iangault/vignette-wq-harmonization" class="btn btn-secondary" style="font-size: 1rem;">View on GitHub</a></p>
 </div>
+<div class="callout callout-style-default callout-note callout-titled" title="About the data">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+About the data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This project uses synthetic data. The workflow reflects practices commonly used across many water quality monitoring programs of this type.</p>
+</div>
+</div>
 <p>Environmental monitoring programs often aggregate data from multiple laboratories, each with its own submission conventions — analyte names, units, detection limit notation, and quality flags rarely align out of the box. This pipeline addresses that problem end-to-end.</p>
 <section id="what-it-does" class="level2">
 <h2 class="anchored" data-anchor-id="what-it-does">What it does</h2>
@@ -205,8 +218,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="design" class="level2">
 <h2 class="anchored" data-anchor-id="design">Design</h2>
-<p>The pipeline is organized into modular R functions (<code>harmonize.R</code>, <code>units.R</code>, <code>qaqc.R</code>, <code>database.R</code>, <code>utils.R</code>) and documented via an R Markdown vignette. Synthetic test data is included so the vignette runs standalone without proprietary lab submissions.</p>
-<p>All program names and site identifiers in the repository have been anonymized.</p>
+<p>The pipeline is organized into modular R functions (<code>harmonize.R</code>, <code>units.R</code>, <code>qaqc.R</code>, <code>database.R</code>, <code>utils.R</code>) and documented via an R Markdown vignette. The vignette runs standalone on synthetic test data, with generic program and site labels.</p>
 
 
 </section>
