@@ -72,7 +72,7 @@ statistical modelling (descriptive, inferential, and Bayesian), machine learning
 :::
 
 ::: {.principle}
-Data are observations of the real world; models are abstractions of it. Good data science connects the two through careful measurement, rigorous modelling, and thoughtful interpretation.
+Data are observations of the real world; models are abstractions of it. Good data science connects the two through careful measurement, rigorous modelling, and thoughtful presentation and interpretation.
 :::
 
 ::: {.how-i-work}

@@ -135,9 +135,15 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#experience" id="toc-experience" class="nav-link" data-scroll-target="#experience">Experience</a></li>
-  <li><a href="#selected-projects" id="toc-selected-projects" class="nav-link" data-scroll-target="#selected-projects">Selected Projects</a></li>
+  <li><a href="#selected-projects" id="toc-selected-projects" class="nav-link" data-scroll-target="#selected-projects">Selected Projects</a>
+  <ul class="collapse">
+  <li><a href="#consulting-projects" id="toc-consulting-projects" class="nav-link" data-scroll-target="#consulting-projects">Consulting Projects</a></li>
+  <li><a href="#capstone-independent-work" id="toc-capstone-independent-work" class="nav-link" data-scroll-target="#capstone-independent-work">Capstone &amp; Independent Work</a></li>
+  <li><a href="#machine-learning-data-engineering-projects" id="toc-machine-learning-data-engineering-projects" class="nav-link" data-scroll-target="#machine-learning-data-engineering-projects">Machine Learning &amp; Data Engineering Projects</a></li>
+  </ul></li>
   <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">Education</a></li>
   <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a></li>
+  <li><a href="#publications" id="toc-publications" class="nav-link" data-scroll-target="#publications">Publications</a></li>
   <li><a href="#designations" id="toc-designations" class="nav-link" data-scroll-target="#designations">Designations</a></li>
   <li><a href="#professional-development" id="toc-professional-development" class="nav-link" data-scroll-target="#professional-development">Professional Development</a></li>
   <li><a href="#academic-awards" id="toc-academic-awards" class="nav-link" data-scroll-target="#academic-awards">Academic Awards</a></li>
@@ -151,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Resume</h1>
-<p class="subtitle lead">Applied Data Scientist · Analytical Chemistry &amp; Toxicology</p>
+<p class="subtitle lead">Data Scientist · Professional Biologist</p>
 </div>
 
 
@@ -173,16 +179,16 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>Master of Data Science graduate and Registered Professional Biologist with an analytical chemistry research background and six years of experience as a consultant, translating complex chemical data into decision-ready evidence. MSc research characterized unknown chemical mixtures using high-resolution mass spectrometry, building experience with high-dimensional instrument data, measurement variability, and censored data. Brings this measurement-science foundation to statistical modelling and causal reasoning in R, Python, and SQL, with an emphasis on testing assumptions and quantifying uncertainty. Master of Data Science project work extended this into machine learning (PyTorch, scikit-learn), cloud computing on AWS, and reproducible workflows with Git, Docker, and CI/CD.</p>
+<p>Data scientist and Registered Professional Biologist with six years of experience building reproducible data pipelines and statistical analyses for chemical, biological, and environmental data in regulated consulting work, and a Master of Data Science from UBC. Works in R, Python, and SQL with Git feature-branch workflows, unit testing and CI, and Docker/renv environments. At WSP, introduced Git-based development and R pipelines to the team. MSc research in analytical toxicology used high-resolution mass spectrometry and cell-based assays, with two peer-reviewed publications. Comfortable working across Unix/command-line tooling (Bash, Make) and translating between life sciences, engineering, and software teams.</p>
 </section>
 <section id="experience" class="level2">
 <h2 class="anchored" data-anchor-id="experience">Experience</h2>
 <p><strong>Environmental Scientist</strong> | WSP, Vancouver, BC | Jul 2022 – Aug 2025</p>
 <ul>
 <li>Delivered environmental monitoring studies and regulatory reporting for 10+ clients across the metals, coal, and wastewater sectors, managing multiple concurrent programs as lead data analyst across the full project lifecycle (proposal, execution, analysis, and reporting) and contributing to contract renewals exceeding $200k.</li>
-<li>Initiated the team’s shift from manual Excel-based analysis to reproducible, Git-versioned collaborative development, and mentored junior staff; replaced ad hoc QA/QC review with a rule-based pipeline used on multiple projects.</li>
+<li>Initiated the team’s shift from manual Excel-based analysis to reproducible, Git-versioned collaborative development, and mentored four junior staff; replaced ad hoc QA/QC review with a rule-based pipeline used on multiple projects.</li>
 <li>Built reusable R frameworks (ETL, harmonization, statistical analysis, reporting) adopted across 2–3 projects, and automated the conversion of analyses into interactive HTML reports and client-ready tables for senior review.</li>
-<li>Applied statistical and machine-learning methods (trend detection, spatial and multivariate analysis, supervised and unsupervised learning) to flag environmental changes and support regulatory determinations.</li>
+<li>Applied statistical and machine-learning methods (trend detection, spatial and multivariate analysis, unsupervised learning) to flag environmental changes and support regulatory determinations.</li>
 <li>Served as lead data scientist on a small team, advising senior leadership on study design and analytical approach.</li>
 </ul>
 <p><strong>Environmental Specialist</strong> | Hatfield Consultants, North Vancouver, BC | May 2019 – Jun 2022</p>
@@ -193,31 +199,95 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Graduate Research Assistant</strong> | University of Alberta, Edmonton, AB | Jan 2015 – Jan 2019</p>
 <ul>
-<li>Characterized complex, unknown chemical mixtures using high-resolution Orbitrap mass spectrometry, linking analytical signals with biological responses through effect-directed analysis and toxicity identification evaluation.</li>
-<li>Developed and evaluated experimental workflows integrating chemical measurements with in-vitro toxicity assays, working with high-dimensional instrument data and the measurement variability inherent to laboratory systems.</li>
-<li>Results published in <em>ACS EST Water</em> (2023); see <a href="./scientific-communication.html">Publications</a>.</li>
+<li>Conducted high-throughput human cell-line cytotoxicity screening (RTCA) and yeast estrogen/androgen screens (YES/YAS) to characterize the toxicity and endocrine activity of oil sands process-affected water.</li>
+<li>Characterized unknown chemical mixtures using high-resolution Orbitrap mass spectrometry, linking analytical signals with biological responses through effect-directed analysis; carried the project through to publication (see <a href="#publications">Publications</a>).</li>
 </ul>
 </section>
 <section id="selected-projects" class="level2">
 <h2 class="anchored" data-anchor-id="selected-projects">Selected Projects</h2>
-<p><strong>Applied Statistical Modelling Portfolio: Environmental Health &amp; Toxicology</strong> | Independent project | Jun – Aug 2026</p>
+<section id="consulting-projects" class="level3">
+<h3 class="anchored" data-anchor-id="consulting-projects">Consulting Projects</h3>
+<p>Client names are withheld for confidentiality.</p>
+<p><strong>Municipal Wastewater &amp; Ambient Water Quality Assessments</strong> | WSP | 2023 – 2025</p>
 <ul>
-<li>Built a 9-part reproducible R/Quarto portfolio translating consulting-industry water chemistry workflows into a documented data science practice: a regression framework, nonlinear trend detection (GAM, GAMM, changepoint, piecewise, LOESS/k-NN) with AIC-based model selection and residual diagnostics (heteroscedasticity, normality, autocorrelation), PCA-based multivariate screening, regulatory compliance screening, and data harmonization.</li>
-<li>See <a href="./projects/vignette-non-linear-trends/index.html">Modelling Beyond a Straight Line</a> and <a href="./projects/vignette-temporal-trends/index.html">Temporal Trend Analysis</a>.</li>
+<li>Developed an R-based guideline screening tool for complex water-quality data that accounts for the regulatory preference hierarchy, water-body location, and salinity, using cofactor-based regression equations and automated processing of PDF lookup tables.</li>
+<li>Evaluated temporal and spatial change over 20+ years of monitoring data with Mann-Kendall, ANOVA, GAMs, and assumption testing; used PCA to separate saltwater influence, wastewater impact, and high-flow outlier years.</li>
+<li>Collected water-column depth profiles, end-of-pipe measurements, and grab samples in the field.</li>
 </ul>
-<p><strong>Multi-source Clinical Data Pipeline &amp; Dashboard</strong> | BC Children’s Hospital Research Institute (UBC MDS Capstone), Vancouver, BC | May – Jun 2026</p>
+<p><strong>Municipal Wastewater Sediment Quality Assessments</strong> | WSP | 2023 – 2025</p>
 <ul>
-<li>Designed a reproducible, modular analysis pipeline in R and a multi-tab interactive Shiny dashboard to characterize Crohn’s disease using microbiome, patient, and dietary data, supporting funding and recruitment.</li>
-<li>Built ETL workflows for heterogeneous sources, delivering ML-ready structured datasets and decision-ready outputs through a Makefile-driven environment; authored a companion Quarto site documenting the statistical analysis pipelines.</li>
-<li>See the <a href="./projects/ibd-mycobiome-dashboard/index.html">public version on synthetic data</a>.</li>
+<li>Rebuilt a monitoring database from untidy historical records using joins and string-distance fuzzy matching, and produced consistent, reusable visualizations (ggplot2, ggpubr) for reporting.</li>
+<li>Related benthic invertebrate health to sediment particle size and contaminants using Spearman rank correlations and heatmaps; compared benthic metrics with ANOVA and Tukey post hoc tests or Kruskal-Wallis tests.</li>
 </ul>
-<p><strong>Environmental Health &amp; Statistical Modelling Consulting Projects</strong> | WSP &amp; Hatfield Consultants, Vancouver, BC | 2020 – 2025</p>
+<p><strong>Contaminated Site Food Chain Model &amp; Ecological Risk Assessment</strong> | WSP | 2022 – 2025</p>
 <ul>
-<li>Modelled 20+ years of water-quality chemistry data using Mann-Kendall, GAMs, ANOVA, PCA, and regression to distinguish temporal and spatial patterns associated with wastewater, salinity, flow conditions, and other drivers.</li>
-<li>Developed a food-chain bioaccumulation model integrating soil, water, and dietary chemistry across ~160 spatial plots and multiple wildlife receptors; outputs supported ecological risk assessment and post-closure remediation.</li>
-<li>Analyzed complex observational datasets with detection limits, missingness, outliers, non-normal distributions, and heterogeneous sampling designs, applying assumption testing and parametric and non-parametric methods.</li>
+<li>Engineered an R-based food chain model using soil, water, and dietary chemistry to estimate contaminant concentrations at higher trophic levels for six wildlife receptors, scaled across ~160 ten-acre plots using object-oriented design and lookup tables.</li>
+<li>Worked with incremental sampling methodology (ISM) soil data, using 95% upper confidence limits of the mean as representative plot concentrations.</li>
+<li>Delivered interactive HTML reports (R Markdown, plotly, DT) and automated client-ready table formatting (openxlsx2) for decision-making and transparency.</li>
+</ul>
+<p><strong>Harbour Contamination Gap Assessment &amp; GIS Heat Maps</strong> | WSP | 2024 – 2025</p>
+<ul>
+<li>Led a cross-functional team of biologists, GIS specialists, and project managers to produce infographics and contamination heat maps, using smoothing algorithms to identify data gaps in a highly contaminated harbour; the work fed an interactive GIS tool used to plan future monitoring.</li>
+<li>Compiled toxicity testing, sediment, water, fish, and benthos data from diverse sources; set up GitHub version control and quality checks, and trained the team on the process.</li>
+</ul>
+<p><strong>Contaminated Site Risk Assessments</strong> | WSP | 2023 – 2024</p>
+<ul>
+<li>Conducted risk assessments for a future transportation infrastructure site and a decommissioned island site ahead of ecological restoration: problem formulation, conceptual site models, exposure pathway analysis, and comparison against regulatory thresholds to determine remediation needs for each site’s planned use.</li>
+<li>Considered land use, Indigenous archaeology, and stewardship for return to Indigenous ownership; reused reproducible code across both assessments to shorten turnaround.</li>
+</ul>
+<p><strong>Infrastructure Environmental Assessments</strong> | WSP | 2022 – 2025</p>
+<ul>
+<li>Characterized existing surface water quality for a major transportation infrastructure environmental assessment, building databases from historical multi-source data and analyzing turbidity changes from construction disturbance.</li>
+<li>Logged and subsampled deep sediment cores on a barge-based sonic drilling program to characterize legacy contaminants with depth.</li>
+<li>Completed RPBio biophysical field assessments of proposed developments, focused on freshwater bodies.</li>
+</ul>
+<p><strong>Aquatic Effects Monitoring Programs</strong> | Hatfield Consultants | 2020 – 2022</p>
+<ul>
+<li>As assistant project manager for three programs, coordinated field monitoring, crew schedules, budgets, and laboratory collaboration, and authored draft and final reports to meet regulatory deadlines.</li>
+<li>Led R analyses for data compilation, guideline evaluation, spatiotemporal visualization, and clustering for benthic invertebrate classification.</li>
+</ul>
+</section>
+<section id="capstone-independent-work" class="level3">
+<h3 class="anchored" data-anchor-id="capstone-independent-work">Capstone &amp; Independent Work</h3>
+<p><strong>IBD Mycobiome Pipeline, Dashboard &amp; Statistics Site</strong> | BC Children’s Hospital Research Institute (UBC MDS Capstone, team of 4) | May – Jun 2026</p>
+<ul>
+<li>Built a reproducible R pipeline (Make, renv) that cleans and merges stool mycobiome relative abundance, dietary intake, inflammatory biomarker, and participant data into analysis-ready files, and a Shiny dashboard with participant- and cohort-level views, architected to extend to additional omics layers.</li>
+<li>Delivered a Makefile-driven environment that sets up dependencies, runs the pipeline, and launches the app for the partner lab’s ongoing use in study tracking, recruitment, and funding applications.</li>
+<li>Analyzed fungal taxa abundance and diversity: alpha diversity (Kruskal-Wallis with Dunn post hoc), beta diversity (PERMANOVA and PCoA at four taxonomic levels, vegan), and Spearman associations with symptoms and nutrients, with hypotheses pre-specified before results were seen.</li>
+<li>Documented each analysis in a Quarto statistics site with unit-tested helper functions (testthat); built a public version on synthetic data with GitHub Actions publishing and a Posit Connect Cloud deployment. See the <a href="./projects/ibd-mycobiome-dashboard/index.html">public version</a>.</li>
+</ul>
+<p><strong>Applied Statistical Modelling Portfolio: Environmental Water Quality</strong> | Independent project | Jun – Aug 2026</p>
+<ul>
+<li>Built a 9-part reproducible R/Quarto portfolio translating consulting water chemistry workflows into a documented data science practice: a regression framework, nonlinear trend detection (GAM, GAMM, changepoint, piecewise, LOESS/k-NN) with AIC-based model selection and residual diagnostics, PCA-based multivariate screening, regulatory compliance screening, and data harmonization.</li>
+<li>See <a href="./projects/vignette-non-linear-trends/index.html">Modelling Beyond a Straight Line</a>, <a href="./projects/vignette-temporal-trends/index.html">Temporal Trend Analysis</a>, and <a href="./projects/wq-harmonization/index.html">Water Quality Data Harmonization</a>.</li>
+</ul>
+</section>
+<section id="machine-learning-data-engineering-projects" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning-data-engineering-projects">Machine Learning &amp; Data Engineering Projects</h3>
+<p><strong>Product Search Assistant (RAG)</strong> | UBC MDS, with a classmate | 2026</p>
+<ul>
+<li>Built a retrieval-augmented generation app over 20K products and 200K reviews, combining BM25, sentence-transformer embeddings (FAISS), and reciprocal rank fusion, with an LLM for grounded answers and an out-of-scope query guardrail.</li>
+<li>Measured retrieval quality with an evaluation harness (precision@k, recall@k, MRR) against hand-labelled relevance judgments. See <a href="./projects/product-search-rag/index.html">Product Search RAG</a>.</li>
+</ul>
+<p><strong>Credit Card Default Risk Classification</strong> | UBC MDS, group of 3 | 2026</p>
+<ul>
+<li>Benchmarked logistic regression, Random Forest, XGBoost, and LightGBM on an imbalanced ~30K-row dataset with class-imbalance-aware tuning; selected a LightGBM model (test ROC-AUC 0.787, consistent with cross-validation) and explained predictions with SHAP and permutation importance. See <a href="./projects/credit-default-risk/index.html">Credit Card Default Risk</a>.</li>
+</ul>
+<p><strong>Big Data Rainfall Prediction: Laptop to Cloud</strong> | UBC MDS | Apr 2026</p>
+<ul>
+<li>Processed a 62.5M-row climate dataset locally with DuckDB and Apache Arrow, then trained a random forest on AWS EMR with PySpark ML, cross-validation, and grid search across cluster executors.</li>
+<li>Moved data and model artifacts between S3, EMR, and an EC2-hosted inference service, and served the model through a REST API (FastAPI, Pydantic).</li>
+</ul>
+<p><strong>TempTales: Global Temperature Dashboard with AI Assistant</strong> | UBC MDS | Feb – Aug 2026</p>
+<ul>
+<li>Built interactive visualizations (Altair, Plotly) for a 150-year global temperature dataset on a DuckDB/ibis data layer, with an LLM query assistant (Gemini API via chatlas/querychat); added GitHub Actions CI with unit and Playwright end-to-end tests and deployed to Posit. See <a href="./projects/TempTales/index.html">TempTales</a>.</li>
+</ul>
+<p><strong>Reproducible &amp; Collaborative Software Development</strong> | UBC MDS group projects | Sep 2025 – Jun 2026</p>
+<ul>
+<li>Co-developed and published a Python package and an R package with modular architecture, unit tests, and Quarto documentation; managed environments with conda-lock and Docker, and used feature-branch and pull-request workflows with GitHub Actions CI.</li>
 </ul>
 <p><a href="./projects/index.html">See all projects →</a></p>
+</section>
 </section>
 <section id="education" class="level2">
 <h2 class="anchored" data-anchor-id="education">Education</h2>
@@ -240,6 +310,14 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Visualization &amp; communication:</strong> Shiny · Plotly · Quarto and R Markdown · Microsoft Office · scientific writing · presentations · technical reporting for regulatory and non-technical audiences · decision support</p>
 <p><strong>Project &amp; team leadership:</strong> Multi-client project coordination · study design · cross-functional team leadership (biologists, GIS specialists, project managers) · budget and timeline management</p>
 <p><strong>Domain knowledge:</strong> Environmental chemistry and toxicology · ecological risk assessment · regulatory frameworks (provincial and federal) · wet lab methods · field sampling and biomonitoring</p>
+</section>
+<section id="publications" class="level2">
+<h2 class="anchored" data-anchor-id="publications">Publications</h2>
+<ul>
+<li>Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. <em>ACS ES&amp;T Water</em> 2023, 3(2), 366–376.</li>
+<li>Morandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Giesy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water. <em>Environmental Science &amp; Technology</em> 2015, 49(20), 12395–12404.</li>
+<li>Four oral conference presentations (2017–2018), including 1st place (SETAC Prairie Northern Chapter) and 3rd place (SETAC North America) best student presentation awards. See <a href="./scientific-communication.html">Scientific Communication</a>.</li>
+</ul>
 </section>
 <section id="designations" class="level2">
 <h2 class="anchored" data-anchor-id="designations">Designations</h2>

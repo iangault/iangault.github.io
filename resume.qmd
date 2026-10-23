@@ -1,6 +1,6 @@
 ---
 title: "Resume"
-subtitle: "Applied Data Scientist · Analytical Chemistry & Toxicology"
+subtitle: "Data Scientist · Professional Biologist"
 toc: true
 toc-title: "On this page"
 ---
@@ -12,16 +12,16 @@ toc-title: "On this page"
 
 ## Summary
 
-Master of Data Science graduate and Registered Professional Biologist with an analytical chemistry research background and six years of experience as a consultant, translating complex chemical data into decision-ready evidence. MSc research characterized unknown chemical mixtures using high-resolution mass spectrometry, building experience with high-dimensional instrument data, measurement variability, and censored data. Brings this measurement-science foundation to statistical modelling and causal reasoning in R, Python, and SQL, with an emphasis on testing assumptions and quantifying uncertainty. Master of Data Science project work extended this into machine learning (PyTorch, scikit-learn), cloud computing on AWS, and reproducible workflows with Git, Docker, and CI/CD.
+Data scientist and Registered Professional Biologist with six years of experience building reproducible data pipelines and statistical analyses for chemical, biological, and environmental data in regulated consulting work, and a Master of Data Science from UBC. Works in R, Python, and SQL with Git feature-branch workflows, unit testing and CI, and Docker/renv environments. At WSP, introduced Git-based development and R pipelines to the team. MSc research in analytical toxicology used high-resolution mass spectrometry and cell-based assays, with two peer-reviewed publications. Comfortable working across Unix/command-line tooling (Bash, Make) and translating between life sciences, engineering, and software teams. 
 
 ## Experience
 
 **Environmental Scientist** \| WSP, Vancouver, BC \| Jul 2022 – Aug 2025
 
 - Delivered environmental monitoring studies and regulatory reporting for 10+ clients across the metals, coal, and wastewater sectors, managing multiple concurrent programs as lead data analyst across the full project lifecycle (proposal, execution, analysis, and reporting) and contributing to contract renewals exceeding $200k.
-- Initiated the team's shift from manual Excel-based analysis to reproducible, Git-versioned collaborative development, and mentored junior staff; replaced ad hoc QA/QC review with a rule-based pipeline used on multiple projects.
+- Initiated the team's shift from manual Excel-based analysis to reproducible, Git-versioned collaborative development, and mentored four junior staff; replaced ad hoc QA/QC review with a rule-based pipeline used on multiple projects.
 - Built reusable R frameworks (ETL, harmonization, statistical analysis, reporting) adopted across 2–3 projects, and automated the conversion of analyses into interactive HTML reports and client-ready tables for senior review.
-- Applied statistical and machine-learning methods (trend detection, spatial and multivariate analysis, supervised and unsupervised learning) to flag environmental changes and support regulatory determinations.
+- Applied statistical and machine-learning methods (trend detection, spatial and multivariate analysis, unsupervised learning) to flag environmental changes and support regulatory determinations.
 - Served as lead data scientist on a small team, advising senior leadership on study design and analytical approach.
 
 **Environmental Specialist** \| Hatfield Consultants, North Vancouver, BC \| May 2019 – Jun 2022
@@ -32,28 +32,90 @@ Master of Data Science graduate and Registered Professional Biologist with an an
 
 **Graduate Research Assistant** \| University of Alberta, Edmonton, AB \| Jan 2015 – Jan 2019
 
-- Characterized complex, unknown chemical mixtures using high-resolution Orbitrap mass spectrometry, linking analytical signals with biological responses through effect-directed analysis and toxicity identification evaluation.
-- Developed and evaluated experimental workflows integrating chemical measurements with in-vitro toxicity assays, working with high-dimensional instrument data and the measurement variability inherent to laboratory systems.
-- Results published in *ACS EST Water* (2023); see [Publications](scientific-communication.qmd).
+- Conducted high-throughput human cell-line cytotoxicity screening (RTCA) and yeast estrogen/androgen screens (YES/YAS) to characterize the toxicity and endocrine activity of oil sands process-affected water.
+- Characterized unknown chemical mixtures using high-resolution Orbitrap mass spectrometry, linking analytical signals with biological responses through effect-directed analysis; carried the project through to publication (see [Publications](#publications)).
 
 ## Selected Projects
 
-**Applied Statistical Modelling Portfolio: Environmental Health & Toxicology** \| Independent project \| Jun – Aug 2026
+### Consulting Projects
 
-- Built a 9-part reproducible R/Quarto portfolio translating consulting-industry water chemistry workflows into a documented data science practice: a regression framework, nonlinear trend detection (GAM, GAMM, changepoint, piecewise, LOESS/k-NN) with AIC-based model selection and residual diagnostics (heteroscedasticity, normality, autocorrelation), PCA-based multivariate screening, regulatory compliance screening, and data harmonization.
-- See [Modelling Beyond a Straight Line](projects/vignette-non-linear-trends/index.qmd) and [Temporal Trend Analysis](projects/vignette-temporal-trends/index.qmd).
+Client names are withheld for confidentiality.
 
-**Multi-source Clinical Data Pipeline & Dashboard** \| BC Children's Hospital Research Institute (UBC MDS Capstone), Vancouver, BC \| May – Jun 2026
+**Municipal Wastewater & Ambient Water Quality Assessments** \| WSP \| 2023 – 2025
 
-- Designed a reproducible, modular analysis pipeline in R and a multi-tab interactive Shiny dashboard to characterize Crohn's disease using microbiome, patient, and dietary data, supporting funding and recruitment.
-- Built ETL workflows for heterogeneous sources, delivering ML-ready structured datasets and decision-ready outputs through a Makefile-driven environment; authored a companion Quarto site documenting the statistical analysis pipelines.
-- See the [public version on synthetic data](projects/ibd-mycobiome-dashboard/index.qmd).
+- Developed an R-based guideline screening tool for complex water-quality data that accounts for the regulatory preference hierarchy, water-body location, and salinity, using cofactor-based regression equations and automated processing of PDF lookup tables.
+- Evaluated temporal and spatial change over 20+ years of monitoring data with Mann-Kendall, ANOVA, GAMs, and assumption testing; used PCA to separate saltwater influence, wastewater impact, and high-flow outlier years.
+- Collected water-column depth profiles, end-of-pipe measurements, and grab samples in the field.
 
-**Environmental Health & Statistical Modelling Consulting Projects** \| WSP & Hatfield Consultants, Vancouver, BC \| 2020 – 2025
+**Municipal Wastewater Sediment Quality Assessments** \| WSP \| 2023 – 2025
 
-- Modelled 20+ years of water-quality chemistry data using Mann-Kendall, GAMs, ANOVA, PCA, and regression to distinguish temporal and spatial patterns associated with wastewater, salinity, flow conditions, and other drivers.
-- Developed a food-chain bioaccumulation model integrating soil, water, and dietary chemistry across ~160 spatial plots and multiple wildlife receptors; outputs supported ecological risk assessment and post-closure remediation.
-- Analyzed complex observational datasets with detection limits, missingness, outliers, non-normal distributions, and heterogeneous sampling designs, applying assumption testing and parametric and non-parametric methods.
+- Rebuilt a monitoring database from untidy historical records using joins and string-distance fuzzy matching, and produced consistent, reusable visualizations (ggplot2, ggpubr) for reporting.
+- Related benthic invertebrate health to sediment particle size and contaminants using Spearman rank correlations and heatmaps; compared benthic metrics with ANOVA and Tukey post hoc tests or Kruskal-Wallis tests.
+
+**Contaminated Site Food Chain Model & Ecological Risk Assessment** \| WSP \| 2022 – 2025
+
+- Engineered an R-based food chain model using soil, water, and dietary chemistry to estimate contaminant concentrations at higher trophic levels for six wildlife receptors, scaled across ~160 ten-acre plots using object-oriented design and lookup tables.
+- Worked with incremental sampling methodology (ISM) soil data, using 95% upper confidence limits of the mean as representative plot concentrations.
+- Delivered interactive HTML reports (R Markdown, plotly, DT) and automated client-ready table formatting (openxlsx2) for decision-making and transparency.
+
+**Harbour Contamination Gap Assessment & GIS Heat Maps** \| WSP \| 2024 – 2025
+
+- Led a cross-functional team of biologists, GIS specialists, and project managers to produce infographics and contamination heat maps, using smoothing algorithms to identify data gaps in a highly contaminated harbour; the work fed an interactive GIS tool used to plan future monitoring.
+- Compiled toxicity testing, sediment, water, fish, and benthos data from diverse sources; set up GitHub version control and quality checks, and trained the team on the process.
+
+**Contaminated Site Risk Assessments** \| WSP \| 2023 – 2024
+
+- Conducted risk assessments for a future transportation infrastructure site and a decommissioned island site ahead of ecological restoration: problem formulation, conceptual site models, exposure pathway analysis, and comparison against regulatory thresholds to determine remediation needs for each site's planned use.
+- Considered land use, Indigenous archaeology, and stewardship for return to Indigenous ownership; reused reproducible code across both assessments to shorten turnaround.
+
+**Infrastructure Environmental Assessments** \| WSP \| 2022 – 2025
+
+- Characterized existing surface water quality for a major transportation infrastructure environmental assessment, building databases from historical multi-source data and analyzing turbidity changes from construction disturbance.
+- Logged and subsampled deep sediment cores on a barge-based sonic drilling program to characterize legacy contaminants with depth.
+- Completed RPBio biophysical field assessments of proposed developments, focused on freshwater bodies.
+
+**Aquatic Effects Monitoring Programs** \| Hatfield Consultants \| 2020 – 2022
+
+- As assistant project manager for three programs, coordinated field monitoring, crew schedules, budgets, and laboratory collaboration, and authored draft and final reports to meet regulatory deadlines.
+- Led R analyses for data compilation, guideline evaluation, spatiotemporal visualization, and clustering for benthic invertebrate classification.
+
+### Capstone & Independent Work
+
+**IBD Mycobiome Pipeline, Dashboard & Statistics Site** \| BC Children's Hospital Research Institute (UBC MDS Capstone, team of 4) \| May – Jun 2026
+
+- Built a reproducible R pipeline (Make, renv) that cleans and merges stool mycobiome relative abundance, dietary intake, inflammatory biomarker, and participant data into analysis-ready files, and a Shiny dashboard with participant- and cohort-level views, architected to extend to additional omics layers.
+- Delivered a Makefile-driven environment that sets up dependencies, runs the pipeline, and launches the app for the partner lab's ongoing use in study tracking, recruitment, and funding applications.
+- Analyzed fungal taxa abundance and diversity: alpha diversity (Kruskal-Wallis with Dunn post hoc), beta diversity (PERMANOVA and PCoA at four taxonomic levels, vegan), and Spearman associations with symptoms and nutrients, with hypotheses pre-specified before results were seen.
+- Documented each analysis in a Quarto statistics site with unit-tested helper functions (testthat); built a public version on synthetic data with GitHub Actions publishing and a Posit Connect Cloud deployment. See the [public version](projects/ibd-mycobiome-dashboard/index.qmd).
+
+**Applied Statistical Modelling Portfolio: Environmental Water Quality** \| Independent project \| Jun – Aug 2026
+
+- Built a 9-part reproducible R/Quarto portfolio translating consulting water chemistry workflows into a documented data science practice: a regression framework, nonlinear trend detection (GAM, GAMM, changepoint, piecewise, LOESS/k-NN) with AIC-based model selection and residual diagnostics, PCA-based multivariate screening, regulatory compliance screening, and data harmonization.
+- See [Modelling Beyond a Straight Line](projects/vignette-non-linear-trends/index.qmd), [Temporal Trend Analysis](projects/vignette-temporal-trends/index.qmd), and [Water Quality Data Harmonization](projects/wq-harmonization/index.qmd).
+
+### Machine Learning & Data Engineering Projects
+
+**Product Search Assistant (RAG)** \| UBC MDS, with a classmate \| 2026
+
+- Built a retrieval-augmented generation app over 20K products and 200K reviews, combining BM25, sentence-transformer embeddings (FAISS), and reciprocal rank fusion, with an LLM for grounded answers and an out-of-scope query guardrail.
+- Measured retrieval quality with an evaluation harness (precision@k, recall@k, MRR) against hand-labelled relevance judgments. See [Product Search RAG](projects/product-search-rag/index.qmd).
+
+**Credit Card Default Risk Classification** \| UBC MDS, group of 3 \| 2026
+
+- Benchmarked logistic regression, Random Forest, XGBoost, and LightGBM on an imbalanced ~30K-row dataset with class-imbalance-aware tuning; selected a LightGBM model (test ROC-AUC 0.787, consistent with cross-validation) and explained predictions with SHAP and permutation importance. See [Credit Card Default Risk](projects/credit-default-risk/index.qmd).
+
+**Big Data Rainfall Prediction: Laptop to Cloud** \| UBC MDS \| Apr 2026
+
+- Processed a 62.5M-row climate dataset locally with DuckDB and Apache Arrow, then trained a random forest on AWS EMR with PySpark ML, cross-validation, and grid search across cluster executors.
+- Moved data and model artifacts between S3, EMR, and an EC2-hosted inference service, and served the model through a REST API (FastAPI, Pydantic).
+
+**TempTales: Global Temperature Dashboard with AI Assistant** \| UBC MDS \| Feb – Aug 2026
+
+- Built interactive visualizations (Altair, Plotly) for a 150-year global temperature dataset on a DuckDB/ibis data layer, with an LLM query assistant (Gemini API via chatlas/querychat); added GitHub Actions CI with unit and Playwright end-to-end tests and deployed to Posit. See [TempTales](projects/TempTales/index.qmd).
+
+**Reproducible & Collaborative Software Development** \| UBC MDS group projects \| Sep 2025 – Jun 2026
+
+- Co-developed and published a Python package and an R package with modular architecture, unit tests, and Quarto documentation; managed environments with conda-lock and Docker, and used feature-branch and pull-request workflows with GitHub Actions CI.
 
 [See all projects →](projects/index.qmd)
 
@@ -88,6 +150,12 @@ Master of Data Science graduate and Registered Professional Biologist with an an
 **Project & team leadership:** Multi-client project coordination · study design · cross-functional team leadership (biologists, GIS specialists, project managers) · budget and timeline management
 
 **Domain knowledge:** Environmental chemistry and toxicology · ecological risk assessment · regulatory frameworks (provincial and federal) · wet lab methods · field sampling and biomonitoring
+
+## Publications
+
+- Gault IGM, Sun C, Martin JW. Persistent Cytotoxicity and Endocrine Activity in the First Oil Sands End-Pit Lake. *ACS ES&T Water* 2023, 3(2), 366–376.
+- Morandi GD, Wiseman SB, Pereira A, Mankidy R, Gault IGM, Martin JW, Giesy JP. Effects-Directed Analysis of Dissolved Organic Compounds in Oil Sands Process-Affected Water. *Environmental Science & Technology* 2015, 49(20), 12395–12404.
+- Four oral conference presentations (2017–2018), including 1st place (SETAC Prairie Northern Chapter) and 3rd place (SETAC North America) best student presentation awards. See [Scientific Communication](scientific-communication.qmd).
 
 ## Designations
 
