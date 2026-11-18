@@ -8,7 +8,7 @@
 
 <meta name="author" content="Ian Gault">
 <meta name="dcterms.date" content="2026-08-20">
-<meta name="description" content="Many water-quality trends curve, plateau, or shift. I wrote a guide that matches each method, from piecewise regression to GAMs, to a case study.">
+<meta name="description" content="Many water-quality trends curve, plateau, or shift. I wrote a guide that pairs each method, from piecewise regression to GAMs, with a case study, and covers how to choose which model belongs in a report.">
 
 <title>Modelling Beyond a Straight Line – Ian Gault</title>
 <style>
@@ -136,7 +136,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-it-covers" id="toc-what-it-covers" class="nav-link active" data-scroll-target="#what-it-covers">What it covers</a></li>
+  <li><a href="#why-it-matters-for-a-decision" id="toc-why-it-matters-for-a-decision" class="nav-link active" data-scroll-target="#why-it-matters-for-a-decision">Why it matters for a decision</a></li>
+  <li><a href="#what-it-covers" id="toc-what-it-covers" class="nav-link" data-scroll-target="#what-it-covers">What it covers</a></li>
   <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a></li>
   </ul>
 </nav>
@@ -158,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Many water-quality trends curve, plateau, or shift. I wrote a guide that matches each method, from piecewise regression to GAMs, to a case study.
+    Many water-quality trends curve, plateau, or shift. I wrote a guide that pairs each method, from piecewise regression to GAMs, with a case study, and covers how to choose which model belongs in a report.
   </div>
 </div>
 
@@ -179,6 +180,12 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">November 16, 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -190,23 +197,48 @@ ul.task-list li input[type="checkbox"] {
 <div style="margin-bottom: 1.5rem;">
 <p><a href="https://iangault.github.io/vignette-non-linear-trends/" class="btn btn-primary" style="margin-right: 0.5rem; font-size: 1rem;">View Vignette</a> <a href="https://github.com/iangault/vignette-non-linear-trends" class="btn btn-secondary" style="font-size: 1rem;">View on GitHub</a></p>
 </div>
-<p>Not every water-quality trend is a straight line. This vignette works through the toolkit for series that curve, plateau, break, or shift level, building from OLS assumptions up to semi-parametric models, with each method paired to a case study analyte that actually needs it.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="About the data">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+About the data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This project uses synthetic data, built to resemble monthly water-quality monitoring records.</p>
+</div>
+</div>
+<p>Trend analysis in environmental monitoring often starts with a straight line or a Mann-Kendall test. Many records curve, plateau, break, or shift level. This vignette works through methods for those records, building from the regression framework up to semi-parametric models, with each method paired with a case study analyte that needs it. The focus is on describing what happened in the observed record.</p>
+<section id="why-it-matters-for-a-decision" class="level2">
+<h2 class="anchored" data-anchor-id="why-it-matters-for-a-decision">Why it matters for a decision</h2>
+<p>Model choice changes what gets reported and what action follows. A plateau read as ongoing growth can lead to a treatment upgrade nobody needed. A step change read as a gradual trend can send an investigation toward the wrong cause. A flexible model fit to noise can find a trend that isn’t there, and a model that is too simple can miss a real change.</p>
+</section>
 <section id="what-it-covers" class="level2">
 <h2 class="anchored" data-anchor-id="what-it-covers">What it covers</h2>
+<p><strong>Framework</strong></p>
 <ul>
-<li>The regression framework: estimand, link, systematic component, and how OLS sits inside it as the identity-link/Gaussian special case</li>
-<li>Diagnosing which kind of nonlinearity a series needs: a log-response transform, a feature-engineered regressor, or a link function</li>
-<li>Piecewise / segmented linear regression for a slope break at an unknown location</li>
-<li>Changepoint detection for a level shift at an unknown location</li>
-<li>k-NN regression and LOESS smoothing for a rise-then-plateau shape, compared side by side on the same data</li>
-<li>GAMs (<code>mgcv</code>) for step-like, non-monotonic change with no periodic or polynomial pattern</li>
-<li>GAMMs for a seasonal cycle plus trend, with autocorrelated residuals</li>
-<li>A closing comparison of linear vs.&nbsp;nonlinear fits on two control analytes</li>
+<li>The regression framework: estimand, link, systematic component, and how ordinary least squares fits inside it</li>
+<li>Transformations: how to tell whether a series needs a log-response transform, a feature-engineered regressor, or a different link function</li>
+</ul>
+<p><strong>Methods, each with a case study</strong></p>
+<ul>
+<li>Piecewise regression for a slope break (Total Nitrogen)</li>
+<li>Changepoint detection for a level shift at an unknown date (Specific Conductance)</li>
+<li>k-NN regression and LOESS to see the shape of a rise-then-plateau before choosing a model (Total Phosphorus)</li>
+<li>GAMs for step-like, non-monotonic change (Total Copper), including simultaneous intervals that show where the record is rising, falling, or flat, compared with a single-slope summary</li>
+<li>GAMMs for a seasonal cycle plus trend with autocorrelated residuals (Dissolved Oxygen)</li>
+</ul>
+<p><strong>Choosing a model</strong></p>
+<ul>
+<li>Linear vs.&nbsp;nonlinear comparison on two control analytes, one with a straight-line trend (Total Chloride) and one with no trend (Total Zinc), to check whether added flexibility is justified</li>
+<li>Mechanism vs.&nbsp;shape: how the question, what is known about how the data arose, and whether the answer has to reach past the record decide which model belongs in a report. Worked through on Total Phosphorus, with a contaminant plume example where a process-based model and a forecast are justified</li>
 </ul>
 </section>
 <section id="design" class="level2">
 <h2 class="anchored" data-anchor-id="design">Design</h2>
-<p>The site is organized as one method per chapter, each grounded in a specific case study rather than a generic worked example, and framed around inference on the observed record rather than forecasting.</p>
+<p>The site has one method per chapter, each built on a case study. The home page includes a table that maps the question you’re trying to answer (exploratory, confirmatory, forensic, and so on) to the chapter to start from. The site uses a locked R package environment (<code>renv</code>) and an automated build, so every model, diagnostic, and figure can be regenerated from the code.</p>
 
 
 </section>
