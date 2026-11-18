@@ -79,12 +79,14 @@ Data are observations of the real world; models are abstractions of it. Good dat
 
 ## How I work
 
-From how the data were generated to the decisions they support.
+From how the data were generated to the decisions they support. Each step starts from a problem I've seen in scientific data work.
 
 ::: {.pipeline}
 
 ::: {.step}
 [Measure]{.step-label}
+
+[“This result looks wrong, and nobody can say why.”]{.step-problem}
 
 Start with how the data were generated: instruments, detection limits, and sampling design.
 
@@ -94,7 +96,9 @@ Start with how the data were generated: instruments, detection limits, and sampl
 ::: {.step}
 [Engineer]{.step-label}
 
-Turn messy, multi-source data into reproducible, tested pipelines.
+[“We rebuild the same analysis by hand every year.”]{.step-problem}
+
+Turn messy, multi-source data into reproducible, tested pipelines with built-in QA/QC checks.
 
 [For example]{.step-eg} [Water Quality Harmonization](projects/wq-harmonization/index.qmd){.step-link}
 :::
@@ -102,7 +106,9 @@ Turn messy, multi-source data into reproducible, tested pipelines.
 ::: {.step}
 [Model]{.step-label}
 
-Match the model to the data and check its assumptions before trusting the result.
+[“We’ve collected years of data and only run the standard test.”]{.step-problem}
+
+Match the model to the pattern in the data and check its assumptions before trusting the result.
 
 [For example]{.step-eg} [Modelling Beyond a Straight Line](projects/vignette-non-linear-trends/index.qmd){.step-link}
 :::
@@ -110,7 +116,9 @@ Match the model to the data and check its assumptions before trusting the result
 ::: {.step}
 [Deploy]{.step-label}
 
-Build reports, dashboards, and apps.
+[“The results live in a PDF or on one person’s laptop.”]{.step-problem}
+
+Build reports, dashboards, and apps that people can use without opening the code.
 
 [For example]{.step-eg} [IBD Mycobiome Dashboard](projects/ibd-mycobiome-dashboard/index.qmd){.step-link}
 :::
@@ -118,7 +126,9 @@ Build reports, dashboards, and apps.
 ::: {.step}
 [Decide]{.step-label}
 
-Communicate results clearly enough to support regulatory, environmental, and business decisions.
+[“Will this hold up to review?”]{.step-problem}
+
+Document steps; create reproducible environments; communicate results clearly enough to support decisions.
 
 [For example]{.step-eg} [Six years of consulting](resume.qmd#experience){.step-link}
 :::

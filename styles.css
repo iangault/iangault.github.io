@@ -334,6 +334,24 @@ h1.hero-headline {
   line-height: 1.45;
 }
 
+.step-problem {
+  display: block;
+  margin: 0.5rem 0 0.25rem;
+  padding: 0.45rem 0.6rem;
+  background: var(--band-bg);
+  border-left: 3px solid var(--highlight);
+  border-radius: 2px;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--text-dark);
+}
+
+/* Equal-height quotes on desktop so body text lines up across cards */
+@media (min-width: 992px) {
+  .step-problem { min-height: 6.4rem; }
+}
+
 /* Arrow between steps */
 .step:not(:last-child)::after {
   content: "→";
